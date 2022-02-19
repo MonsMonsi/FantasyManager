@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "FantasyManager.Domain/1.0.0": {
+        "runtime": {
+          "FantasyManager.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FantasyManager.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

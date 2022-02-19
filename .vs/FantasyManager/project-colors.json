@@ -1,0 +1,46 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "894ff9e6-6d18-4aa1-94e0-848337223628": {
+      "ProjectGuid": "894ff9e6-6d18-4aa1-94e0-848337223628",
+      "DisplayName": "FanatasyManager.WPF",
+      "ColorIndex": 0
+    },
+    "af0c01ca-8213-4305-93fe-4ce5f04a2eb5": {
+      "ProjectGuid": "af0c01ca-8213-4305-93fe-4ce5f04a2eb5",
+      "DisplayName": "FantasyManager.Domain",
+      "ColorIndex": 1
+    },
+    "dc19bb09-8763-4015-9aa6-1ca3ec16b65c": {
+      "ProjectGuid": "dc19bb09-8763-4015-9aa6-1ca3ec16b65c",
+      "DisplayName": "FantasyManager.Data",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "e1c6ed7a-cc3c-496d-94d5-0f4dc8f099d9": {
+      "ProjectGuid": "e1c6ed7a-cc3c-496d-94d5-0f4dc8f099d9",
+      "DisplayName": "FantasyManager.Data.Writer",
+      "ColorIndex": 3
+    },
+    "6d643481-ba3a-4586-ab09-fdb6f164a79f": {
+      "ProjectGuid": "6d643481-ba3a-4586-ab09-fdb6f164a79f",
+      "DisplayName": "FantasyManager.Data.Tests",
+      "ColorIndex": 4
+    },
+    "be308b29-d045-41cc-bdf3-d48dc4715dfd": {
+      "ProjectGuid": "be308b29-d045-41cc-bdf3-d48dc4715dfd",
+      "DisplayName": "FantasyManager.WPF",
+      "ColorIndex": 5
+    },
+    "754a7ad4-acc1-4621-8b01-165279975c5b": {
+      "ProjectGuid": "754a7ad4-acc1-4621-8b01-165279975c5b",
+      "DisplayName": "FantasyManager.WPF",
+      "ColorIndex": 6
+    }
+  },
+  "NextColorIndex": 7
+}

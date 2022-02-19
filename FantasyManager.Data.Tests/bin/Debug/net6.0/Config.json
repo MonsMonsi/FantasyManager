@@ -1,0 +1,3 @@
+﻿{
+  "ConnectionString": "Server=localhost\\sqlexpress;Database=FantasyManager_WPF;Trusted_Connection=true"
+}
