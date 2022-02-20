@@ -15,11 +15,15 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Fantasy Manager"
-                   Background="{StaticResource BrushPrimary1}"/>
+        <TextBlock Grid.Row="0" RenderOptions.EdgeMode="Aliased"
+                   Padding="10 7" FontSize="25" Foreground="Azure" Text="Fantasy Manager"
+                   Style="{StaticResource NavHeader}"/>
 
         <Grid Grid.Row="1"
               Background="{StaticResource BrushPrimary2}">
+            <Grid.Resources>
+                <Style TargetType="RadioButton" BasedOn="{StaticResource NavRadioButton}"/>
+            </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>

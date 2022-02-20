@@ -8,7 +8,7 @@
         xmlns:controls="clr-namespace:FantasyManager.WPF.Controls"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Fantasy Manager" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
