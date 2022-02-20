@@ -1,4 +1,5 @@
-﻿using FantasyManager.WPF.Enums;
+﻿using AutoMapper;
+using FantasyManager.WPF.Enums;
 using FantasyManager.WPF.State.Navigators;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,14 @@ namespace FantasyManager.WPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public INavigator Navigator { get; set; } = new Navigator();
+        public INavigator Navigator { get; set; }
+        private readonly IMapper _mapper;   //TODO:  just a workaround => delete when possible!!!!
 
-        public MainViewModel()
+        public MainViewModel(IMapper mapper)
         {
-            Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
+            _mapper = mapper;
+            Navigator = new Navigator(_mapper);
+            Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Login);
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using FantasyManager.WPF.Enums;
+﻿using AutoMapper;
+using FantasyManager.Data;
+using FantasyManager.WPF.Enums;
+using FantasyManager.WPF.Services;
 using FantasyManager.WPF.State.Navigators;
 using FantasyManager.WPF.ViewModels;
 using System;
@@ -15,10 +18,12 @@ namespace FantasyManager.WPF.Commands
         public event EventHandler? CanExecuteChanged;
 
         private readonly INavigator _navigator;
+        private readonly IMapper _mapper;  //TODO:  just a workaround => delete when possible!!!!
 
-        public UpdateCurrentViewModelCommand(INavigator navigator)
+        public UpdateCurrentViewModelCommand(INavigator navigator, IMapper mapper)
         {
             _navigator = navigator;
+            _mapper = mapper;
         }
 
         public bool CanExecute(object? parameter)
@@ -35,7 +40,10 @@ namespace FantasyManager.WPF.Commands
                 switch (viewType)
                 {
                     case ViewType.Main:
-                        _navigator.CurrentViewModel = new MainViewModel();
+                        _navigator.CurrentViewModel = new MainViewModel(_mapper);
+                        break;
+                    case ViewType.Login:
+                        _navigator.CurrentViewModel = new LoginViewModel(new UserService(new FootballContextFactory(), _mapper), _navigator);
                         break;
                     case ViewType.Home:
                         _navigator.CurrentViewModel = new HomeViewModel();

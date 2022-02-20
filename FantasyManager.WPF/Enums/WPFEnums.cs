@@ -9,6 +9,7 @@ namespace FantasyManager.WPF.Enums
     public enum ViewType
     {
         Main,
+        Login,
         Home,
         CreateTeam,
         DraftTeam,

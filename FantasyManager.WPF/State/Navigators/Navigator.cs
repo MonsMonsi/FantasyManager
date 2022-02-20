@@ -1,4 +1,5 @@
-﻿using FantasyManager.WPF.Commands;
+﻿using AutoMapper;
+using FantasyManager.WPF.Commands;
 using FantasyManager.WPF.Models.Properties;
 using FantasyManager.WPF.ViewModels;
 using System;
@@ -15,6 +16,13 @@ namespace FantasyManager.WPF.State.Navigators
     public class Navigator : ObservableObject, INavigator
     {
         private ViewModelBase _currentViewModel;
+        private readonly IMapper _mapper; //TODO:  just a workaround => delete when possible!!!!
+
+        public Navigator(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
+
         public ViewModelBase CurrentViewModel
         {
             get { return _currentViewModel; }
@@ -25,6 +33,6 @@ namespace FantasyManager.WPF.State.Navigators
             }
         }
 
-        public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
+        public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this, _mapper);
     }
 }
