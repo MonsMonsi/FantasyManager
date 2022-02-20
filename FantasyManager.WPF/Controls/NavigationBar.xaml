@@ -58,6 +58,10 @@
                          IsChecked="{Binding CurrentViewModel, Mode=OneWay, Converter={StaticResource EqualValueToParameterConverter}, ConverterParameter={x:Type vm:PlaySeasonViewModel}}"
                          IsEnabled="{Binding CurrentViewModel, Mode=OneWay, Converter={StaticResource CheckIfLoginViewConverter}}"
                          Grid.Column="3" Content="Play Season"/>
+
+            <RadioButton Command="{Binding UpdateCurrentViewModelCommand}" CommandParameter="{x:Static nav:ViewType.Login}"
+                         IsEnabled="{Binding CurrentViewModel, Mode=OneWay, Converter={StaticResource CheckIfLoginViewConverter}}"
+                         Grid.Column="4" Content="Logout" HorizontalAlignment="Right"/>
         </Grid>   
     </Grid>
 </UserControl>

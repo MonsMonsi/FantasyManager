@@ -17,24 +17,13 @@ namespace FantasyManager.WPF.ViewModels
     {
         #region Properties
 
-        private string _username;
-        public string UserName
+        private UserModel _userInput;
+        public UserModel UserInput
         {
-            get { return _username; }
+            get { return _userInput; }
             set
             {
-                _username = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _userPassword;
-        public string UserPassword
-        {
-            get { return _userPassword; }
-            set
-            {
-                _userPassword = value;
+                _userInput = value;
                 OnPropertyChanged();
             }
         }
@@ -59,6 +48,7 @@ namespace FantasyManager.WPF.ViewModels
         {
             _navigator = navigator;
             _userService = userService;
+            UserInput = new();
             LoginCommand = new RelayCommand<object>(CheckLogin);
             NewUserCommand = new RelayCommand<object>(NewUser);
         }
@@ -67,21 +57,13 @@ namespace FantasyManager.WPF.ViewModels
 
         private async void CheckLogin(object parameter)
         {
-            UserModel inputUser = new();
-
-            if (UserName != null && UserPassword != null)
-            {
-                inputUser.Name = UserName;
-                inputUser.Password = UserPassword;
-            }
-
             var success = false;
 
             UserModel userFromDb = new();
 
-            if (inputUser != null)
+            if (UserInput.Name != null && UserInput.Password != null)
             {
-                userFromDb = await _userService.Login(inputUser);
+                userFromDb = await _userService.Login(UserInput);
 
                 if (userFromDb != null)
                 {
@@ -102,21 +84,13 @@ namespace FantasyManager.WPF.ViewModels
 
         private async void NewUser(object parameter)
         {
-            UserModel inputUser = new();
-
-            if (UserName != null && UserPassword != null)
-            {
-                inputUser.Name = UserName;
-                inputUser.Password = UserPassword;
-            }
-
             var success = false;
 
             UserModel userFromDb = new();
 
-            if (inputUser != null)
+            if (UserInput.Name != null && UserInput.Password != null) 
             {
-                userFromDb = await _userService.AddNew(inputUser);
+                userFromDb = await _userService.AddNew(UserInput);
 
                 if (userFromDb != null)
                 {

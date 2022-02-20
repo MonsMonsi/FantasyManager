@@ -19,12 +19,12 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
+                <TextBox Text="{Binding UserInput.Name, UpdateSourceTrigger=PropertyChanged}"
                              HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"
                              Padding="3 3 0 0"
                              Height="25" Width="170"/>
 
-                <TextBox Text="{Binding UserPassword, UpdateSourceTrigger=PropertyChanged}"
+                <TextBox Text="{Binding UserInput.Password, UpdateSourceTrigger=PropertyChanged}"
                              HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
                              Padding="3 3 0 0"
                              Height="25" Width="170"/>
