@@ -9,16 +9,16 @@ using System.Windows.Data;
 
 namespace FantasyManager.WPF.Converters
 {
-    public class CheckIfLoginViewConverter : IValueConverter
+    public class ValueToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is LoginViewModel)
             {
-                return false;
+                return "Hidden";
             }
 
-            return true;
+            return "Visible";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
