@@ -31,7 +31,7 @@ namespace FantasyManager.Core.Data.Writer
 
             var dirInfo = new DirectoryInfo(dirPath);
 
-            var fileInfo = dirInfo.GetFiles($"*S{_config.CurrentSeason}*");
+            var fileInfo = dirInfo.GetFiles($"*{_config.CurrentSeason}*");
 
             foreach (var info in fileInfo)
             {
@@ -75,7 +75,7 @@ namespace FantasyManager.Core.Data.Writer
 
             var dirInfo = new DirectoryInfo(dirPath);
 
-            var fileInfo = dirInfo.GetFiles($"*S{_config.CurrentSeason}*");
+            var fileInfo = dirInfo.GetFiles($"*{_config.CurrentSeason}*");
 
             foreach (var info in fileInfo)
             {
@@ -114,7 +114,7 @@ namespace FantasyManager.Core.Data.Writer
 
                         var teamFromDb = context.Teams.Find(team.Id);
 
-                        var leagueId = int.Parse(info.Name.Split('_')[1].Substring(1, 2));
+                        var leagueId = int.Parse(info.Name.Split('_')[1]);
 
                         if (teamFromDb == null)
                         {
@@ -145,7 +145,7 @@ namespace FantasyManager.Core.Data.Writer
 
             var dirInfo = new DirectoryInfo(dirPath);
 
-            var fileInfo = dirInfo.GetFiles($"*S{_config.CurrentSeason}*");
+            var fileInfo = dirInfo.GetFiles($"*{_config.CurrentSeason}*");
 
             foreach (var info in fileInfo)
             {

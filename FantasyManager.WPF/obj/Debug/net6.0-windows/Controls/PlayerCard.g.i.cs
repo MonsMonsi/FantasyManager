@@ -53,7 +53,7 @@ namespace FantasyManager.WPF.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FantasyManager.WPF;component/controls/playercard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FantasyManager.WPF;V1.0.0.0;component/controls/playercard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\PlayerCard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

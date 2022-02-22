@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace FantasyManager.Data.Services
 {
-    public class DataService<T> : IDataService<T> where T : DomainObject
+    public class GenericDataService<T> : IDataService<T> where T : DomainObject
     {
         private readonly FootballContextFactory _contextFactory;
 
-        public DataService(FootballContextFactory contextFactory)
+        public GenericDataService(FootballContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
         }
