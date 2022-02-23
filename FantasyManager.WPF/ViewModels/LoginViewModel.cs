@@ -1,13 +1,8 @@
 ﻿using FantasyManager.WPF.Commands;
 using FantasyManager.WPF.Enums;
 using FantasyManager.Services.Models.Data;
-using FantasyManager.Services.Services.Interfaces;
+using FantasyManager.Services.Interfaces;
 using FantasyManager.WPF.State.Navigators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -59,7 +54,7 @@ namespace FantasyManager.WPF.ViewModels
         {
             var success = false;
 
-            UserModel userFromDb = new();
+            UserModel userFromDb;
 
             if (UserInput.Name != null && UserInput.Password != null)
             {
@@ -86,7 +81,7 @@ namespace FantasyManager.WPF.ViewModels
         {
             var success = false;
 
-            UserModel userFromDb = new();
+            UserModel userFromDb;
 
             if (UserInput.Name != null && UserInput.Password != null) 
             {

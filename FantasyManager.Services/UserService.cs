@@ -2,10 +2,10 @@
 using FantasyManager.Data;
 using FantasyManager.Domain.Entities;
 using FantasyManager.Services.Models.Data;
-using FantasyManager.Services.Services.Interfaces;
+using FantasyManager.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace FantasyManager.Services.Services
+namespace FantasyManager.Services
 {
     public class UserService : ServiceBase, IUserService
     {

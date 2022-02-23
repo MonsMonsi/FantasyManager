@@ -1,17 +1,12 @@
 ﻿using AutoMapper;
-using FantasyManager.Services.Services;
-using FantasyManager.Services.Services.Interfaces;
+using FantasyManager.Services;
+using FantasyManager.Services.Interfaces;
 using FantasyManager.Data;
 using FantasyManager.Services.Config;
 using FantasyManager.WPF.State.Navigators;
 using FantasyManager.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace FantasyManager.WPF

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FantasyManager.WPF.Enums;
-using FantasyManager.Services.Services;
+using FantasyManager.Services;
 using FantasyManager.WPF.State.Navigators;
 using FantasyManager.WPF.ViewModels;
 using System;

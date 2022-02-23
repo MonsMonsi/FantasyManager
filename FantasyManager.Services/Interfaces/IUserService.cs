@@ -1,6 +1,6 @@
 ﻿using FantasyManager.Services.Models.Data;
 
-namespace FantasyManager.Services.Services.Interfaces
+namespace FantasyManager.Services.Interfaces
 {
     public interface IUserService
     {
