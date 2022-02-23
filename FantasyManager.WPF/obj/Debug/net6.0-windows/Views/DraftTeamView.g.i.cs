@@ -53,7 +53,7 @@ namespace FantasyManager.WPF.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FantasyManager.WPF;V1.0.0.0;component/views/draftteamview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FantasyManager.WPF;component/views/draftteamview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\DraftTeamView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

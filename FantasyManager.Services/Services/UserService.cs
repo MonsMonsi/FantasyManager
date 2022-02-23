@@ -1,16 +1,11 @@
 ﻿using AutoMapper;
 using FantasyManager.Data;
 using FantasyManager.Domain.Entities;
-using FantasyManager.WPF.Models.Data;
-using FantasyManager.WPF.Services.Interfaces;
+using FantasyManager.Services.Models.Data;
+using FantasyManager.Services.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FantasyManager.WPF.Services
+namespace FantasyManager.Services.Services
 {
     public class UserService : ServiceBase, IUserService
     {

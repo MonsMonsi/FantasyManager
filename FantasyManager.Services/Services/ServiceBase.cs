@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using FantasyManager.Data;
-using System;
 
-namespace FantasyManager.WPF.Services
+namespace FantasyManager.Services.Services
 {
     public abstract class ServiceBase : IDisposable
     {

@@ -1,7 +1,6 @@
-﻿using FantasyManager.WPF.Models.Data;
-using System.Threading.Tasks;
+﻿using FantasyManager.Services.Models.Data;
 
-namespace FantasyManager.WPF.Services.Interfaces
+namespace FantasyManager.Services.Services.Interfaces
 {
     public interface IUserService
     {

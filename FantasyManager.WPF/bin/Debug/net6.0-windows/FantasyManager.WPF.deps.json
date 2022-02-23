@@ -9,7 +9,7 @@
       "FantasyManager.WPF/1.0.0": {
         "dependencies": {
           "AutoMapper": "11.0.1",
-          "FantasyManager.Data": "1.0.0"
+          "FantasyManager.Services": "1.0.0"
         },
         "runtime": {
           "FantasyManager.WPF.dll": {}
@@ -407,6 +407,15 @@
         "runtime": {
           "FantasyManager.Domain.dll": {}
         }
+      },
+      "FantasyManager.Services/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "FantasyManager.Data": "1.0.0"
+        },
+        "runtime": {
+          "FantasyManager.Services.dll": {}
+        }
       }
     }
   },
@@ -709,6 +718,11 @@
       "sha512": ""
     },
     "FantasyManager.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FantasyManager.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

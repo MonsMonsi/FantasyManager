@@ -631,6 +631,20 @@
         "runtime": {
           "bin/placeholder/FantasyManager.Domain.dll": {}
         }
+      },
+      "FantasyManager.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "FantasyManager.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FantasyManager.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FantasyManager.Services.dll": {}
+        }
       }
     }
   },
@@ -1821,12 +1835,17 @@
       "type": "project",
       "path": "../FantasyManager.Domain/FantasyManager.Domain.csproj",
       "msbuildProject": "../FantasyManager.Domain/FantasyManager.Domain.csproj"
+    },
+    "FantasyManager.Services/1.0.0": {
+      "type": "project",
+      "path": "../FantasyManager.Services/FantasyManager.Services.csproj",
+      "msbuildProject": "../FantasyManager.Services/FantasyManager.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "AutoMapper >= 11.0.1",
-      "FantasyManager.Data >= 1.0.0"
+      "FantasyManager.Services >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1856,8 +1875,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\VS_Projects\\WPF-Projects\\FantasyManager\\FantasyManager.Data\\FantasyManager.Data.csproj": {
-              "projectPath": "D:\\VS_Projects\\WPF-Projects\\FantasyManager\\FantasyManager.Data\\FantasyManager.Data.csproj"
+            "D:\\VS_Projects\\WPF-Projects\\FantasyManager\\FantasyManager.Services\\FantasyManager.Services.csproj": {
+              "projectPath": "D:\\VS_Projects\\WPF-Projects\\FantasyManager\\FantasyManager.Services\\FantasyManager.Services.csproj"
             }
           }
         }

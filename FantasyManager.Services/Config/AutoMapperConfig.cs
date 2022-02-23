@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using FantasyManager.Domain.Entities;
-using FantasyManager.WPF.Models.Data;
+using FantasyManager.Services.Models.Data;
 
-namespace FantasyManager.WPF.Config
+namespace FantasyManager.Services.Config
 {
     public static class AutoMapperConfig
     {

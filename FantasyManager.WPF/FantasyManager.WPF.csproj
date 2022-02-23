@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FantasyManager.Data\FantasyManager.Data.csproj" />
+    <ProjectReference Include="..\FantasyManager.Services\FantasyManager.Services.csproj" />
   </ItemGroup>
 
 </Project>

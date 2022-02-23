@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using FantasyManager.Services.Services;
+using FantasyManager.Services.Services.Interfaces;
 using FantasyManager.Data;
-using FantasyManager.WPF.Config;
-using FantasyManager.WPF.Services;
-using FantasyManager.WPF.Services.Interfaces;
+using FantasyManager.Services.Config;
 using FantasyManager.WPF.State.Navigators;
 using FantasyManager.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;

@@ -40,7 +40,12 @@
       "ProjectGuid": "754a7ad4-acc1-4621-8b01-165279975c5b",
       "DisplayName": "FantasyManager.WPF",
       "ColorIndex": 6
+    },
+    "40ab8d6b-8a1b-4367-99cc-cd3ead17865f": {
+      "ProjectGuid": "40ab8d6b-8a1b-4367-99cc-cd3ead17865f",
+      "DisplayName": "FantasyManager.Services",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 7
+  "NextColorIndex": 8
 }

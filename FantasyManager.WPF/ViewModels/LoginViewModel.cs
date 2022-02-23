@@ -1,7 +1,7 @@
 ﻿using FantasyManager.WPF.Commands;
 using FantasyManager.WPF.Enums;
-using FantasyManager.WPF.Models.Data;
-using FantasyManager.WPF.Services.Interfaces;
+using FantasyManager.Services.Models.Data;
+using FantasyManager.Services.Services.Interfaces;
 using FantasyManager.WPF.State.Navigators;
 using System;
 using System.Collections.Generic;

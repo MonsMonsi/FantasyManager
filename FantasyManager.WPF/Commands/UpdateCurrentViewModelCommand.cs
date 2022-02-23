@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using FantasyManager.Data;
 using FantasyManager.WPF.Enums;
-using FantasyManager.WPF.Services;
+using FantasyManager.Services.Services;
 using FantasyManager.WPF.State.Navigators;
 using FantasyManager.WPF.ViewModels;
 using System;
@@ -10,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using FantasyManager.Data;
 
 namespace FantasyManager.WPF.Commands
 {
@@ -43,7 +43,7 @@ namespace FantasyManager.WPF.Commands
                         _navigator.CurrentViewModel = new MainViewModel(_mapper);
                         break;
                     case ViewType.Login:
-                        _navigator.CurrentViewModel = new LoginViewModel(new UserService(new FootballContextFactory(), _mapper), _navigator);
+                        _navigator.CurrentViewModel = new LoginViewModel(new UserService(new FootballContextFactory(), _mapper), _navigator); // TODO: just a workaround => DELETE
                         break;
                     case ViewType.Home:
                         _navigator.CurrentViewModel = new HomeViewModel();
