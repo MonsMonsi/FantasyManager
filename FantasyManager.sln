@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyManager.WPF", "Fanta
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Application", "03 - Application", "{25217BA7-7E07-4970-AC40-F89CBF929896}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyManager.Services", "FantasyManager.Services\FantasyManager.Services.csproj", "{40AB8D6B-8A1B-4367-99CC-CD3EAD17865F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasyManager.Application", "FantasyManager.Application\FantasyManager.Application.csproj", "{861A5963-5FA1-4AF1-926D-D97911FC98C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,10 @@ Global
 		{754A7AD4-ACC1-4621-8B01-165279975C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{754A7AD4-ACC1-4621-8B01-165279975C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{754A7AD4-ACC1-4621-8B01-165279975C5B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40AB8D6B-8A1B-4367-99CC-CD3EAD17865F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40AB8D6B-8A1B-4367-99CC-CD3EAD17865F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40AB8D6B-8A1B-4367-99CC-CD3EAD17865F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40AB8D6B-8A1B-4367-99CC-CD3EAD17865F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{861A5963-5FA1-4AF1-926D-D97911FC98C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{861A5963-5FA1-4AF1-926D-D97911FC98C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{861A5963-5FA1-4AF1-926D-D97911FC98C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{861A5963-5FA1-4AF1-926D-D97911FC98C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,7 +63,7 @@ Global
 		{E1C6ED7A-CC3C-496D-94D5-0F4DC8F099D9} = {38DE57E5-D3DE-4AB2-AF7F-275BA1983163}
 		{6D643481-BA3A-4586-AB09-FDB6F164A79F} = {38DE57E5-D3DE-4AB2-AF7F-275BA1983163}
 		{754A7AD4-ACC1-4621-8B01-165279975C5B} = {20A9E234-576C-497A-9A07-7B621282BB47}
-		{40AB8D6B-8A1B-4367-99CC-CD3EAD17865F} = {25217BA7-7E07-4970-AC40-F89CBF929896}
+		{861A5963-5FA1-4AF1-926D-D97911FC98C4} = {25217BA7-7E07-4970-AC40-F89CBF929896}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BD44CB21-3A56-4900-800A-1E8E40E9CFD1}

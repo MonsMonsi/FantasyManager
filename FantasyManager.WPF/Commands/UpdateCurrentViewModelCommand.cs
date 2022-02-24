@@ -1,15 +1,11 @@
 ﻿using AutoMapper;
 using FantasyManager.WPF.Enums;
-using FantasyManager.Services;
 using FantasyManager.WPF.State.Navigators;
 using FantasyManager.WPF.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using FantasyManager.Data;
+using FantasyManager.Application.Services;
 
 namespace FantasyManager.WPF.Commands
 {

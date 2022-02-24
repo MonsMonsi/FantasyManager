@@ -9,7 +9,7 @@
       "FantasyManager.WPF/1.0.0": {
         "dependencies": {
           "AutoMapper": "11.0.1",
-          "FantasyManager.Services": "1.0.0"
+          "FantasyManager.Application": "1.0.0"
         },
         "runtime": {
           "FantasyManager.WPF.dll": {}
@@ -393,6 +393,15 @@
           "System.Drawing.Common": "4.7.0"
         }
       },
+      "FantasyManager.Application/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "FantasyManager.Data": "1.0.0"
+        },
+        "runtime": {
+          "FantasyManager.Application.dll": {}
+        }
+      },
       "FantasyManager.Data/1.0.0": {
         "dependencies": {
           "FantasyManager.Domain": "1.0.0",
@@ -406,15 +415,6 @@
       "FantasyManager.Domain/1.0.0": {
         "runtime": {
           "FantasyManager.Domain.dll": {}
-        }
-      },
-      "FantasyManager.Services/1.0.0": {
-        "dependencies": {
-          "AutoMapper": "11.0.1",
-          "FantasyManager.Data": "1.0.0"
-        },
-        "runtime": {
-          "FantasyManager.Services.dll": {}
         }
       }
     }
@@ -712,17 +712,17 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
+    "FantasyManager.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "FantasyManager.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "FantasyManager.Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "FantasyManager.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

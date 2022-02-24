@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using FantasyManager.Services;
-using FantasyManager.Services.Interfaces;
+using FantasyManager.Application.Services;
+using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.Data;
-using FantasyManager.Services.Config;
+using FantasyManager.Application.Config;
 using FantasyManager.WPF.State.Navigators;
 using FantasyManager.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +14,7 @@ namespace FantasyManager.WPF
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         protected override void OnStartup(StartupEventArgs e)
         {

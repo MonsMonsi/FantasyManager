@@ -45,7 +45,12 @@
       "ProjectGuid": "40ab8d6b-8a1b-4367-99cc-cd3ead17865f",
       "DisplayName": "FantasyManager.Services",
       "ColorIndex": 7
+    },
+    "861a5963-5fa1-4af1-926d-d97911fc98c4": {
+      "ProjectGuid": "861a5963-5fa1-4af1-926d-d97911fc98c4",
+      "DisplayName": "FantasyManager.Application",
+      "ColorIndex": 8
     }
   },
-  "NextColorIndex": 8
+  "NextColorIndex": 9
 }

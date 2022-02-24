@@ -73,5 +73,5 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-w
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.Data.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.Domain.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\FantasyManager.WPF.csproj.CopyComplete
-D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.Services.dll
-D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.Services.pdb
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.Application.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.Application.pdb
