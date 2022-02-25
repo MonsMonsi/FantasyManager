@@ -8,6 +8,11 @@ using System;
 using System.Windows;
 using FantasyManager.WPF.ViewModels.Factories.Interfaces;
 using FantasyManager.WPF.ViewModels.Factories;
+using FantasyManager.Domain.Services.AuthenticationServices;
+using FantasyManager.Domain.Services;
+using FantasyManager.Data.Services;
+using FantasyManager.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace FantasyManager.WPF
 {
@@ -42,6 +47,12 @@ namespace FantasyManager.WPF
             services.AddScoped<INavigator, Navigator>();
 
             // Application-Services
+            services.AddSingleton<IAuthenticationService, AuthenticationService>();
+            services.AddSingleton<IDataService<User>, UserDataService>();
+            services.AddSingleton<IUserService, UserDataService>();
+
+            // Microsoft-Services
+            services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
 
             // ViewModelFactories
             services.AddSingleton<IFantasyManagerViewModelAbstractFactory, FantasyManagerViewModelAbstractFactory>();

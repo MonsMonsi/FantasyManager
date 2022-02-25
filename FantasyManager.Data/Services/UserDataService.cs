@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FantasyManager.Data.Services
 {
-    public class UserDataService : IDataService<User>
+    public class UserDataService : IUserService
     {
         private readonly FootballContextFactory _contextFactory;
         private readonly NonQueryDataService<User> _nonQueryDataService;
@@ -41,6 +41,14 @@ namespace FantasyManager.Data.Services
             }
         }
 
+        public async Task<User> GetByEmailAsync(string email)
+        {
+            using (FootballContext context = _contextFactory.CreateDbContext())
+            {
+                return await context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            }
+        }
+
         public async Task<User> GetByIdAsync(int id)
         {
             using (FootballContext context = _contextFactory.CreateDbContext())
@@ -48,6 +56,14 @@ namespace FantasyManager.Data.Services
                 User entity = await context.Set<User>().FirstOrDefaultAsync(e => e.Id == id);
 
                 return entity;
+            }
+        }
+
+        public async Task<User> GetByNameAsync(string userName)
+        {
+            using (FootballContext context = _contextFactory.CreateDbContext())
+            {
+                return await context.Users.FirstOrDefaultAsync(u => u.Name == userName);
             }
         }
 

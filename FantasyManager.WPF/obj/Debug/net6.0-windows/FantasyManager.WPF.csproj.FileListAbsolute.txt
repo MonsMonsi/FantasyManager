@@ -75,3 +75,6 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-w
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.Application.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LoginMask.g.cs
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LoginMask.baml
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\Microsoft.Extensions.Identity.Core.dll
