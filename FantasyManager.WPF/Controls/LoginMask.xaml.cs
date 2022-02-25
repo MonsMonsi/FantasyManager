@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FantasyManager.WPF.Views
+namespace FantasyManager.WPF.Controls
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for LoginMask.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class LoginMask : UserControl
     {
-        public LoginView()
+        public LoginMask()
         {
             InitializeComponent();
         }

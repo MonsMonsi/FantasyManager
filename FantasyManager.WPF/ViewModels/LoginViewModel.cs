@@ -34,14 +34,14 @@ namespace FantasyManager.WPF.ViewModels
 
         #region Fields
 
-        private readonly INavigator _navigator;
+        // private readonly INavigator _navigator;
         private readonly IUserService _userService;
 
         #endregion
 
-        public LoginViewModel(IUserService userService, INavigator navigator)
+        public LoginViewModel(IUserService userService)
         {
-            _navigator = navigator;
+            // _navigator = navigator;
             _userService = userService;
             UserInput = new();
             LoginCommand = new RelayCommand<object>(CheckLogin);
@@ -69,7 +69,7 @@ namespace FantasyManager.WPF.ViewModels
             if (success)
             {
                 MessageBox.Show("You logged in");
-                _navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
+                // _navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
             }
             else
             {
@@ -96,7 +96,7 @@ namespace FantasyManager.WPF.ViewModels
             if (success)
             {
                 MessageBox.Show("New User was created");
-                _navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
+                // _navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
             }
             else
             {

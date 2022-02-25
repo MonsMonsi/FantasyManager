@@ -8,6 +8,8 @@ using FantasyManager.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
+using FantasyManager.WPF.ViewModels.Factories.Interfaces;
+using FantasyManager.WPF.ViewModels.Factories;
 
 namespace FantasyManager.WPF
 {
@@ -24,8 +26,7 @@ namespace FantasyManager.WPF
             IMapper mapper = serviceProvider.GetRequiredService<IMapper>();
             IUserService userService = serviceProvider.GetRequiredService<IUserService>();
 
-            Window window = new MainWindow();
-            window.DataContext = new MainViewModel(mapper); // TODO: just a workaround!! delete when possible!!!!
+            Window window = serviceProvider.GetRequiredService<MainWindow>();
             window.Show();
 
             base.OnStartup(e);
@@ -35,6 +36,7 @@ namespace FantasyManager.WPF
         {
             IServiceCollection services = new ServiceCollection();
 
+            // DB-Context
             services.AddSingleton<FootballContextFactory>();
 
             var mapper = AutoMapperConfig.ConfigureAutoMapper();
@@ -42,7 +44,21 @@ namespace FantasyManager.WPF
 
             services.AddScoped<INavigator, Navigator>();
 
+            // Application-Services
             services.AddSingleton<IUserService, UserService>();
+
+            // ViewModelFactories
+            services.AddSingleton<IFantasyManagerViewModelAbstractFactory, FantasyManagerViewModelAbstractFactory>();
+            services.AddSingleton<IFantasyManagerViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
+            services.AddSingleton<IFantasyManagerViewModelFactory<CreateTeamViewModel>, CreateTeamViewModelFactory>();
+            services.AddSingleton<IFantasyManagerViewModelFactory<DraftTeamViewModel>, DraftTeamViewModelFactory>();
+            services.AddSingleton<IFantasyManagerViewModelFactory<PlaySeasonViewModel>, PlaySeasonViewModelFactory>();
+
+            // ViewModels
+            services.AddScoped<MainViewModel>();
+
+            // Windows
+            services.AddScoped<MainWindow>(s => new WPF.MainWindow(s.GetRequiredService<MainViewModel>()));
 
             return services.BuildServiceProvider();
         }

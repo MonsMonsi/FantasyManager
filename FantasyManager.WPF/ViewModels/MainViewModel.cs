@@ -12,13 +12,11 @@ namespace FantasyManager.WPF.ViewModels
     public class MainViewModel : ViewModelBase
     {
         public INavigator Navigator { get; set; }
-        private readonly IMapper _mapper;   //TODO:  just a workaround => delete when possible!!!!
 
-        public MainViewModel(IMapper mapper)
+        public MainViewModel(INavigator navigator)
         {
-            _mapper = mapper;
-            Navigator = new Navigator(_mapper);
-            Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Login);
+            Navigator = navigator;
+            Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
         }
     }
 }

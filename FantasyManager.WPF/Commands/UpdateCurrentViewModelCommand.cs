@@ -6,6 +6,7 @@ using System;
 using System.Windows.Input;
 using FantasyManager.Data;
 using FantasyManager.Application.Services;
+using FantasyManager.WPF.ViewModels.Factories.Interfaces;
 
 namespace FantasyManager.WPF.Commands
 {
@@ -14,12 +15,12 @@ namespace FantasyManager.WPF.Commands
         public event EventHandler? CanExecuteChanged;
 
         private readonly INavigator _navigator;
-        private readonly IMapper _mapper;  //TODO:  just a workaround => delete when possible!!!!
+        private readonly IFantasyManagerViewModelAbstractFactory _viewModelFactory;
 
-        public UpdateCurrentViewModelCommand(INavigator navigator, IMapper mapper)
+        public UpdateCurrentViewModelCommand(INavigator navigator, IFantasyManagerViewModelAbstractFactory viewModelFactory)
         {
             _navigator = navigator;
-            _mapper = mapper;
+            _viewModelFactory = viewModelFactory;
         }
 
         public bool CanExecute(object? parameter)
@@ -33,27 +34,7 @@ namespace FantasyManager.WPF.Commands
             {
                 ViewType viewType = (ViewType)parameter;
 
-                switch (viewType)
-                {
-                    case ViewType.Main:
-                        _navigator.CurrentViewModel = new MainViewModel(_mapper);
-                        break;
-                    case ViewType.Login:
-                        _navigator.CurrentViewModel = new LoginViewModel(new UserService(new FootballContextFactory(), _mapper), _navigator); // TODO: just a workaround => DELETE
-                        break;
-                    case ViewType.Home:
-                        _navigator.CurrentViewModel = new HomeViewModel();
-                        break;
-                    case ViewType.CreateTeam:
-                        _navigator.CurrentViewModel = new CreateTeamViewModel();
-                        break;
-                    case ViewType.DraftTeam:
-                        _navigator.CurrentViewModel = new DraftTeamViewModel();
-                        break;
-                    case ViewType.PlaySeason:
-                        _navigator.CurrentViewModel = new PlaySeasonViewModel();
-                        break;
-                }
+                _navigator.CurrentViewModel = _viewModelFactory.CreateViewModel(viewType);
             }
         }
     }

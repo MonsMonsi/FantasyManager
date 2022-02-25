@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controls\LoginMask.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\NavigationBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,14 +25,14 @@
     <Compile Update="Views\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\LoginView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\PlaySeasonView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Controls\LoginMask.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Controls\NavigationBar.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -52,9 +55,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\HomeView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PlaySeasonView.xaml">
