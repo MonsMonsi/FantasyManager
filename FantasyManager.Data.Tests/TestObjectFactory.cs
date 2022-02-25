@@ -14,7 +14,9 @@ namespace FantasyManager.Core.Data.Tests
             return new User()
             {
                 Name = "Test",
-                Password = "Test"
+                PasswordHash = "Test",
+                Email = "Test@test.com",
+                JoinedAt = DateTime.Now
             };
         }
 

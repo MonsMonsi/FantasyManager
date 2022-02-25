@@ -1,4 +1,5 @@
-﻿using FantasyManager.Domain.Entities;
+﻿using FantasyManager.Data.Services.Common;
+using FantasyManager.Domain.Entities;
 using FantasyManager.Domain.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -8,33 +9,22 @@ namespace FantasyManager.Data.Services
     public class GenericDataService<T> : IDataService<T> where T : DomainObject
     {
         private readonly FootballContextFactory _contextFactory;
+        private readonly NonQueryDataService<T> _nonQueryDataService;
 
         public GenericDataService(FootballContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
+            _nonQueryDataService = new NonQueryDataService<T>(contextFactory);
         }
 
         public async Task<T> CreateAsync(T entity)
         {
-            using(FootballContext context = _contextFactory.CreateDbContext())
-            {
-                EntityEntry<T> createdResult = await context.Set<T>().AddAsync(entity);
-                await context.SaveChangesAsync();
-
-                return createdResult.Entity;
-            }
+            return await _nonQueryDataService.CreateAsync(entity);
         }
 
         public async Task<bool> DeleteAsync(int id)
         {
-            using (FootballContext context = _contextFactory.CreateDbContext())
-            {
-                T entity = await context.Set<T>().FirstOrDefaultAsync(e => e.Id == id);
-                context.Set<T>().Remove(entity);
-                await context.SaveChangesAsync();
-
-                return true;
-            }
+            return await _nonQueryDataService.DeleteAsync(id);
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
@@ -59,15 +49,7 @@ namespace FantasyManager.Data.Services
 
         public async Task<T> UpdateAsync(int id, T entity)
         {
-            using (FootballContext context = _contextFactory.CreateDbContext())
-            {
-                entity.Id = id;
-
-                context.Set<T>().Update(entity);
-                await context.SaveChangesAsync();
-
-                return entity;
-            }
+            return await _nonQueryDataService.UpdateAsync(id, entity);
         }
     }
 }

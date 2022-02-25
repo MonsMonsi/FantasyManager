@@ -9,8 +9,14 @@ namespace FantasyManager.Domain.Entities
         [Column(TypeName = "nvarchar"), MaxLength(50), Required]
         public string Name { get; set; }
 
-        [Column(TypeName = "nvarchar"), MaxLength(20), Required]
-        public string Password { get; set; }
+        [Required]
+        public string PasswordHash { get; set; }
+
+        [Column(TypeName = "nvarchar"), MaxLength(150), Required]
+        public string Email { get; set; }
+
+        [Column(TypeName = "DateTime2"), Required]
+        public DateTime JoinedAt { get; set; }
 
         [JsonIgnore]
         public virtual IList<UserTeam> UserTeams { get; set; } = new List<UserTeam>();

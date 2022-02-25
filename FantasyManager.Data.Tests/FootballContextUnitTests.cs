@@ -36,7 +36,9 @@ namespace FantasyManager.Core.Data.Tests
                 var fromDb = await context.Users.FirstOrDefaultAsync();
 
                 Assert.Equal(_user.Name, fromDb.Name);
-                Assert.Equal(_user.Password, fromDb.Password);
+                Assert.Equal(_user.PasswordHash, fromDb.PasswordHash);
+                Assert.Equal(_user.Email, fromDb.Email);
+                Assert.Equal(_user.JoinedAt, fromDb.JoinedAt);
             }
         }
 

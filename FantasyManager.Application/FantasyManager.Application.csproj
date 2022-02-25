@@ -14,4 +14,8 @@
     <ProjectReference Include="..\FantasyManager.Data\FantasyManager.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
 </Project>

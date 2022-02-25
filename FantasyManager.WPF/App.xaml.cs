@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using FantasyManager.Application.Services;
-using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.Data;
 using FantasyManager.Application.Config;
 using FantasyManager.WPF.State.Navigators;
@@ -24,7 +22,6 @@ namespace FantasyManager.WPF
 
             FootballContextFactory footballContextFactory = serviceProvider.GetRequiredService<FootballContextFactory>();
             IMapper mapper = serviceProvider.GetRequiredService<IMapper>();
-            IUserService userService = serviceProvider.GetRequiredService<IUserService>();
 
             Window window = serviceProvider.GetRequiredService<MainWindow>();
             window.Show();
@@ -45,7 +42,6 @@ namespace FantasyManager.WPF
             services.AddScoped<INavigator, Navigator>();
 
             // Application-Services
-            services.AddSingleton<IUserService, UserService>();
 
             // ViewModelFactories
             services.AddSingleton<IFantasyManagerViewModelAbstractFactory, FantasyManagerViewModelAbstractFactory>();
