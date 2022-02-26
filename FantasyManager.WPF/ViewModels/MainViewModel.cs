@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FantasyManager.WPF.Enums;
+using FantasyManager.WPF.State.Authenticators;
 using FantasyManager.WPF.State.Navigators;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,13 @@ namespace FantasyManager.WPF.ViewModels
     {
         public INavigator Navigator { get; set; }
 
-        public MainViewModel(INavigator navigator)
+        public IAuthenticator Authenticator { get; set; }
+
+        public MainViewModel(INavigator navigator, IAuthenticator authenticator)
         {
             Navigator = navigator;
+            Authenticator = authenticator;
+
             Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Login);
         }
     }

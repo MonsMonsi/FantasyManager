@@ -7,57 +7,63 @@
              
              xmlns:controls="clr-namespace:FantasyManager.WPF.Controls"
              
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="700">
+    <UserControl.Background>
+        <ImageBrush ImageSource="/Resources/LoginViewBackground.jpg" Stretch="UniformToFill"/>
+    </UserControl.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*" MinWidth="400"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <Border Grid.Column="1"
+                Margin="50" Padding="25"  BorderThickness="2" BorderBrush="Black" CornerRadius="5">
+            <Border.Background>
+                <SolidColorBrush Color="{StaticResource ColorPrimary2}" Opacity="0.7"/>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="80"/>
+                    <RowDefinition MinHeight="80"/>
+                </Grid.RowDefinitions>
 
-            <Border Margin="50" BorderThickness="2" BorderBrush="Black" CornerRadius="5">
-                <Grid>
+
+                <Grid Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
                     <TextBox Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
-                         HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"
-                         Padding="3 3 0 0"
-                         Height="25" Width="170"/>
-
-                    <PasswordBox x:Name="passwordBoxLogin"
-                             HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
+                             HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"
                              Padding="3 3 0 0"
                              Height="25" Width="170"/>
-                </Grid>
-            </Border>
 
-            <Border Margin="50" BorderThickness="2" BorderBrush="Black" CornerRadius="5" Grid.Row="1">
-                <Grid>
+                    <PasswordBox x:Name="passwordBoxLogin"
+                                 HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
+                                 Padding="3 3 0 0"
+                                 Height="25" Width="170"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <Button Content="Login" Click="Login_Click"
-                        HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"
-                        Padding="3 3 0 0"
-                        Height="25" Width="170"/>
+                    <Button Content="Login" Click="Login_Click" IsDefault="True"
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"
+                            Padding="3 3 0 0"
+                            Height="25" Width="170"/>
 
                     <Button Content="New User" Command="{Binding}" CommandParameter="{Binding}"
-                        HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
-                        Height="25" Width="170"/>
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
+                            Height="25" Width="170"/>
                 </Grid>
-            </Border>
-        </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

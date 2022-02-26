@@ -1,12 +1,13 @@
 ﻿using FantasyManager.Domain.Entities;
 using FantasyManager.Domain.Enums;
 using FantasyManager.Domain.Services;
+using FantasyManager.WPF.Models.Properties;
 using System;
 using System.Threading.Tasks;
 
 namespace FantasyManager.WPF.State.Authenticators
 {
-    public class Authenticator : IAuthenticator
+    public class Authenticator : ObservableObject, IAuthenticator
     {
         private readonly IAuthenticationService _authenticationService;
 
@@ -15,7 +16,17 @@ namespace FantasyManager.WPF.State.Authenticators
             _authenticationService = authenticationService;
         }
 
-        public User CurrentUser { get; private set; }
+        private User _currentUser;
+        public User CurrentUser
+        {
+            get { return _currentUser; }
+            private set
+            {
+                _currentUser = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(IsLoggedIn));
+            }
+        }
         public bool IsLoggedIn => CurrentUser != null;
 
         public async Task<bool> Login(string userName, string password)
@@ -24,7 +35,7 @@ namespace FantasyManager.WPF.State.Authenticators
 
             try
             {
-                User user = await _authenticationService.Login(userName, password);
+                CurrentUser = await _authenticationService.Login(userName, password);
             }
             catch (Exception)
             {

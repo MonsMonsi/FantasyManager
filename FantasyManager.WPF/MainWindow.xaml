@@ -8,14 +8,27 @@
         xmlns:controls="clr-namespace:FantasyManager.WPF.Controls"
         
         mc:Ignorable="d"
-        Title="Fantasy Manager" Height="450" Width="800">
+        Title="Fantasy Manager" 
+        MinHeight="450" MinWidth="800"
+        Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <controls:NavigationBar Grid.Row="0" DataContext="{Binding Navigator}"/>
+        <Grid Grid.Row="0">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Authenticator.IsLoggedIn}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <controls:NavigationBar DataContext="{Binding Navigator}"/>
+        </Grid>
 
         <ContentControl Grid.Row="1" Content="{Binding Navigator.CurrentViewModel}">
 

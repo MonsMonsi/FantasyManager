@@ -78,3 +78,4 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-w
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\Microsoft.Extensions.Identity.Core.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Views\LoginView.g.cs
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Views\LoginView.baml
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Styles\LoginView.baml
