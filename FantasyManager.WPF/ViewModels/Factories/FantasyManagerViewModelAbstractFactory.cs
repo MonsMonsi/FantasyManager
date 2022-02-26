@@ -10,17 +10,20 @@ namespace FantasyManager.WPF.ViewModels.Factories
 {
     public class FantasyManagerViewModelAbstractFactory : IFantasyManagerViewModelAbstractFactory
     {
+        private readonly IFantasyManagerViewModelFactory<LoginViewModel> _loginViewModelFactory;
         private readonly IFantasyManagerViewModelFactory<HomeViewModel> _homeViewModelFactory;
         private readonly IFantasyManagerViewModelFactory<CreateTeamViewModel> _createTeamViewModelFactory;
         private readonly IFantasyManagerViewModelFactory<DraftTeamViewModel> _draftTeamViewModelFactory;
         private readonly IFantasyManagerViewModelFactory<PlaySeasonViewModel> _playSeasonViewModelFactory;
 
         public FantasyManagerViewModelAbstractFactory
-            (IFantasyManagerViewModelFactory<HomeViewModel> homeViewModelFactory, 
+            (IFantasyManagerViewModelFactory<LoginViewModel> loginViewModelFactory,
+            IFantasyManagerViewModelFactory<HomeViewModel> homeViewModelFactory, 
             IFantasyManagerViewModelFactory<CreateTeamViewModel> createTeamViewModelFactory, 
             IFantasyManagerViewModelFactory<DraftTeamViewModel> draftTeamViewModelFactory, 
             IFantasyManagerViewModelFactory<PlaySeasonViewModel> playSeasonViewModelFactory)
         {
+            _loginViewModelFactory = loginViewModelFactory;
             _homeViewModelFactory = homeViewModelFactory;
             _createTeamViewModelFactory = createTeamViewModelFactory;
             _draftTeamViewModelFactory = draftTeamViewModelFactory;
@@ -31,6 +34,8 @@ namespace FantasyManager.WPF.ViewModels.Factories
         {
             switch (viewType)
             {
+                case ViewType.Login:
+                    return _loginViewModelFactory.CreateViewModel();
                 case ViewType.Home:
                     return _homeViewModelFactory.CreateViewModel();
                 case ViewType.CreateTeam:

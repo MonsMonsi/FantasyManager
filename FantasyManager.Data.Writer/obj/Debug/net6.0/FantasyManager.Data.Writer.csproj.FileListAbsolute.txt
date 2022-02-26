@@ -60,3 +60,6 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data.Writer\obj\Debug\
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data.Writer\obj\Debug\net6.0\ref\FantasyManager.Data.Writer.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data.Writer\obj\Debug\net6.0\FantasyManager.Data.Writer.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data.Writer\obj\Debug\net6.0\FantasyManager.Data.Writer.genruntimeconfig.cache
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data.Writer\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data.Writer\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data.Writer\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll

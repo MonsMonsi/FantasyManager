@@ -14,6 +14,10 @@
                 <ResourceDictionary Source="/Styles/NavigationBar.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
+            <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                <views:LoginView LoginCommand="{Binding LoginCommand}"/>
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
                 <views:HomeView/>
             </DataTemplate>

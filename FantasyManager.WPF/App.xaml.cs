@@ -13,6 +13,7 @@ using FantasyManager.Domain.Services;
 using FantasyManager.Data.Services;
 using FantasyManager.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using FantasyManager.WPF.State.Authenticators;
 
 namespace FantasyManager.WPF
 {
@@ -45,6 +46,7 @@ namespace FantasyManager.WPF
             services.AddSingleton(mapper);
 
             services.AddScoped<INavigator, Navigator>();
+            services.AddScoped<IAuthenticator, Authenticator>();
 
             // Application-Services
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
@@ -56,6 +58,7 @@ namespace FantasyManager.WPF
 
             // ViewModelFactories
             services.AddSingleton<IFantasyManagerViewModelAbstractFactory, FantasyManagerViewModelAbstractFactory>();
+            services.AddSingleton<IFantasyManagerViewModelFactory<LoginViewModel>, LoginViewModelFactory>();
             services.AddSingleton<IFantasyManagerViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
             services.AddSingleton<IFantasyManagerViewModelFactory<CreateTeamViewModel>, CreateTeamViewModelFactory>();
             services.AddSingleton<IFantasyManagerViewModelFactory<DraftTeamViewModel>, DraftTeamViewModelFactory>();
