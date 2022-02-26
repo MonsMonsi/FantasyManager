@@ -1,27 +1,34 @@
 ﻿using AutoMapper;
+using FantasyManager.WPF.Commands;
 using FantasyManager.WPF.Enums;
 using FantasyManager.WPF.State.Authenticators;
 using FantasyManager.WPF.State.Navigators;
+using FantasyManager.WPF.ViewModels.Factories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace FantasyManager.WPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        private readonly IFantasyManagerViewModelAbstractFactory _viewModelfactory;
+
         public INavigator Navigator { get; set; }
-
         public IAuthenticator Authenticator { get; set; }
+        public ICommand UpdateCurrentViewModelCommand { get; }
 
-        public MainViewModel(INavigator navigator, IAuthenticator authenticator)
+        public MainViewModel(INavigator navigator, IAuthenticator authenticator, IFantasyManagerViewModelAbstractFactory viewModelfactory)
         {
             Navigator = navigator;
             Authenticator = authenticator;
+            _viewModelfactory = viewModelfactory;
 
-            Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Login);
+            UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(navigator, _viewModelfactory);
+            UpdateCurrentViewModelCommand.Execute(ViewType.Login);
         }
     }
 }

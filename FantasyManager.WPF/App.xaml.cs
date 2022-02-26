@@ -58,7 +58,12 @@ namespace FantasyManager.WPF
 
             // ViewModelFactories
             services.AddSingleton<IFantasyManagerViewModelAbstractFactory, FantasyManagerViewModelAbstractFactory>();
-            services.AddSingleton<IFantasyManagerViewModelFactory<LoginViewModel>, LoginViewModelFactory>();
+
+            services.AddSingleton<IFantasyManagerViewModelFactory<LoginViewModel>>(s => 
+                new LoginViewModelFactory(s.GetRequiredService<IAuthenticator>(), 
+                new ViewModelFactoryRenavigator<HomeViewModel>(s.GetRequiredService<INavigator>(), 
+                s.GetRequiredService<IFantasyManagerViewModelFactory<HomeViewModel>>())));
+
             services.AddSingleton<IFantasyManagerViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
             services.AddSingleton<IFantasyManagerViewModelFactory<CreateTeamViewModel>, CreateTeamViewModelFactory>();
             services.AddSingleton<IFantasyManagerViewModelFactory<DraftTeamViewModel>, DraftTeamViewModelFactory>();

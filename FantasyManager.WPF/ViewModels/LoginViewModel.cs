@@ -1,6 +1,7 @@
 ﻿using FantasyManager.Domain.Entities;
 using FantasyManager.WPF.Commands;
 using FantasyManager.WPF.State.Authenticators;
+using FantasyManager.WPF.State.Navigators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,16 +27,23 @@ namespace FantasyManager.WPF.ViewModels
         public ICommand LoginCommand { get; set; }
 
         private readonly IAuthenticator _authenticator;
+        private readonly IRenavigator _renavigator;
 
-        public LoginViewModel(IAuthenticator authenticator)
+        public LoginViewModel(IAuthenticator authenticator, IRenavigator renavigator)
         {
             _authenticator = authenticator;
+            _renavigator = renavigator;
             LoginCommand = new RelayCommand<object>(UserLogin);
         }
 
         private async void UserLogin(object parameter)
         {
             bool success = await _authenticator.Login(UserName, parameter.ToString());
+
+            if (success)
+            {
+                _renavigator.Renavigate();
+            }
         }
     }
 }

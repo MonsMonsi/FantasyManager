@@ -27,12 +27,5 @@ namespace FantasyManager.WPF.State.Navigators
                 OnPropertyChanged();
             }
         }
-
-        public ICommand UpdateCurrentViewModelCommand { get; set; }
-
-        public Navigator(IFantasyManagerViewModelAbstractFactory viewModelFactory)
-        {
-            UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(this, viewModelFactory);
-        }
     }
 }
