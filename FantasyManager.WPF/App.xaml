@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="/Styles/Common.xaml"/>
                 <ResourceDictionary Source="/Styles/NavigationBar.xaml"/>
                 <ResourceDictionary Source="/Styles/LoginView.xaml"/>
+                <ResourceDictionary Source="/Styles/ListViewItems/Containers.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">

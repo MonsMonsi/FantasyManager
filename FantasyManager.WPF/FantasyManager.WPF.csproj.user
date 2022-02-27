@@ -7,10 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controls\LeagueNavigation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\NavigationBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\PlayerCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\LeagueCard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\CreateTeamView.xaml.cs">
@@ -30,16 +36,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Controls\LeagueNavigation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Controls\NavigationBar.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\PlayerCard.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Controls\LeagueCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Common.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ListViewItems\Containers.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\LoginView.xaml">

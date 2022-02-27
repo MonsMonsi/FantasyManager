@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FantasyManager.Data;
-using FantasyManager.Application.Config;
+using FantasyManager.Application.MapperConfig;
 using FantasyManager.WPF.State.Navigators;
 using FantasyManager.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +14,8 @@ using FantasyManager.Data.Services;
 using FantasyManager.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using FantasyManager.WPF.State.Authenticators;
+using FantasyManager.Application.Services.Interfaces;
+using FantasyManager.Application.Services;
 
 namespace FantasyManager.WPF
 {
@@ -50,8 +52,10 @@ namespace FantasyManager.WPF
 
             // Application-Services
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
+            services.AddSingleton<ILeagueDataToDisplayService, LeagueDataToDisplayService>();
             services.AddSingleton<IDataService<User>, UserDataService>();
             services.AddSingleton<IUserService, UserDataService>();
+            services.AddSingleton<IDataService<League>, GenericDataService<League>>();
 
             // Microsoft-Services
             services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();

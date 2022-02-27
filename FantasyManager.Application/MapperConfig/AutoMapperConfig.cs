@@ -2,7 +2,7 @@
 using FantasyManager.Domain.Entities;
 using FantasyManager.Application.Models.Data;
 
-namespace FantasyManager.Application.Config
+namespace FantasyManager.Application.MapperConfig
 {
     public static class AutoMapperConfig
     {

@@ -35,9 +35,9 @@ namespace FantasyManager.Data.Services
         {
             using (FootballContext context = _contextFactory.CreateDbContext())
             {
-                IEnumerable<User> entities = await context.Set<User>().ToListAsync();
+                IEnumerable<User> users = await context.Set<User>().ToListAsync();
 
-                return entities;
+                return users;
             }
         }
 
@@ -45,7 +45,9 @@ namespace FantasyManager.Data.Services
         {
             using (FootballContext context = _contextFactory.CreateDbContext())
             {
-                return await context.Users.FirstOrDefaultAsync(u => u.Email == email);
+                User? user = await context.Set<User>().FirstOrDefaultAsync(u => u.Email == email);
+
+                return user;
             }
         }
 
@@ -53,9 +55,9 @@ namespace FantasyManager.Data.Services
         {
             using (FootballContext context = _contextFactory.CreateDbContext())
             {
-                User entity = await context.Set<User>().FirstOrDefaultAsync(e => e.Id == id);
+                User? user = await context.Set<User>().FirstOrDefaultAsync(u => u.Id == id);
 
-                return entity;
+                return user;
             }
         }
 
@@ -63,7 +65,9 @@ namespace FantasyManager.Data.Services
         {
             using (FootballContext context = _contextFactory.CreateDbContext())
             {
-                return await context.Users.FirstOrDefaultAsync(u => u.Name == userName);
+                User? user = await context.Users.FirstOrDefaultAsync(u => u.Name == userName);
+
+                return user;
             }
         }
 
