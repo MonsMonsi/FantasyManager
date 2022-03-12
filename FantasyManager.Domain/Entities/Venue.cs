@@ -23,6 +23,5 @@ namespace FantasyManager.Domain.Entities
 
         [JsonIgnore]
         public virtual IList<Team> Teams { get; set; } = new List<Team>();
-
     }
 }

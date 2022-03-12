@@ -1,4 +1,5 @@
-﻿using FantasyManager.Domain.Entities;
+﻿using FantasyManager.Application.Models;
+using FantasyManager.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace FantasyManager.Application.Services.Interfaces
 {
-    public interface ILeagueDataToObservableService
+    public interface ILeagueService
     {
-        Task<ObservableCollection<League>> GetAllAsync();
+        Task<ObservableCollection<LeagueModel>> GetAllAsync();
     }
 }

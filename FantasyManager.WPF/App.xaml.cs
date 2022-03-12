@@ -55,7 +55,8 @@ namespace FantasyManager.WPF
 
             // Application-Services
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
-            services.AddSingleton<ILeagueDataToObservableService, LeagueDataToObservableService>();
+            services.AddSingleton<ILeagueService, LeagueService>();
+            services.AddSingleton<ITeamService, TeamService>();
             services.AddSingleton<IDataService<User>, UserDataService>();
             services.AddSingleton<IUserService, UserDataService>();
             services.AddSingleton<IDataService<League>, GenericDataService<League>>();

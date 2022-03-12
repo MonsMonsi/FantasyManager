@@ -1,12 +1,6 @@
-﻿using FantasyManager.Domain.Entities;
-using FantasyManager.WPF.Commands;
+﻿using FantasyManager.WPF.Commands;
 using FantasyManager.WPF.State.Authenticators;
 using FantasyManager.WPF.State.Navigators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace FantasyManager.WPF.ViewModels

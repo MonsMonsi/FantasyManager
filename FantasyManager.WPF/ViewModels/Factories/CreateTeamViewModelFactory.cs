@@ -12,9 +12,9 @@ namespace FantasyManager.WPF.ViewModels.Factories
 {
     public class CreateTeamViewModelFactory : IFantasyManagerViewModelFactory<CreateTeamViewModel>
     {
-        private readonly ILeagueDataToObservableService _leagueService;
+        private readonly ILeagueService _leagueService;
 
-        public CreateTeamViewModelFactory(ILeagueDataToObservableService leagueService)
+        public CreateTeamViewModelFactory(ILeagueService leagueService)
         {
             _leagueService = leagueService;
         }

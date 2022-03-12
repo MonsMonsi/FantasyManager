@@ -1,13 +1,15 @@
-﻿using FantasyManager.Application.Services.Interfaces;
-using FantasyManager.Domain.Entities;
+﻿using FantasyManager.Application.Models;
+using FantasyManager.Application.Services.Interfaces;
 using System.Collections.ObjectModel;
 
 namespace FantasyManager.WPF.ViewModels
 {
     public class CreateTeamViewModel : ViewModelBase
     {
-        private ObservableCollection<League>? _leagues;
-        public ObservableCollection<League>? Leagues
+        #region OnChangeProperties
+
+        private ObservableCollection<LeagueModel>? _leagues;
+        public ObservableCollection<LeagueModel>? Leagues
         {
             get { return _leagues; }
             set
@@ -17,9 +19,33 @@ namespace FantasyManager.WPF.ViewModels
             }
         }
 
-        private readonly ILeagueDataToObservableService _leagueService;
+        private LeagueModel _selectedLeague;
+        public LeagueModel SelectedLeague
+        {
+            get { return _selectedLeague; }
+            set
+            {
+                _selectedLeague = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public CreateTeamViewModel(ILeagueDataToObservableService leagueService)
+        private string _userTeamName;
+        public string UserTeamName
+        {
+            get { return _userTeamName; }
+            set
+            {
+                _userTeamName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
+
+        private readonly ILeagueService _leagueService;
+
+        public CreateTeamViewModel(ILeagueService leagueService)
         {
             _leagueService = leagueService;
             LoadLeagues();
