@@ -81,6 +81,6 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-w
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Styles\LoginView.baml
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LeagueCard.g.cs
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LeagueCard.baml
-D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Styles\ListViewItems\Containers.baml
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LeagueNavigation.g.cs
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LeagueNavigation.baml
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Styles\ListViewItemContainers.baml

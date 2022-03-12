@@ -54,7 +54,7 @@
     <Page Update="Styles\Common.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Styles\ListViewItems\Containers.xaml">
+    <Page Update="Styles\ListViewItemContainers.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\LoginView.xaml">

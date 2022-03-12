@@ -15,15 +15,19 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
-                <Image Margin="5" Grid.Column="0" Grid.Row="0" Source="{Binding Logo}"/>
+                <Image Source="{Binding Logo}"
+                       Margin="5" Grid.Column="0" Grid.Row="0"
+                       Height="40" Width="40"/>
 
                 <TextBlock Margin="5, 20" Grid.Column="1" Grid.Row="0" Text="{Binding Name}"/>
 
-                <Image Margin="5" Grid.Column="0" Grid.Row="1" Source="{Binding Flag}"/>
+                <Image Source="{Binding Flag}"
+                       Margin="5" Grid.Column="0" Grid.Row="1"
+                       Height="40" Width="40"/>
 
                 <TextBlock Margin="5, 20" Grid.Column="1" Grid.Row="1" Text="{Binding Country}"/>
             </Grid>

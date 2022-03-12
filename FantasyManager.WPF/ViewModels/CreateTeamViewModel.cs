@@ -17,9 +17,9 @@ namespace FantasyManager.WPF.ViewModels
             }
         }
 
-        private readonly ILeagueDataToDisplayService _leagueService;
+        private readonly ILeagueDataToObservableService _leagueService;
 
-        public CreateTeamViewModel(ILeagueDataToDisplayService leagueService)
+        public CreateTeamViewModel(ILeagueDataToObservableService leagueService)
         {
             _leagueService = leagueService;
             LoadLeagues();

@@ -28,7 +28,8 @@ namespace FantasyManager.WPF.ViewModels
             _viewModelfactory = viewModelfactory;
 
             UpdateCurrentViewModelCommand = new UpdateCurrentViewModelCommand(navigator, _viewModelfactory);
-            UpdateCurrentViewModelCommand.Execute(ViewType.Login);
+            // zu Login zurückändern!!!
+            UpdateCurrentViewModelCommand.Execute(ViewType.CreateTeam);
         }
     }
 }

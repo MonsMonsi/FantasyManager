@@ -8,6 +8,12 @@ namespace FantasyManager.Domain.Entities
     {
         [Column(TypeName = "nvarchar"), MaxLength(100), Required]
         public string Name { get; set; }
+
+        [Column(TypeName = "nvarchar"), MaxLength(250), Required]
+        public string Logo { get; set; }
+
+        [Column(TypeName = "bit"), Required]
+        public bool IsDrafted { get; set; }
         public int UserId { get; set; }
 
         [ForeignKey("UserId")]

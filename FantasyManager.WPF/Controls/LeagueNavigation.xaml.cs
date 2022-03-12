@@ -18,9 +18,9 @@ namespace FantasyManager.WPF.Controls
     /// <summary>
     /// Interaction logic for LaegueNavigation.xaml
     /// </summary>
-    public partial class LaegueNavigation : UserControl
+    public partial class LeagueNavigation : UserControl
     {
-        public LaegueNavigation()
+        public LeagueNavigation()
         {
             InitializeComponent();
         }
