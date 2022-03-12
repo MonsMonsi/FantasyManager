@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using FantasyManager.Application.Models;
+using FantasyManager.Application.Models.Data;
 using FantasyManager.Application.Services.Interfaces;
-using FantasyManager.Data;
 using FantasyManager.Domain.Entities;
 using FantasyManager.Domain.Services;
 using System.Collections.ObjectModel;
@@ -16,6 +15,7 @@ namespace FantasyManager.Application.Services
         {
             _leagueService = leagueService;
         }
+
         public async Task<ObservableCollection<LeagueModel>> GetAllAsync()
         {
             var leagues = Mapper.Map<List<LeagueModel>>(await _leagueService.GetAllAsync());

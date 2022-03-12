@@ -1,6 +1,6 @@
 ﻿
 
-namespace FantasyManager.Application.Models
+namespace FantasyManager.Application.Models.Data
 {
     public class UserTeamSquadModel
     {

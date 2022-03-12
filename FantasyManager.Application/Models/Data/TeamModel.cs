@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FantasyManager.Application.Models
+namespace FantasyManager.Application.Models.Data
 {
     public class TeamModel
     {

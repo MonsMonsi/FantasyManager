@@ -1,19 +1,49 @@
-﻿using FantasyManager.Application.Models;
+﻿using AutoMapper;
+using FantasyManager.Application.Models.Data;
+using FantasyManager.Application.Models.Observable;
 using FantasyManager.Application.Services.Interfaces;
-using System;
-using System.Collections.Generic;
+using FantasyManager.Domain.Entities;
+using FantasyManager.Domain.Services;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FantasyManager.Application.Services
 {
-    public class TeamService : ITeamService
+    public class TeamService : ServiceBase, ITeamService
     {
-        public Task<ObservableCollection<TeamModel>> GetAllAsync()
+        private readonly IDataService<Team> _teamService;
+
+        public TeamService(IDataService<Team> teamService, IMapper mapper) : base(mapper)
         {
-            throw new NotImplementedException();
+            _teamService = teamService;
+        }
+
+        public async Task<ObservableCollection<TeamModel>> GetAllAsync()
+        {
+            var teams = Mapper.Map<List<TeamModel>>(await _teamService.GetAllAsync());
+
+            var observableTeams = new ObservableCollection<TeamModel>(teams);
+
+            return observableTeams;
+        }
+
+        public async Task<ObservableCollection<TeamLogoModel>> GetAllLogosAsync()
+        {
+            var teams = Mapper.Map<List<TeamModel>>(await _teamService.GetAllAsync());
+
+            var observableTeamLogos = new ObservableCollection<TeamLogoModel>();
+
+            foreach (var team in teams)
+            {
+                var teamLogo = new TeamLogoModel()
+                {
+                    Id = team.Id,
+                    Logo = team.Logo
+                };
+
+                observableTeamLogos.Add(teamLogo);
+            }
+
+            return observableTeamLogos;
         }
     }
 }

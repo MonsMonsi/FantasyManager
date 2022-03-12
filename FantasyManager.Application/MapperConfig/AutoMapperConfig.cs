@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FantasyManager.Domain.Entities;
-using FantasyManager.Application.Models;
+using FantasyManager.Application.Models.Data;
 
 namespace FantasyManager.Application.MapperConfig
 {
@@ -12,6 +12,7 @@ namespace FantasyManager.Application.MapperConfig
             {
                 cfg.CreateMap<UserModel, User>().ReverseMap();
                 cfg.CreateMap<LeagueModel, League>().ReverseMap();
+                cfg.CreateMap<TeamModel, Team>().ReverseMap();
             });
 
             return config.CreateMapper();

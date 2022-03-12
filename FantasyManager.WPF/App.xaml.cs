@@ -28,11 +28,8 @@ namespace FantasyManager.WPF
         {
             IServiceProvider serviceProvider = CreateServiceProvider();
 
-            FootballContextFactory footballContextFactory = serviceProvider.GetRequiredService<FootballContextFactory>();
-            IMapper mapper = serviceProvider.GetRequiredService<IMapper>();
-
-            //ILeagueDataToObservableService service = new LeagueDataToObservableService(serviceProvider.GetRequiredService<IDataService<League>>());
-            //var leagues = service.GetAllAsync();
+            //FootballContextFactory footballContextFactory = serviceProvider.GetRequiredService<FootballContextFactory>();
+            //IMapper mapper = serviceProvider.GetRequiredService<IMapper>();
 
             Window window = serviceProvider.GetRequiredService<MainWindow>();
             window.Show();
@@ -55,11 +52,13 @@ namespace FantasyManager.WPF
 
             // Application-Services
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
+            services.AddSingleton<IDataService<League>, GenericDataService<League>>();
+            services.AddSingleton<IDataService<Team>, GenericDataService<Team>>();
             services.AddSingleton<ILeagueService, LeagueService>();
             services.AddSingleton<ITeamService, TeamService>();
-            services.AddSingleton<IDataService<User>, UserDataService>();
+            //services.AddSingleton<IDataService<User>, UserDataService>();  => obsolet??
             services.AddSingleton<IUserService, UserDataService>();
-            services.AddSingleton<IDataService<League>, GenericDataService<League>>();
+            
 
             // Microsoft-Services
             services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();

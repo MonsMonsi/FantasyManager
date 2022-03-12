@@ -51,5 +51,33 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style> 
+    </Style>
+
+    <Style x:Key="LogoContainer" TargetType="ListViewItem">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Width" Value="auto"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border x:Name="LeagueBorder"
+                            Margin="1" CornerRadius="10" BorderThickness="1 0 0 1" BorderBrush="{StaticResource BrushPrimary1}"
+                            Background="{StaticResource BrushSecondary1}">
+
+                        <Image Source="{Binding Logo}"
+                               Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3"
+                               Opacity="0.8"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushSecondary2}"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushSecondary2}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

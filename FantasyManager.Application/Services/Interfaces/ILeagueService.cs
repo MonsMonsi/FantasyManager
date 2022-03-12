@@ -1,4 +1,4 @@
-﻿using FantasyManager.Application.Models;
+﻿using FantasyManager.Application.Models.Data;
 using FantasyManager.Domain.Entities;
 using System;
 using System.Collections.Generic;

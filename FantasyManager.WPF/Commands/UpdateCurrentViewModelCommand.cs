@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using FantasyManager.WPF.Enums;
+﻿using FantasyManager.WPF.Enums;
 using FantasyManager.WPF.State.Navigators;
-using FantasyManager.WPF.ViewModels;
 using System;
 using System.Windows.Input;
-using FantasyManager.Data;
-using FantasyManager.Application.Services;
 using FantasyManager.WPF.ViewModels.Factories.Interfaces;
 
 namespace FantasyManager.WPF.Commands

@@ -1,27 +1,22 @@
 ﻿using FantasyManager.Application.Services.Interfaces;
-using FantasyManager.Domain.Entities;
-using FantasyManager.Domain.Services;
 using FantasyManager.WPF.ViewModels.Factories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FantasyManager.WPF.ViewModels.Factories
 {
     public class CreateTeamViewModelFactory : IFantasyManagerViewModelFactory<CreateTeamViewModel>
     {
         private readonly ILeagueService _leagueService;
+        private readonly ITeamService _teamService;
 
-        public CreateTeamViewModelFactory(ILeagueService leagueService)
+        public CreateTeamViewModelFactory(ILeagueService leagueService, ITeamService teamService)
         {
             _leagueService = leagueService;
+            _teamService = teamService;
         }
 
         public CreateTeamViewModel CreateViewModel()
         {
-            return new CreateTeamViewModel(_leagueService);
+            return new CreateTeamViewModel(_leagueService, _teamService);
         }
     }
 }
