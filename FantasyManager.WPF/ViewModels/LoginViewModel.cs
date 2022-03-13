@@ -1,6 +1,7 @@
 ﻿using FantasyManager.WPF.Commands;
 using FantasyManager.WPF.State.Authenticators;
 using FantasyManager.WPF.State.Navigators;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace FantasyManager.WPF.ViewModels
@@ -18,7 +19,9 @@ namespace FantasyManager.WPF.ViewModels
             }
         }
 
-        public ICommand LoginCommand { get; set; }
+        public string StatusMessage { get; set; }
+
+        public AsyncRelayCommand<object> LoginCommand { get; set; }
 
         private readonly IAuthenticator _authenticator;
         private readonly IRenavigator _renavigator;
@@ -27,10 +30,10 @@ namespace FantasyManager.WPF.ViewModels
         {
             _authenticator = authenticator;
             _renavigator = renavigator;
-            LoginCommand = new RelayCommand<object>(UserLogin);
+            LoginCommand = new AsyncRelayCommand<object>(UserLogin, (ex) => StatusMessage = ex.Message);
         }
 
-        private async void UserLogin(object parameter)
+        private async Task UserLogin(object parameter)
         {
             bool success = await _authenticator.Login(UserName, parameter.ToString());
 

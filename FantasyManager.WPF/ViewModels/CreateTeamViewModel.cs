@@ -3,6 +3,7 @@ using FantasyManager.Application.Models.Observable;
 using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.WPF.Commands;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace FantasyManager.WPF.ViewModels
@@ -66,7 +67,7 @@ namespace FantasyManager.WPF.ViewModels
                 _userTeamName = value;
                 OnPropertyChanged();
                 _createUserTeamCommand.RaiseCanExecuteChanged();
-            }
+           }
         }
         #endregion
 
@@ -84,7 +85,8 @@ namespace FantasyManager.WPF.ViewModels
             _leagueService = leagueService;
             _teamService = teamService;
 
-            _createUserTeamCommand = new RelayCommand(CreateUserTeam, () => SelectedLeague != null && SelectedTeamLogo != null && UserTeamName != "");
+            _createUserTeamCommand = new RelayCommand(CreateUserTeam, () => SelectedLeague != null && SelectedTeamLogo != null && UserTeamName != null && UserTeamName != "");
+            _createUserTeamCommand.RaiseCanExecuteChanged();
 
             LoadLeagues();
             LoadTeamLogos();
@@ -92,15 +94,14 @@ namespace FantasyManager.WPF.ViewModels
 
         private void CreateUserTeam()
         {
-
         }
 
-        private async void LoadLeagues()
+        private async Task LoadLeagues()
         {
             Leagues = await _leagueService.GetAllAsync();
         }
 
-        private async void LoadTeamLogos()
+        private async Task LoadTeamLogos()
         {
             TeamLogos = await _teamService.GetAllLogosAsync();
         }
