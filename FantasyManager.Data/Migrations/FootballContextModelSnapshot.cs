@@ -119,12 +119,17 @@ namespace FantasyManager.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("LeagueId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LeagueId");
 
                     b.ToTable("Seasons");
                 });
@@ -334,6 +339,17 @@ namespace FantasyManager.Data.Migrations
                     b.Navigation("Team");
                 });
 
+            modelBuilder.Entity("FantasyManager.Domain.Entities.Season", b =>
+                {
+                    b.HasOne("FantasyManager.Domain.Entities.League", "League")
+                        .WithMany("Seasons")
+                        .HasForeignKey("LeagueId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("League");
+                });
+
             modelBuilder.Entity("FantasyManager.Domain.Entities.Team", b =>
                 {
                     b.HasOne("FantasyManager.Domain.Entities.League", "League")
@@ -393,6 +409,8 @@ namespace FantasyManager.Data.Migrations
 
             modelBuilder.Entity("FantasyManager.Domain.Entities.League", b =>
                 {
+                    b.Navigation("Seasons");
+
                     b.Navigation("Teams");
                 });
 

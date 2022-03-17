@@ -9,6 +9,11 @@ namespace FantasyManager.Domain.Entities
         [Column(TypeName = "nvarchar"), MaxLength(100), Required]
         public string Name { get; set; }
 
+        public int LeagueId { get; set; }
+
+        [ForeignKey("LeagueId")]
+        public virtual League League { get; set; }
+
         [JsonIgnore]
         public virtual IList<UserTeam> UserTeams { get; set; } = new List<UserTeam>();
     }

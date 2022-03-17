@@ -20,5 +20,8 @@ namespace FantasyManager.Domain.Entities
 
         [JsonIgnore]
         public virtual IList<Team> Teams { get; set; } = new List<Team>();
+
+        [JsonIgnore]
+        public virtual IList<Season> Seasons { get; set; } = new List<Season>();
     }
 }
