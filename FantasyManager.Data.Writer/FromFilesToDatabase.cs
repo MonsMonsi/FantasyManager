@@ -40,6 +40,9 @@ namespace FantasyManager.Core.Data.Writer
 
                 using (var context = _contextFactory.CreateDbContext())
                 {
+                    var leagues = context.Leagues;
+
+
                     for (var i = 0; i < json.Response.Length; i++)
                     {
                         var league = json.Response[i].Statistics[0].League;

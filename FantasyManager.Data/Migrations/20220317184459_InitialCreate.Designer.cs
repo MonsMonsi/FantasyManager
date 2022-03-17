@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FantasyManager.Data.Migrations
 {
     [DbContext(typeof(FootballContext))]
-    [Migration("20220225203254_InitialCreate")]
+    [Migration("20220317184459_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -201,6 +201,14 @@ namespace FantasyManager.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("IsDrafted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Logo")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Name")
                         .IsRequired()

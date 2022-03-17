@@ -31,6 +31,9 @@ namespace FantasyManager.WPF
             //FootballContextFactory footballContextFactory = serviceProvider.GetRequiredService<FootballContextFactory>();
             //IMapper mapper = serviceProvider.GetRequiredService<IMapper>();
 
+            //IAuthenticationService service = serviceProvider.GetRequiredService<IAuthenticationService>();
+            //service.Register("sim", "sim", "sim", "sim@sim");
+
             Window window = serviceProvider.GetRequiredService<MainWindow>();
             window.Show();
 
