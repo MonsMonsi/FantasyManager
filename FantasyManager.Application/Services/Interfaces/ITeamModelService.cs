@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace FantasyManager.Application.Services.Interfaces
 {
-    public interface ITeamService
+    public interface ITeamModelService
     {
         Task<ObservableCollection<TeamModel>> GetAllAsync();
         Task<ObservableCollection<TeamLogoModel>> GetAllLogosAsync();

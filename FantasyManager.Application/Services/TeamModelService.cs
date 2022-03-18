@@ -8,18 +8,18 @@ using System.Collections.ObjectModel;
 
 namespace FantasyManager.Application.Services
 {
-    public class TeamService : ServiceBase, ITeamService
+    public class TeamModelService : ModelServiceBase, ITeamModelService
     {
-        private readonly IDataService<Team> _teamService;
+        private readonly IDataService<Team> _teamDataService;
 
-        public TeamService(IDataService<Team> teamService, IMapper mapper) : base(mapper)
+        public TeamModelService(IDataService<Team> teamDataService, IMapper mapper) : base(mapper)
         {
-            _teamService = teamService;
+            _teamDataService = teamDataService;
         }
 
         public async Task<ObservableCollection<TeamModel>> GetAllAsync()
         {
-            var teams = Mapper.Map<List<TeamModel>>(await _teamService.GetAllAsync());
+            var teams = Mapper.Map<List<TeamModel>>(await _teamDataService.GetAllAsync());
 
             var observableTeams = new ObservableCollection<TeamModel>(teams);
 
@@ -28,7 +28,7 @@ namespace FantasyManager.Application.Services
 
         public async Task<ObservableCollection<TeamLogoModel>> GetAllLogosAsync()
         {
-            var teams = Mapper.Map<List<TeamModel>>(await _teamService.GetAllAsync());
+            var teams = Mapper.Map<List<TeamModel>>(await _teamDataService.GetAllAsync());
 
             var observableTeamLogos = new ObservableCollection<TeamLogoModel>();
 

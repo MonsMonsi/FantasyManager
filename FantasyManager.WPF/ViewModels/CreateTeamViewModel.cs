@@ -77,10 +77,10 @@ namespace FantasyManager.WPF.ViewModels
         public ICommand CreateUserTeamCommand { get { return _createUserTeamCommand; } }
         #endregion
 
-        private readonly ILeagueService _leagueService;
-        private readonly ITeamService _teamService;
+        private readonly ILeagueModelService _leagueService;
+        private readonly ITeamModelService _teamService;
 
-        public CreateTeamViewModel(ILeagueService leagueService, ITeamService teamService)
+        public CreateTeamViewModel(ILeagueModelService leagueService, ITeamModelService teamService)
         {
             _leagueService = leagueService;
             _teamService = teamService;

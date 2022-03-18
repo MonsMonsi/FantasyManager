@@ -7,18 +7,18 @@ using System.Collections.ObjectModel;
 
 namespace FantasyManager.Application.Services
 {
-    public class LeagueService : ServiceBase, ILeagueService
+    public class LeagueModelService : ModelServiceBase, ILeagueModelService
     {
-        private readonly IDataService<League> _leagueService;
+        private readonly IDataService<League> _leagueDataService;
 
-        public LeagueService(IDataService<League> leagueService, IMapper mapper) : base(mapper)
+        public LeagueModelService(IDataService<League> leagueDataService, IMapper mapper) : base(mapper)
         {
-            _leagueService = leagueService;
+            _leagueDataService = leagueDataService;
         }
 
         public async Task<ObservableCollection<LeagueModel>> GetAllAsync()
         {
-            var leagues = Mapper.Map<List<LeagueModel>>(await _leagueService.GetAllAsync());
+            var leagues = Mapper.Map<List<LeagueModel>>(await _leagueDataService.GetAllAsync());
 
             var observableLeagues = new ObservableCollection<LeagueModel>(leagues);
 

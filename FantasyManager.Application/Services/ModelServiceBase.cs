@@ -2,11 +2,11 @@
 
 namespace FantasyManager.Application.Services
 {
-    public abstract class ServiceBase
+    public abstract class ModelServiceBase
     {
         protected readonly IMapper Mapper;
 
-        public ServiceBase(IMapper mapper)
+        public ModelServiceBase(IMapper mapper)
         {
             Mapper = mapper;
         }

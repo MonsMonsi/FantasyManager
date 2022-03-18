@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FantasyManager.Application.Services.Interfaces
 {
-    public interface ILeagueService
+    public interface ILeagueModelService
     {
         Task<ObservableCollection<LeagueModel>> GetAllAsync();
     }
