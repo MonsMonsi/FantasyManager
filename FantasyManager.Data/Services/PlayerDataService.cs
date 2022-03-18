@@ -20,6 +20,7 @@ namespace FantasyManager.Data.Services
             _contextFactory = contextFactory;
             _nonQueryDataService = new NonQueryDataService<Player>(contextFactory);
         }
+
         public async Task<Player> CreateAsync(Player player)
         {
             return await _nonQueryDataService.CreateAsync(player);

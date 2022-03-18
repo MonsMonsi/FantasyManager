@@ -65,7 +65,7 @@ namespace FantasyManager.Data.Services
         {
             using (FootballContext context = _contextFactory.CreateDbContext())
             {
-                User? user = await context.Users.FirstOrDefaultAsync(u => u.Name == userName);
+                User? user = await context.Set<User>().FirstOrDefaultAsync(u => u.Name == userName);
 
                 return user;
             }
