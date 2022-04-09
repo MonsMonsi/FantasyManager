@@ -12,7 +12,7 @@ namespace FantasyManager.WPF.Commands
 
         public RelayCommand(Action<T> execute, Predicate<T> canExecute)
         {
-            if (execute == null)
+            if (execute is null)
                 throw new ArgumentNullException("execute");
             _execute = execute;
             _canExecute = canExecute;
@@ -20,7 +20,7 @@ namespace FantasyManager.WPF.Commands
 
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null ? true : _canExecute((T)parameter);
+            return _canExecute is null ? true : _canExecute((T)parameter);
         }
 
         public event EventHandler CanExecuteChanged
@@ -48,7 +48,7 @@ namespace FantasyManager.WPF.Commands
 
         public RelayCommand(Action execute, Func<bool> canExecute)
         {
-            if (execute == null)
+            if (execute is null)
                 throw new ArgumentNullException("execute");
             m_execute = execute;
             m_canExecute = canExecute;
@@ -56,7 +56,7 @@ namespace FantasyManager.WPF.Commands
 
         public bool CanExecute(object parameter)
         {
-            return m_canExecute == null ? true : m_canExecute();
+            return m_canExecute is null ? true : m_canExecute();
         }
 
         public void Execute(object parameter)
@@ -67,7 +67,7 @@ namespace FantasyManager.WPF.Commands
         public void RaiseCanExecuteChanged()
         {
             var handler = CanExecuteChanged;
-            if (handler != null)
+            if (handler is not null)
             {
                 handler(this, EventArgs.Empty);
             }

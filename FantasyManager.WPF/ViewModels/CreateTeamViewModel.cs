@@ -72,9 +72,11 @@ namespace FantasyManager.WPF.ViewModels
         }
         #endregion
 
+        public string StatusMessage { get; set; }
+
         #region Commands
 
-        private RelayCommand _createUserTeamCommand;
+        private AsyncRelayCommand _createUserTeamCommand;
         public ICommand CreateUserTeamCommand { get { return _createUserTeamCommand; } }
         #endregion
 
@@ -88,14 +90,14 @@ namespace FantasyManager.WPF.ViewModels
             _teamService = teamService;
             _userTeamModelService = userTeamModelService;
 
-            _createUserTeamCommand = new RelayCommand(CreateUserTeam, () => SelectedLeague != null && SelectedTeamLogo != null && UserTeamName != null && UserTeamName != "");
+            _createUserTeamCommand = new AsyncRelayCommand(CreateUserTeam, () => SelectedLeague != null && SelectedTeamLogo != null && UserTeamName != null && UserTeamName != "");
             _createUserTeamCommand.RaiseCanExecuteChanged();
 
             LoadLeagues();
             LoadTeamLogos();
         }
 
-        private async void CreateUserTeam()
+        private async Task CreateUserTeam()
         {
             CreationResult result = CreationResult.Success;
 

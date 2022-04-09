@@ -7,16 +7,18 @@ namespace FantasyManager.WPF.ViewModels.Factories
     {
         private readonly ILeagueModelService _leagueService;
         private readonly ITeamModelService _teamService;
+        private readonly IUserTeamModelService _userTeamModelService;
 
-        public CreateTeamViewModelFactory(ILeagueModelService leagueService, ITeamModelService teamService)
+        public CreateTeamViewModelFactory(ILeagueModelService leagueService, ITeamModelService teamService, IUserTeamModelService userTeamModelService)
         {
             _leagueService = leagueService;
             _teamService = teamService;
+            _userTeamModelService = userTeamModelService;
         }
 
         public CreateTeamViewModel CreateViewModel()
         {
-            return new CreateTeamViewModel(_leagueService, _teamService);
+            return new CreateTeamViewModel(_leagueService, _teamService, _userTeamModelService);
         }
     }
 }

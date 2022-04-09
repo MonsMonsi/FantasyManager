@@ -1,38 +1,121 @@
-﻿using System;
+﻿using FantasyManager.WPF.Commands.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace FantasyManager.WPF.Commands
 {
-    public class AsyncRelayCommand : AsyncCommandBase
+    public class AsyncRelayCommand : IAsyncRelayCommand
     {
-        private readonly Func<Task> _execute;
+        public event EventHandler CanExecuteChanged;
 
-        public AsyncRelayCommand(Func<Task> execute, Action<Exception> onException) : base(onException)
+        private bool _isExecuting;
+        private readonly Func<Task> _execute;
+        private readonly Func<bool> _canExecute;
+
+        public AsyncRelayCommand(Func<Task> execute, Func<bool> canExecute = null)
         {
             _execute = execute;
+            _canExecute = canExecute;
         }
 
-        protected override async Task ExecuteAsync(object? parameter)
+        public bool CanExecute()
         {
-            await _execute();
+            return !_isExecuting && (_canExecute?.Invoke() ?? true);
         }
+
+        public async Task ExecuteAsync()
+        {
+            if (CanExecute())
+            {
+                try
+                {
+                    _isExecuting = true;
+                    await _execute();
+                }
+                finally
+                {
+                    _isExecuting = false;
+                }
+            }
+
+            RaiseCanExecuteChanged();
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        #region Explicit implementations
+        bool ICommand.CanExecute(object parameter)
+        {
+            return CanExecute();
+        }
+
+        void ICommand.Execute(object parameter)
+        {
+            ExecuteAsync();
+        }
+        #endregion
     }
 
-    public class AsyncRelayCommand<T> : AsyncCommandBase<T>
+    public class AsyncRelayCommand<T> : IAsyncRelayCommand<T>
     {
-        private readonly Func<T, Task> _execute;
+        public event EventHandler CanExecuteChanged;
 
-        public AsyncRelayCommand(Func<T, Task> execute, Action<Exception> onException) : base(onException)
+        private bool _isExecuting;
+        private readonly Func<T, Task> _execute;
+        private readonly Func<T, bool> _canExecute;
+
+        public AsyncRelayCommand(Func<T, Task> execute, Func<T, bool> canExecute = null)
         {
             _execute = execute;
+            _canExecute = canExecute;
         }
 
-        protected override async Task ExecuteAsync(T parameter)
+        public bool CanExecute(T parameter)
         {
-            await _execute(parameter);
+            return !_isExecuting && (_canExecute?.Invoke(parameter) ?? true);
         }
+
+        public async Task ExecuteAsync(T parameter)
+        {
+            if (CanExecute(parameter))
+            {
+                try
+                {
+                    _isExecuting = true;
+                    await _execute(parameter);
+                }
+                finally
+                {
+                    _isExecuting = false;
+                }
+            }
+
+            RaiseCanExecuteChanged();
+        }
+
+        public void RaiseCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        #region Explicit implementations
+        bool ICommand.CanExecute(object parameter)
+        {
+            return CanExecute((T)parameter);
+        }
+
+        void ICommand.Execute(object parameter)
+        {
+            ExecuteAsync((T)parameter);
+        }
+        #endregion
     }
 }
+

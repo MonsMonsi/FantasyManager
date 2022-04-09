@@ -19,8 +19,6 @@ namespace FantasyManager.WPF.ViewModels
             }
         }
 
-        public string StatusMessage { get; set; }
-
         public AsyncRelayCommand<object> LoginCommand { get; set; }
 
         private readonly IAuthenticator _authenticator;
@@ -30,7 +28,7 @@ namespace FantasyManager.WPF.ViewModels
         {
             _authenticator = authenticator;
             _renavigator = renavigator;
-            LoginCommand = new AsyncRelayCommand<object>(UserLogin, (ex) => StatusMessage = ex.Message);
+            LoginCommand = new AsyncRelayCommand<object>(UserLogin);
         }
 
         private async Task UserLogin(object parameter)
