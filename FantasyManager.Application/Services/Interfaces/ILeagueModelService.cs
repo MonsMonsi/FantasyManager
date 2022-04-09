@@ -11,6 +11,6 @@ namespace FantasyManager.Application.Services.Interfaces
 {
     public interface ILeagueModelService
     {
-        Task<ObservableCollection<LeagueModel>> GetAllAsync();
+        Task<IEnumerable<LeagueModel>> GetAllAsync();
     }
 }

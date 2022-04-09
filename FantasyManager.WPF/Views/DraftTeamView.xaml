@@ -18,5 +18,7 @@
         </Grid.ColumnDefinitions>
 
         <controls:UserTeamFormationView Grid.Column="1" Margin="10 20"/>
+        
+        <controls:PlayerListView Grid.Column="2" Margin="10 20" DataContext="{Binding Players}"/>
     </Grid>
 </UserControl>

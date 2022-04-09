@@ -154,12 +154,12 @@ namespace FantasyManager.WPF.ViewModels
 
         private async Task LoadLeagues()
         {
-            Leagues = await _leagueModelService.GetAllAsync();
+            Leagues = new ObservableCollection<LeagueModel>(await _leagueModelService.GetAllAsync());
         }
 
         private async Task LoadTeamLogos()
         {
-            TeamLogos = await _teamModelService.GetAllLogosAsync();
+            TeamLogos = new ObservableCollection<TeamLogoModel>(await _teamModelService.GetAllLogosAsync());
         }
     }
 }

@@ -17,20 +17,18 @@ namespace FantasyManager.Application.Services
             _teamDataService = teamDataService;
         }
 
-        public async Task<ObservableCollection<TeamModel>> GetAllAsync()
+        public async Task<IEnumerable<TeamModel>> GetAllAsync()
         {
-            var teams = Mapper.Map<List<TeamModel>>(await _teamDataService.GetAllAsync());
+            var teams = Mapper.Map<IEnumerable<TeamModel>>(await _teamDataService.GetAllAsync());
 
-            var observableTeams = new ObservableCollection<TeamModel>(teams);
-
-            return observableTeams;
+            return teams;
         }
 
-        public async Task<ObservableCollection<TeamLogoModel>> GetAllLogosAsync()
+        public async Task<IEnumerable<TeamLogoModel>> GetAllLogosAsync()
         {
             var teams = Mapper.Map<List<TeamModel>>(await _teamDataService.GetAllAsync());
 
-            var observableTeamLogos = new ObservableCollection<TeamLogoModel>();
+            var teamLogos = new List<TeamLogoModel>();
 
             foreach (var team in teams)
             {
@@ -40,10 +38,10 @@ namespace FantasyManager.Application.Services
                     Logo = team.Logo
                 };
 
-                observableTeamLogos.Add(teamLogo);
+                teamLogos.Add(teamLogo);
             }
 
-            return observableTeamLogos;
+            return teamLogos.AsEnumerable();
         }
     }
 }

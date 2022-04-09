@@ -58,14 +58,14 @@ namespace FantasyManager.WPF
             services.AddSingleton<IDataService<League>, GenericDataService<League>>();
             services.AddSingleton<IDataService<Team>, GenericDataService<Team>>();
             services.AddSingleton<IDataService<Season>, GenericDataService<Season>>();
+            services.AddSingleton<IPlayerModelService, PlayerModelService>();
             services.AddSingleton<ILeagueModelService, LeagueModelService>();
             services.AddSingleton<ITeamModelService, TeamModelService>();
             services.AddSingleton<ISeasonModelService, SeasonModelService>();
             services.AddSingleton<IUserTeamModelService, UserTeamModelService>();
-            //services.AddSingleton<IDataService<User>, UserDataService>();  => obsolet??
             services.AddSingleton<IUserService, UserDataService>();
             services.AddSingleton<IUserTeamService, UserTeamDataService>();
-
+            services.AddSingleton<IPlayerService, PlayerDataService>();
 
             // Microsoft-Services
             services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();

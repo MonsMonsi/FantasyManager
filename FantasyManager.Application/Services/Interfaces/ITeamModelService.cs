@@ -6,7 +6,7 @@ namespace FantasyManager.Application.Services.Interfaces
 {
     public interface ITeamModelService
     {
-        Task<ObservableCollection<TeamModel>> GetAllAsync();
-        Task<ObservableCollection<TeamLogoModel>> GetAllLogosAsync();
+        Task<IEnumerable<TeamModel>> GetAllAsync();
+        Task<IEnumerable<TeamLogoModel>> GetAllLogosAsync();
     }
 }

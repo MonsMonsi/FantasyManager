@@ -16,13 +16,11 @@ namespace FantasyManager.Application.Services
             _leagueDataService = leagueDataService;
         }
 
-        public async Task<ObservableCollection<LeagueModel>> GetAllAsync()
+        public async Task<IEnumerable<LeagueModel>> GetAllAsync()
         {
-            var leagues = Mapper.Map<List<LeagueModel>>(await _leagueDataService.GetAllAsync());
+            var leagues = Mapper.Map<IEnumerable<LeagueModel>>(await _leagueDataService.GetAllAsync());
 
-            var observableLeagues = new ObservableCollection<LeagueModel>(leagues);
-
-            return observableLeagues;
+            return leagues;
         }
     }
 }
