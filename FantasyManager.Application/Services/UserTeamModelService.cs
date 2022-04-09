@@ -13,23 +13,23 @@ namespace FantasyManager.Application.Services
 {
     public class UserTeamModelService : ModelServiceBase, IUserTeamModelService
     {
-        private readonly IUserTeamService _userTeamService;
+        private readonly IUserTeamService _userTeamDataService;
 
-        public UserTeamModelService(IUserTeamService userTeamService, IMapper mapper) : base(mapper)
+        public UserTeamModelService(IUserTeamService userTeamDataService, IMapper mapper) : base(mapper)
         {
-            _userTeamService = userTeamService;
+            _userTeamDataService = userTeamDataService;
         }
 
         public async Task<bool> CreateAsync(UserTeamModel userTeamModel)
         {
-            var createdUserTeam = _userTeamService.CreateAsync(Mapper.Map<UserTeam>(userTeamModel));
+            var createdUserTeam = await _userTeamDataService.CreateAsync(Mapper.Map<UserTeam>(userTeamModel));
 
             return createdUserTeam is not null;
         }
 
         public async Task<UserTeamModel> GetByNameAsync(string userTeamName)
         {
-            var storedUserTeam = Mapper.Map<UserTeamModel>(_userTeamService.GetByNameAsync(userTeamName));
+            var storedUserTeam = Mapper.Map<UserTeamModel>(await _userTeamDataService.GetByNameAsync(userTeamName));
 
             return storedUserTeam;
         }

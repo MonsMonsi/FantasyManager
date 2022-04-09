@@ -3,8 +3,11 @@ using FantasyManager.Application.Models.Observable;
 using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.WPF.Commands;
 using FantasyManager.WPF.Enums;
+using FantasyManager.WPF.State.Authenticators;
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace FantasyManager.WPF.ViewModels
@@ -80,14 +83,22 @@ namespace FantasyManager.WPF.ViewModels
         public ICommand CreateUserTeamCommand { get { return _createUserTeamCommand; } }
         #endregion
 
-        private readonly ILeagueModelService _leagueService;
-        private readonly ITeamModelService _teamService;
+        private readonly IAuthenticator _authenticator; 
+        private readonly ILeagueModelService _leagueModelService;
+        private readonly ITeamModelService _teamModelService;
+        private readonly ISeasonModelService _seasonModelService;
         private readonly IUserTeamModelService _userTeamModelService;
 
-        public CreateTeamViewModel(ILeagueModelService leagueService, ITeamModelService teamService, IUserTeamModelService userTeamModelService)
+        public CreateTeamViewModel(IAuthenticator authenticator, 
+            ILeagueModelService leagueModelService, 
+            ITeamModelService teamModelService, 
+            ISeasonModelService seasonModelService, 
+            IUserTeamModelService userTeamModelService)
         {
-            _leagueService = leagueService;
-            _teamService = teamService;
+            _authenticator = authenticator;
+            _leagueModelService = leagueModelService;
+            _teamModelService = teamModelService;
+            _seasonModelService = seasonModelService;
             _userTeamModelService = userTeamModelService;
 
             _createUserTeamCommand = new AsyncRelayCommand(CreateUserTeam, () => SelectedLeague != null && SelectedTeamLogo != null && UserTeamName != null && UserTeamName != "");
@@ -110,18 +121,40 @@ namespace FantasyManager.WPF.ViewModels
 
             if (result == CreationResult.Success)
             {
+                var seasonModel = new SeasonModel()
+                {
+                    Name = UserTeamName + "_" + DateTime.Now,
+                    LeagueId = SelectedLeague.Id
+                };
 
+                var createdSeason = await _seasonModelService.CreateAsync(seasonModel);
+
+                var userTeamModel = new UserTeamModel()
+                {
+                    Name = UserTeamName,
+                    Logo = SelectedTeamLogo.Logo,
+                    IsDrafted = false,
+                    UserId = _authenticator.CurrentUser.Id,
+                    SeasonId = createdSeason.Id
+                };
+
+                var created = await _userTeamModelService.CreateAsync(userTeamModel);
+
+                if (created)
+                {
+                    MessageBox.Show("UserTeam created");
+                }
             }
         }
 
         private async Task LoadLeagues()
         {
-            Leagues = await _leagueService.GetAllAsync();
+            Leagues = await _leagueModelService.GetAllAsync();
         }
 
         private async Task LoadTeamLogos()
         {
-            TeamLogos = await _teamService.GetAllLogosAsync();
+            TeamLogos = await _teamModelService.GetAllLogosAsync();
         }
     }
 }
