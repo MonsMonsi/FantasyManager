@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FantasyManager.Application.Enums;
 using FantasyManager.Application.Models.Data;
 using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.Domain.Entities;
@@ -20,11 +21,11 @@ namespace FantasyManager.Application.Services
             _userTeamDataService = userTeamDataService;
         }
 
-        public async Task<bool> CreateAsync(UserTeamModel userTeamModel)
+        public async Task<CreationResult> CreateAsync(UserTeamModel userTeamModel)
         {
-            var createdUserTeam = await _userTeamDataService.CreateAsync(Mapper.Map<UserTeam>(userTeamModel));
-
-            return createdUserTeam is not null;
+            await _userTeamDataService.CreateAsync(Mapper.Map<UserTeam>(userTeamModel));
+            
+            return CreationResult.Success;
         }
 
         public async Task<UserTeamModel> GetByNameAsync(string userTeamName)

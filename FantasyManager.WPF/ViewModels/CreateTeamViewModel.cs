@@ -1,4 +1,5 @@
-﻿using FantasyManager.Application.Models.Data;
+﻿using FantasyManager.Application.Enums;
+using FantasyManager.Application.Models.Data;
 using FantasyManager.Application.Models.Observable;
 using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.WPF.Commands;
@@ -110,17 +111,13 @@ namespace FantasyManager.WPF.ViewModels
 
         private async Task CreateUserTeam()
         {
-            CreationResult result = CreationResult.Success;
+            CreationResult result;
 
-            UserTeamModel storedUserTeamModel = await _userTeamModelService.GetByNameAsync(UserTeamName);
+            var storedUserTeam = await _userTeamModelService.GetByNameAsync(UserTeamName);
 
-            if (storedUserTeamModel is not null)
+            if (storedUserTeam is null)
             {
-                result = CreationResult.UserTeamNameAlreadyExists;
-            }
-
-            if (result == CreationResult.Success)
-            {
+                // TODO: Season soll gewählt werden können, nicht jedes Mal neue erstellen!
                 var seasonModel = new SeasonModel()
                 {
                     Name = UserTeamName + "_" + DateTime.Now,
@@ -138,12 +135,21 @@ namespace FantasyManager.WPF.ViewModels
                     SeasonId = createdSeason.Id
                 };
 
-                var created = await _userTeamModelService.CreateAsync(userTeamModel);
+                result = await _userTeamModelService.CreateAsync(userTeamModel);
+            }
+            else
+            {
+                result = CreationResult.UserTeamNameAlreadyExists;
+            }
 
-                if (created)
-                {
-                    MessageBox.Show("UserTeam created");
-                }
+            if (result is CreationResult.UserTeamNameAlreadyExists)
+            {
+                MessageBox.Show("UserTeamName already exists");
+            }
+
+            if (result is CreationResult.Success)
+            {
+                MessageBox.Show("UserTeam created");
             }
         }
 

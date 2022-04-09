@@ -1,4 +1,5 @@
-﻿using FantasyManager.Application.Models.Data;
+﻿using FantasyManager.Application.Enums;
+using FantasyManager.Application.Models.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace FantasyManager.Application.Services.Interfaces
     public interface IUserTeamModelService
     {
         Task<UserTeamModel> GetByNameAsync(string userTeamName);
-        Task<bool> CreateAsync(UserTeamModel userTeamModel);
+        Task<CreationResult> CreateAsync(UserTeamModel userTeamModel);
     }
 }
