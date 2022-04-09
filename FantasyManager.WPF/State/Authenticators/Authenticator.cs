@@ -9,13 +9,6 @@ namespace FantasyManager.WPF.State.Authenticators
 {
     public class Authenticator : ObservableObject, IAuthenticator
     {
-        private readonly IAuthenticationService _authenticationService;
-
-        public Authenticator(IAuthenticationService authenticationService)
-        {
-            _authenticationService = authenticationService;
-        }
-
         private User _currentUser;
         public User CurrentUser
         {
@@ -27,7 +20,16 @@ namespace FantasyManager.WPF.State.Authenticators
                 OnPropertyChanged(nameof(IsLoggedIn));
             }
         }
+
         public bool IsLoggedIn => CurrentUser != null;
+
+
+        private readonly IAuthenticationService _authenticationService;
+
+        public Authenticator(IAuthenticationService authenticationService)
+        {
+            _authenticationService = authenticationService;
+        }
 
         public async Task<bool> Login(string userName, string password)
         {

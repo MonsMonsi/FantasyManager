@@ -2,6 +2,7 @@
 using FantasyManager.Application.Models.Observable;
 using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.WPF.Commands;
+using FantasyManager.WPF.Enums;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -79,11 +80,13 @@ namespace FantasyManager.WPF.ViewModels
 
         private readonly ILeagueModelService _leagueService;
         private readonly ITeamModelService _teamService;
+        private readonly IUserTeamModelService _userTeamModelService;
 
-        public CreateTeamViewModel(ILeagueModelService leagueService, ITeamModelService teamService)
+        public CreateTeamViewModel(ILeagueModelService leagueService, ITeamModelService teamService, IUserTeamModelService userTeamModelService)
         {
             _leagueService = leagueService;
             _teamService = teamService;
+            _userTeamModelService = userTeamModelService;
 
             _createUserTeamCommand = new RelayCommand(CreateUserTeam, () => SelectedLeague != null && SelectedTeamLogo != null && UserTeamName != null && UserTeamName != "");
             _createUserTeamCommand.RaiseCanExecuteChanged();
@@ -92,8 +95,21 @@ namespace FantasyManager.WPF.ViewModels
             LoadTeamLogos();
         }
 
-        private void CreateUserTeam()
+        private async void CreateUserTeam()
         {
+            CreationResult result = CreationResult.Success;
+
+            UserTeamModel storedUserTeamModel = await _userTeamModelService.GetByNameAsync(UserTeamName);
+
+            if (storedUserTeamModel is not null)
+            {
+                result = CreationResult.UserTeamNameAlreadyExists;
+            }
+
+            if (result == CreationResult.Success)
+            {
+
+            }
         }
 
         private async Task LoadLeagues()

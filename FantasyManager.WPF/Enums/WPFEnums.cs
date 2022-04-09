@@ -15,4 +15,10 @@ namespace FantasyManager.WPF.Enums
         DraftTeam,
         PlaySeason
     }
+
+    public enum CreationResult
+    {
+        Success,
+        UserTeamNameAlreadyExists
+    }
 }
