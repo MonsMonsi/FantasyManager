@@ -23,7 +23,9 @@
                     <Grid x:Name="gridMain" Background="{TemplateBinding Background}">
                         <TextBlock Text="{TemplateBinding Content}"
                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                                   Padding="{TemplateBinding Padding}"/>
+                                   VerticalAlignment="Center"
+                                   Padding="{TemplateBinding Padding}"
+                                   TextAlignment="Center"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">

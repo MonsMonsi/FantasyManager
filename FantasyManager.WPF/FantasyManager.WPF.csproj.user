@@ -19,6 +19,9 @@
     <Compile Update="Controls\LeagueCard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\PlayerListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\UserTeamFormationView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -49,6 +52,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\LeagueCard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\PlayerListView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\UserTeamFormationView.xaml">

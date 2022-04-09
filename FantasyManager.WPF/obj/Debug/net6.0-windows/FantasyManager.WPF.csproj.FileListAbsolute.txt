@@ -85,3 +85,5 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-w
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Styles\ListViewItemContainers.baml
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\UserTeamFormationView.g.cs
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\UserTeamFormationView.baml
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\PlayerListView.g.cs
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\PlayerListView.baml
