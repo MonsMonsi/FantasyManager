@@ -12,7 +12,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/Common.xaml"/>
                 <ResourceDictionary Source="/Styles/NavigationBar.xaml"/>
-                <ResourceDictionary Source="/Styles/LoginView.xaml"/>
                 <ResourceDictionary Source="/Styles/ListViewItemContainers.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 

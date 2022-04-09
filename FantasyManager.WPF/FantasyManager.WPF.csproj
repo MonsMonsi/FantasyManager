@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Resources\football.jpg" />
+    <None Remove="Resources\FootballPitch.jpg" />
     <None Remove="Resources\LoginViewBackground.jpg" />
   </ItemGroup>
 
@@ -21,7 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Football.jpg" />
+    <Resource Include="Resources\Football.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\FootballPitch.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\LoginViewBackground.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

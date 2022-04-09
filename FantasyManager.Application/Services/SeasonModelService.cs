@@ -3,11 +3,6 @@ using FantasyManager.Application.Models.Data;
 using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.Domain.Entities;
 using FantasyManager.Domain.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FantasyManager.Application.Services
 {

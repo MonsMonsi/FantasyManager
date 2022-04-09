@@ -30,9 +30,9 @@ namespace FantasyManager.Application.Services
 
         public async Task<UserTeamModel> GetByNameAsync(string userTeamName)
         {
-            var storedUserTeam = Mapper.Map<UserTeamModel>(await _userTeamDataService.GetByNameAsync(userTeamName));
+            var userTeam = Mapper.Map<UserTeamModel>(await _userTeamDataService.GetByNameAsync(userTeamName));
 
-            return storedUserTeam;
+            return userTeam;
         }
     }
 }

@@ -76,8 +76,6 @@ namespace FantasyManager.WPF.ViewModels
         }
         #endregion
 
-        public string StatusMessage { get; set; }
-
         #region Commands
 
         private AsyncRelayCommand _createUserTeamCommand;
@@ -111,6 +109,7 @@ namespace FantasyManager.WPF.ViewModels
 
         private async Task CreateUserTeam()
         {
+            // TODO: Funktion überdenken -> wo soll die Validierung stattfinden?
             CreationResult result;
 
             var storedUserTeam = await _userTeamModelService.GetByNameAsync(UserTeamName);
