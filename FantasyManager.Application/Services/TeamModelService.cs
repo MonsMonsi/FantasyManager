@@ -26,7 +26,7 @@ namespace FantasyManager.Application.Services
 
         public async Task<IEnumerable<TeamLogoModel>> GetAllLogosAsync()
         {
-            var teams = Mapper.Map<List<TeamModel>>(await _teamDataService.GetAllAsync());
+            var teams = await GetAllAsync();
 
             var teamLogos = new List<TeamLogoModel>();
 

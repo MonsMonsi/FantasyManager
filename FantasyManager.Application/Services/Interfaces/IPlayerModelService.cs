@@ -1,4 +1,5 @@
 ﻿using FantasyManager.Application.Models.Data;
+using FantasyManager.Application.Models.Observable;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace FantasyManager.Application.Services.Interfaces
     public interface IPlayerModelService
     {
         Task<IEnumerable<PlayerModel>> GetByLeagueAsync(int leagueId);
+        Task<IEnumerable<PlayerListViewItemModel>> GetByLeagueAsListViewItemAsync(int leagueId);
     }
 }

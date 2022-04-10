@@ -16,5 +16,5 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\App.xaml
 221-1295626412
 Controls\LeagueCard.xaml;Controls\LeagueNavigation.xaml;Controls\NavigationBar.xaml;Controls\PlayerCard.xaml;Controls\PlayerListView.xaml;Controls\UserTeamFormationView.xaml;MainWindow.xaml;Styles\Common.xaml;Styles\ListViewItemContainers.xaml;Styles\NavigationBar.xaml;Views\CreateTeamView.xaml;Views\DraftTeamView.xaml;Views\HomeView.xaml;Views\LoginView.xaml;Views\PlaySeasonView.xaml;
 
-False
+True
 

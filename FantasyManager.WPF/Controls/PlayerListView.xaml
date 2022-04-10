@@ -46,7 +46,7 @@
                              Grid.Column="1" Grid.Row="1" Margin="10"/>
             </Grid>
 
-            <ListView ItemContainerStyle="{StaticResource PlayerContainer}"
+            <ListView ItemsSource="{Binding}" ItemContainerStyle="{StaticResource PlayerContainer}"
                       Grid.Row="1" Margin="20 10"/>
         </Grid>
     </Border>

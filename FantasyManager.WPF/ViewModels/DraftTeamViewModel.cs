@@ -1,4 +1,5 @@
 ﻿using FantasyManager.Application.Models.Data;
+using FantasyManager.Application.Models.Observable;
 using FantasyManager.Application.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,8 @@ namespace FantasyManager.WPF.ViewModels
             }
         }
 
-        private ObservableCollection<PlayerModel>? _players;
-        public ObservableCollection<PlayerModel>? Players
+        private ObservableCollection<PlayerListViewItemModel>? _players;
+        public ObservableCollection<PlayerListViewItemModel>? Players
         {
             get { return _players; }
             set
@@ -49,7 +50,7 @@ namespace FantasyManager.WPF.ViewModels
 
         private async Task LoadPlayers()
         {
-            Players = new ObservableCollection<PlayerModel>(await _playerModelService.GetByLeagueAsync(LeagueId));
+            Players = new ObservableCollection<PlayerListViewItemModel>(await _playerModelService.GetByLeagueAsListViewItemAsync(LeagueId));
         }
     }
 }

@@ -12,6 +12,7 @@ namespace FantasyManager.Application.MapperConfig
             {
                 cfg.CreateMap<UserModel, User>().ReverseMap();
                 cfg.CreateMap<UserTeamModel, UserTeam>().ReverseMap();
+                cfg.CreateMap<BirthModel, Birth>().ReverseMap();
                 cfg.CreateMap<PlayerModel, Player>().ReverseMap();
                 cfg.CreateMap<LeagueModel, League>().ReverseMap();
                 cfg.CreateMap<TeamModel, Team>().ReverseMap();

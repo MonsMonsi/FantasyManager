@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FantasyManager.Application.Models.Data
 {
-    public class Birth
+    public class BirthModel
     {
         public string Date { get; set; }
         public string Country { get; set; }
@@ -14,9 +14,10 @@ namespace FantasyManager.Application.Models.Data
     }
     public class PlayerModel
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Birth Birth { get; set; }
+        public BirthModel Birth { get; set; }
         public string Nationality { get; set; }
         public string Height { get; set; }
         public string Weight { get; set; }

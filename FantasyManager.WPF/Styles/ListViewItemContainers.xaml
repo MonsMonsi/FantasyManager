@@ -95,8 +95,8 @@
                                 <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="{Binding Photo}"
-                                   Grid.Column="0"/>
+                            <Image Source="{Binding Image}"
+                                   Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
@@ -104,10 +104,10 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Text="{Binding Header}"
+                                <TextBlock Text="{Binding Header[0]}"
                                            Grid.Row="0"/>
                                 
-                                <TextBlock Text="{Binding SubHeader}"
+                                <TextBlock Text="{Binding SubHeader[0]}"
                                            Grid.Row="1"/>
                             </Grid>
                         </Grid>
