@@ -7,7 +7,7 @@ namespace FantasyManager.Application.Helpers
     {
         public static BitmapImage UriToBitmapImage(string uri, ImageSize imageSize)
         {
-            if (uri != null && File.Exists(uri))
+            if (uri != null)
             {
                 var size = GetSize(imageSize);
 
@@ -16,8 +16,7 @@ namespace FantasyManager.Application.Helpers
                 image.BeginInit();
                 image.CacheOption = BitmapCacheOption.OnLoad;
                 image.UriSource = new Uri(uri);
-                image.DecodePixelHeight = size;
-                image.DecodePixelWidth = (int)Math.Floor(size * 0.75);
+                image.DecodePixelWidth = size;
                 image.EndInit();
 
                 return image;
@@ -31,11 +30,11 @@ namespace FantasyManager.Application.Helpers
             switch (imageSize)
             {
                 case ImageSize.Small:
-                    return 300;
+                    return 50;
                 case ImageSize.Medium:
-                    return 500;
+                    return 80;
                 case ImageSize.Large:
-                    return 800;
+                    return 120;
                 default:
                     return 0;
             }
