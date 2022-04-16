@@ -74,17 +74,6 @@ namespace FantasyManager.WPF.ViewModels
                 _createUserTeamCommand.RaiseCanExecuteChanged();
            }
         }
-
-        private string _leaguesFeatureHeader;
-        public string LeaguesFeatureHeader
-        {
-            get { return _leaguesFeatureHeader; }
-            set
-            {
-                _leaguesFeatureHeader = value;
-                OnPropertyChanged();
-            }
-        }
         #endregion
 
         #region Commands
@@ -110,8 +99,6 @@ namespace FantasyManager.WPF.ViewModels
             _teamModelService = teamModelService;
             _seasonModelService = seasonModelService;
             _userTeamModelService = userTeamModelService;
-
-            LeaguesFeatureHeader = "Choose a League!";
 
             _createUserTeamCommand = new AsyncRelayCommand(CreateUserTeam, () => SelectedLeague != null && SelectedTeamLogo != null && UserTeamName != null && UserTeamName != "");
             _createUserTeamCommand.RaiseCanExecuteChanged();

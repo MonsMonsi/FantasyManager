@@ -50,7 +50,12 @@
       "ProjectGuid": "861a5963-5fa1-4af1-926d-d97911fc98c4",
       "DisplayName": "FantasyManager.Application",
       "ColorIndex": 8
+    },
+    "7d3fe5fe-ccd5-4eaf-8f6f-8eca2f9f4db4": {
+      "ProjectGuid": "7d3fe5fe-ccd5-4eaf-8f6f-8eca2f9f4db4",
+      "DisplayName": "FantasyManager.WPF.Common",
+      "ColorIndex": 9
     }
   },
-  "NextColorIndex": 9
+  "NextColorIndex": 10
 }

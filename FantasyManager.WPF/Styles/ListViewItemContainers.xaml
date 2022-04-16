@@ -7,7 +7,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Width" Value="auto"/>
         <Setter Property="Padding" Value="10 0 3 0"/>
-        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary1}"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="TextAlignment" Value="Left"/>
@@ -24,7 +24,7 @@
                 <ControlTemplate TargetType="ListViewItem">
                     <Border x:Name="LeagueBorder"
                             Margin="1" CornerRadius="10" BorderThickness="1 0 0 1" BorderBrush="{StaticResource BrushPrimary1}"
-                            Background="{StaticResource BrushSecondary1}">
+                            Background="{StaticResource BrushSecondary2}">
 
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -42,10 +42,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushSecondary2}"/>
+                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushPrimary3}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushSecondary2}"/>
+                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushPrimary3}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -62,7 +62,7 @@
                 <ControlTemplate TargetType="ListViewItem">
                     <Border x:Name="LeagueBorder"
                             Margin="1" CornerRadius="10" BorderThickness="1 0 0 1" BorderBrush="{StaticResource BrushPrimary1}"
-                            Background="{StaticResource BrushSecondary1}">
+                            Background="{StaticResource BrushSecondary2}">
 
                         <Image Source="{Binding Logo}"
                                Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3"
@@ -70,10 +70,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushSecondary2}"/>
+                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushPrimary3}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushSecondary2}"/>
+                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushPrimary3}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -87,7 +87,7 @@
                 <ControlTemplate TargetType="ListViewItem">
                     <Border x:Name="PlayerBorder"
                             Margin="1" CornerRadius="10" BorderThickness="1 0 0 1" BorderBrush="{StaticResource BrushPrimary1}"
-                            Background="{StaticResource BrushSecondary1}">
+                            Background="{StaticResource BrushPrimary3}">
 
                         <Grid>
                             <Grid.ColumnDefinitions>
