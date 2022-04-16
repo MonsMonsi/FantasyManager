@@ -10,6 +10,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="1000">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0.3" EndPoint="0,2.5">
+                <GradientStop Color="{StaticResource ColorPrimary2}" Offset="0.0"/>
+                <GradientStop Color="{StaticResource ColorPrimary1}" Offset="0.8"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -31,7 +37,7 @@
 
                 <TextBlock Text="Choose a League"
                            Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                           FontSize="20"/>
+                           FontSize="{StaticResource FontSizeBig}"/>
 
                 <ListView ItemsSource="{Binding Leagues}" SelectedItem="{Binding SelectedLeague}"
                           ItemContainerStyle="{StaticResource LeagueContainer}"
@@ -51,7 +57,7 @@
                 
                 <TextBlock Text="Choose a name for your Team"
                            Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                           FontSize="20"/>
+                           FontSize="{StaticResource FontSizeBig}"/>
 
                 <TextBox Text="{Binding UserTeamName, UpdateSourceTrigger=PropertyChanged}"
                          Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -70,7 +76,7 @@
 
                 <TextBlock Text="Choose a Logo"
                            Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                           FontSize="20"/>
+                           FontSize="{StaticResource FontSizeBig}"/>
 
                 <ListView ItemsSource="{Binding TeamLogos}" SelectedItem="{Binding SelectedTeamLogo}"
                           ItemContainerStyle="{StaticResource LogoContainer}"

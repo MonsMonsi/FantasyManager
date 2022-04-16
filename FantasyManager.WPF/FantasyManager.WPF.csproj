@@ -15,10 +15,12 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FantasyManager.Application\FantasyManager.Application.csproj" />
+    <ProjectReference Include="..\FantasyManager.WPF.Common\FantasyManager.WPF.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

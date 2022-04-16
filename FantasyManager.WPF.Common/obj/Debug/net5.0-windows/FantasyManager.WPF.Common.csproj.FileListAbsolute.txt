@@ -1,0 +1,12 @@
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net5.0-windows\FantasyManager.WPF.Common.deps.json
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net5.0-windows\FantasyManager.WPF.Common.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net5.0-windows\ref\FantasyManager.WPF.Common.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net5.0-windows\FantasyManager.WPF.Common.pdb
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net5.0-windows\FantasyManager.WPF.Common.csproj.AssemblyReference.cache
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net5.0-windows\FantasyManager.WPF.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net5.0-windows\FantasyManager.WPF.Common.AssemblyInfoInputs.cache
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net5.0-windows\FantasyManager.WPF.Common.AssemblyInfo.cs
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net5.0-windows\FantasyManager.WPF.Common.csproj.CoreCompileInputs.cache
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net5.0-windows\FantasyManager.WPF.Common.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net5.0-windows\ref\FantasyManager.WPF.Common.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net5.0-windows\FantasyManager.WPF.Common.pdb

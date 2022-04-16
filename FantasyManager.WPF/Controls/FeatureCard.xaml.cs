@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace FantasyManager.WPF.Controls
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for FeatureCard.xaml
     /// </summary>
-    public partial class LeagueCard : UserControl
+    public partial class FeatureCard : UserControl
     {
-        public LeagueCard()
+        public FeatureCard()
         {
             InitializeComponent();
         }
