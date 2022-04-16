@@ -1,6 +1,5 @@
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\FantasyManager.WPF.Common.deps.json
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\FantasyManager.WPF.Common.dll
-D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\ref\FantasyManager.WPF.Common.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\FantasyManager.WPF.Common.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\FantasyManager.WPF.Common.csproj.AssemblyReference.cache
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\FantasyManager.WPF.Common.GeneratedMSBuildEditorConfig.editorconfig
@@ -10,3 +9,4 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\n
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\FantasyManager.WPF.Common.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\ref\FantasyManager.WPF.Common.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\FantasyManager.WPF.Common.pdb
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\refint\FantasyManager.WPF.Common.dll

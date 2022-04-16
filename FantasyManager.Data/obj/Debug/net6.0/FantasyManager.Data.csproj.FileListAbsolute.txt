@@ -2,7 +2,6 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\bin\Debug\net6.0\
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\bin\Debug\net6.0\FantasyManager.Data.deps.json
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\bin\Debug\net6.0\FantasyManager.Data.runtimeconfig.json
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\bin\Debug\net6.0\FantasyManager.Data.dll
-D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\bin\Debug\net6.0\ref\FantasyManager.Data.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\bin\Debug\net6.0\FantasyManager.Data.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\bin\Debug\net6.0\FantasyManager.Domain.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\bin\Debug\net6.0\FantasyManager.Domain.pdb
@@ -16,3 +15,4 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\obj\Debug\net6.0\
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\obj\Debug\net6.0\ref\FantasyManager.Data.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\obj\Debug\net6.0\FantasyManager.Data.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\obj\Debug\net6.0\FantasyManager.Data.genruntimeconfig.cache
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Data\obj\Debug\net6.0\refint\FantasyManager.Data.dll

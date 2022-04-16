@@ -20,13 +20,56 @@
     <SolidColorBrush x:Key="BrushTextPrimary1" Color="{StaticResource ColorTextPrimary1}"/>
 
     <!-- Fonts -->
-    <markupExtensions:FontSize x:Key="FontSizeBig" Size="28.0"/>
-    <markupExtensions:FontSize x:Key="FontSizeMedium" Size="21.0"/>
-    <markupExtensions:FontSize x:Key="FontSizeSmall" Size="16.0"/>
+    <markupExtensions:FontSize x:Key="FontSizeBig" FontSize="28"/>
+    <markupExtensions:FontSize x:Key="FontSizeMedium" FontSize="21"/>
+    <markupExtensions:FontSize x:Key="FontSizeSmall" FontSize="16"/>
     
-    <!-- TextBlocks-->
+    <!-- TextBlocks -->
     <Style TargetType="TextBlock">
         <Setter Property="TextAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary1}"/>
+    </Style>
+    
+    <!-- Buttons -->
+    <Style TargetType="Button">
+        <Setter Property="BorderBrush" Value="{StaticResource BrushPrimary3}"/>
+        <Setter Property="Background" Value="{StaticResource BrushPrimary2}"/>
+        <Setter Property="Opacity" Value="0.7"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="borderMain"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="2" CornerRadius="7">
+
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter Property="Opacity" Value="1.0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <Style.Triggers>
+            
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="Background.Color" Duration="0:0:0:1" To="{StaticResource ColorPrimary1}"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetProperty="Background.Color" Duration="0:0:0:0.5" To="{StaticResource ColorPrimary2}" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

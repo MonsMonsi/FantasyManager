@@ -8,13 +8,13 @@ using System.Windows.Markup;
 
 namespace FantasyManager.WPF.Common.MarkupExtensions
 {
+    [TypeConverter(typeof(FontSizeExtension))]
     public class FontSizeExtension : MarkupExtension
     {
-        [TypeConverter("FontSizeExtension")]
-        public double Size { get; set; }
+        public double FontSize { get; set; }
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            return Size;
+            return FontSize;
         }
     }
 }

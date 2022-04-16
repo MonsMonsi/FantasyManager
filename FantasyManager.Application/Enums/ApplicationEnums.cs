@@ -11,4 +11,11 @@ namespace FantasyManager.Application.Enums
         Success,
         UserTeamNameAlreadyExists
     }
+
+    public enum ImageSize
+    {
+        Small,
+        Medium,
+        Large
+    }
 }

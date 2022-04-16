@@ -2,7 +2,6 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-w
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.WPF.deps.json
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.WPF.runtimeconfig.json
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.WPF.dll
-D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\ref\FantasyManager.WPF.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.WPF.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\FantasyManager.WPF.csproj.AssemblyReference.cache
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\MainWindow.g.cs
@@ -84,3 +83,4 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-w
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.WPF.Common.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\bin\Debug\net6.0-windows\FantasyManager.WPF.Common.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Styles\Borders.baml
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\refint\FantasyManager.WPF.dll

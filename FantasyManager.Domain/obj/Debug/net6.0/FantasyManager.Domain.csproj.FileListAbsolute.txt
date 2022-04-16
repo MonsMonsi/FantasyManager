@@ -1,6 +1,5 @@
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\bin\Debug\net6.0\FantasyManager.Domain.deps.json
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\bin\Debug\net6.0\FantasyManager.Domain.dll
-D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\bin\Debug\net6.0\ref\FantasyManager.Domain.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\bin\Debug\net6.0\FantasyManager.Domain.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\obj\Debug\net6.0\FantasyManager.Domain.csproj.AssemblyReference.cache
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\obj\Debug\net6.0\FantasyManager.Domain.GeneratedMSBuildEditorConfig.editorconfig
@@ -10,3 +9,4 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\obj\Debug\net6.
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\obj\Debug\net6.0\FantasyManager.Domain.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\obj\Debug\net6.0\ref\FantasyManager.Domain.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\obj\Debug\net6.0\FantasyManager.Domain.pdb
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.Domain\obj\Debug\net6.0\refint\FantasyManager.Domain.dll
