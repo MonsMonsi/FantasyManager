@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\App.xaml
-13-1342527320
+13-1590920966
 
-42-555551796
+37-1840178637
 222-1541473795
-Controls\FeatureCard.xaml;Controls\NavigationBar.xaml;Controls\PlayerListView.xaml;Controls\UserTeamFormationView.xaml;MainWindow.xaml;Styles\Common.xaml;Styles\ListViewItemContainers.xaml;Styles\NavigationBar.xaml;Views\CreateTeamView.xaml;Views\DraftTeamView.xaml;Views\HomeView.xaml;Views\LoginView.xaml;Views\PlaySeasonView.xaml;
+Controls\NavigationBar.xaml;Controls\PlayerListView.xaml;Controls\UserTeamFormationView.xaml;MainWindow.xaml;Styles\Borders.xaml;Styles\Common.xaml;Styles\ListViewItemContainers.xaml;Styles\NavigationBar.xaml;Views\CreateTeamView.xaml;Views\DraftTeamView.xaml;Views\HomeView.xaml;Views\LoginView.xaml;Views\PlaySeasonView.xaml;
 
-False
+True
 

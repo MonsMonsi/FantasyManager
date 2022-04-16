@@ -8,15 +8,23 @@
     <Color x:Key="ColorPrimary2">#7B6F6C</Color>
     <Color x:Key="ColorSecondary1">#C1ACA8</Color>
     <Color x:Key="ColorSecondary2">#C99286</Color>
+    <Color x:Key="ColorTextPrimary1">#EAE9E9</Color>
 
     <!-- Brushes -->
     <SolidColorBrush x:Key="BrushPrimary1" Color="{StaticResource ColorPrimary1}"/>
     <SolidColorBrush x:Key="BrushPrimary2" Color="{StaticResource ColorPrimary2}"/>
     <SolidColorBrush x:Key="BrushSecondary1" Color="{StaticResource ColorSecondary1}"/>
     <SolidColorBrush x:Key="BrushSecondary2" Color="{StaticResource ColorSecondary2}"/>
-    
+    <SolidColorBrush x:Key="BrushTextPrimary1" Color="{StaticResource ColorTextPrimary1}"/>
+
     <!-- Fonts -->
-    <markupExtensions:FontSize x:Key="FontSizeBig" Size="28"/>
-    <markupExtensions:FontSize x:Key="FontSizeMedium" Size="21"/>
-    <markupExtensions:FontSize x:Key="FontSizeSmall" Size="16"/>
+    <markupExtensions:FontSize x:Key="FontSizeBig" Size="28.0"/>
+    <markupExtensions:FontSize x:Key="FontSizeMedium" Size="21.0"/>
+    <markupExtensions:FontSize x:Key="FontSizeSmall" Size="16.0"/>
+    
+    <!-- TextBlocks-->
+    <Style TargetType="TextBlock">
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary1}"/>
+    </Style>
 </ResourceDictionary>

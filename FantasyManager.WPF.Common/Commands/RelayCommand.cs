@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace FantasyManager.WPF.Commands
+namespace FantasyManager.WPF.Common.Commands
 {
     public class RelayCommand<T> : ICommand
     {

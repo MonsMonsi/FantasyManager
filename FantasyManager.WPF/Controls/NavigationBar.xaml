@@ -7,7 +7,7 @@
              
              xmlns:nav="clr-namespace:FantasyManager.WPF.Enums"
              xmlns:vm="clr-namespace:FantasyManager.WPF.ViewModels"
-             xmlns:converters="clr-namespace:FantasyManager.WPF.Converters"
+             xmlns:converters="clr-namespace:FantasyManager.WPF.Common.Converters;assembly=FantasyManager.WPF.Common"
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" RenderOptions.EdgeMode="Aliased"
-                   Padding="10 7" FontSize="25" Foreground="Azure" Text="Fantasy Manager"
+                   Padding="10 7" FontSize="25" Foreground="{StaticResource BrushTextPrimary1}" Text="Fantasy Manager"
                    Style="{StaticResource NavHeader}"/>
 
         <Grid Grid.Row="1"

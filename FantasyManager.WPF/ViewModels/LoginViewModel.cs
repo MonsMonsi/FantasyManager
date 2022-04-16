@@ -1,4 +1,4 @@
-﻿using FantasyManager.WPF.Commands;
+﻿using FantasyManager.WPF.Common.Commands;
 using FantasyManager.WPF.State.Authenticators;
 using FantasyManager.WPF.State.Navigators;
 using System.Threading.Tasks;

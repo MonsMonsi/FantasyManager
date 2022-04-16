@@ -1,4 +1,4 @@
-﻿using FantasyManager.WPF.Commands.Interfaces;
+﻿using FantasyManager.WPF.Common.Commands.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace FantasyManager.WPF.Commands
+namespace FantasyManager.WPF.Common.Commands
 {
     public class AsyncRelayCommand : IAsyncRelayCommand
     {
