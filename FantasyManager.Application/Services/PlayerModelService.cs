@@ -30,15 +30,13 @@ namespace FantasyManager.Application.Services
                 {
                     Id = player.Id,
                     Image = player.Photo,
-                    Header = new List<string>()
+                    Header = new Header()
                     {
-                        player.FirstName,
-                        player.LastName,
-                        player.Position
+                        MainInfo = player.FirstName + " " + player.LastName,
                     },
-                    SubHeader = new List<string>()
+                    SubHeader = new SubHeader()
                     {
-                        player.Position
+                        MainInfo = player.Position
                     }
                 };
 

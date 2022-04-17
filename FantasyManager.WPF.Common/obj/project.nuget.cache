@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zebmXsMRF8OJgeN4XSPbyAlyQsx3VgDuoZh0vlnX95on4UFJgxioSJmcQUPmJMxqobKc50t1K2uK7udLsp90bQ==",
+  "dgSpecHash": "SL5h8dBJQoIJPtDH+P/fq6KH/z65NuxoLo9RsgPPyIgsunNyHMKkWyMCu49Be4PMhlBiWySHneBjmhrOLxOVhw==",
   "success": true,
   "projectFilePath": "D:\\VS_Projects\\WPF-Projects\\FantasyManager\\FantasyManager.WPF.Common\\FantasyManager.WPF.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\tessn\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
   "logs": []
 }

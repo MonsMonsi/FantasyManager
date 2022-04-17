@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "m7tbOG9GvndhHi/m7bQSry/mPVVnA6FwsEA7r8JRDWk/G9AZgu0RpUsuLR5ImYg2E4WeGvZ36B+Ey7Ve3nAtZg==",
+  "dgSpecHash": "Jhp9Q0Cql2BXlyTqDVrqr8ZrIEUf5GGVcAUGAO47AupCpM65E86psDbPaekFP0xsB4xixnyrSlJFvkJQVaFSxw==",
   "success": true,
   "projectFilePath": "D:\\VS_Projects\\WPF-Projects\\FantasyManager\\FantasyManager.WPF\\FantasyManager.WPF.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,7 @@
     "C:\\Users\\tessn\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\tessn\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\tessn\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\tessn\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
     "C:\\Users\\tessn\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\tessn\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\tessn\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",

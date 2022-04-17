@@ -9,13 +9,9 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="1000">
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0.3" EndPoint="0,2.5">
-                <GradientStop Color="{StaticResource ColorPrimary2}" Offset="0.0"/>
-                <GradientStop Color="{StaticResource ColorPrimary1}" Offset="0.8"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    
+    <Grid Style="{StaticResource DefaultBackgroundGrid}">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -48,8 +44,7 @@
 
                     <ListView ItemsSource="{Binding Leagues}" SelectedItem="{Binding SelectedLeague}"
                               ItemContainerStyle="{StaticResource LeagueContainer}"
-                              Margin="50 0" HorizontalAlignment="Stretch" VerticalAlignment="Center"
-                              BorderThickness="0" Background="Transparent"/>
+                              Margin="50 0" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                 </Border>
             </Grid>
         </Border>
@@ -104,9 +99,7 @@
                     <ListView ItemsSource="{Binding TeamLogos}" SelectedItem="{Binding SelectedTeamLogo}"
                               ItemContainerStyle="{StaticResource LogoContainer}"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                              Grid.Row="1" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Center"
-                              BorderThickness="0"
-                              Background="Transparent">
+                              Grid.Row="1" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Center">
 
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>

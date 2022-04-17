@@ -11,7 +11,7 @@ namespace FantasyManager.Application.Models.Observable
     {
         public int Id { get; set; }
         public string Image { get; set; }
-        public IEnumerable<string> Header { get; set; }
-        public IEnumerable<string> SubHeader { get; set; }
+        public Header Header { get; set; }
+        public SubHeader SubHeader { get; set; }
     }
 }

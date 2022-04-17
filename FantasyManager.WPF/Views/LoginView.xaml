@@ -9,9 +9,11 @@
              
              mc:Ignorable="d"
              d:DesignHeight="400" d:DesignWidth="700">
+    
     <UserControl.Background>
         <ImageBrush ImageSource="/Resources/LoginViewBackground.jpg" Stretch="UniformToFill"/>
     </UserControl.Background>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

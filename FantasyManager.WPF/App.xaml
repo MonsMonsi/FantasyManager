@@ -11,7 +11,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/Common.xaml"/>
+                <ResourceDictionary Source="/Styles/Grids.xaml"/>
                 <ResourceDictionary Source="/Styles/Borders.xaml"/>
+                <ResourceDictionary Source="/Styles/Images.xaml"/>
                 <ResourceDictionary Source="/Styles/NavigationBar.xaml"/>
                 <ResourceDictionary Source="/Styles/ListViewItemContainers.xaml"/>
             </ResourceDictionary.MergedDictionaries>
