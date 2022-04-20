@@ -1,8 +1,9 @@
-﻿
+﻿using FantasyManager.WPF.Enums;
+
 namespace FantasyManager.WPF.ViewModels.Factories.Interfaces
 {
-    public interface IFantasyManagerViewModelFactory<T> where T : ViewModelBase
+    public interface IFantasyManagerViewModelFactory
     {
-        T CreateViewModel();
+        ViewModelBase CreateViewModel(ViewType viewType);
     }
 }

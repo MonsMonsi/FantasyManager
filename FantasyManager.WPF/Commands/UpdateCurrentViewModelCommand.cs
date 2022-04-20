@@ -11,9 +11,9 @@ namespace FantasyManager.WPF.Commands
         public event EventHandler? CanExecuteChanged;
 
         private readonly INavigator _navigator;
-        private readonly IFantasyManagerViewModelAbstractFactory _viewModelFactory;
+        private readonly IFantasyManagerViewModelFactory _viewModelFactory;
 
-        public UpdateCurrentViewModelCommand(INavigator navigator, IFantasyManagerViewModelAbstractFactory viewModelFactory)
+        public UpdateCurrentViewModelCommand(INavigator navigator, IFantasyManagerViewModelFactory viewModelFactory)
         {
             _navigator = navigator;
             _viewModelFactory = viewModelFactory;

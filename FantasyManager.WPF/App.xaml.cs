@@ -44,16 +44,11 @@ namespace FantasyManager.WPF
         {
             IServiceCollection services = new ServiceCollection();
 
-            // DB-Context
             services.AddSingleton<FootballContextFactory>();
 
             var mapper = AutoMapperConfig.ConfigureAutoMapper();
             services.AddSingleton(mapper);
 
-            services.AddScoped<INavigator, Navigator>();
-            services.AddScoped<IAuthenticator, Authenticator>();
-
-            // Application-Services
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<IDataService<League>, GenericDataService<League>>();
             services.AddSingleton<IDataService<Team>, GenericDataService<Team>>();
@@ -66,27 +61,41 @@ namespace FantasyManager.WPF
             services.AddSingleton<IUserService, UserDataService>();
             services.AddSingleton<IUserTeamService, UserTeamDataService>();
             services.AddSingleton<IPlayerService, PlayerDataService>();
-
-            // Microsoft-Services
             services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
 
-            // ViewModelFactories
-            services.AddSingleton<IFantasyManagerViewModelAbstractFactory, FantasyManagerViewModelAbstractFactory>();
+            services.AddSingleton<IFantasyManagerViewModelFactory, FantasyManagerViewModelFactory>();
 
-            services.AddSingleton<IFantasyManagerViewModelFactory<LoginViewModel>>(s => 
-                new LoginViewModelFactory(s.GetRequiredService<IAuthenticator>(), 
-                new ViewModelFactoryRenavigator<HomeViewModel>(s.GetRequiredService<INavigator>(), 
-                s.GetRequiredService<IFantasyManagerViewModelFactory<HomeViewModel>>())));
+            services.AddSingleton <ViewModelDelegateRenavigator<HomeViewModel>>();
+            services.AddSingleton<CreateViewModel<LoginViewModel>>(services =>
+            {
+                return () => new LoginViewModel(services.GetRequiredService<IAuthenticator>(),
+                    services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>());
+            });
+            services.AddSingleton<CreateViewModel<HomeViewModel>>(services =>
+            {
+                return () => new HomeViewModel();
+            });
+            services.AddSingleton<CreateViewModel<CreateTeamViewModel>>(services =>
+            {
+                return () => new CreateTeamViewModel(services.GetRequiredService<IAuthenticator>(), 
+                    services.GetRequiredService<ILeagueModelService>(),
+                    services.GetRequiredService<ITeamModelService>(),
+                    services.GetRequiredService<ISeasonModelService>(),
+                    services.GetRequiredService<IUserTeamModelService>());
+            });
+            services.AddSingleton<CreateViewModel<DraftTeamViewModel>>(services =>
+            {
+                return () => new DraftTeamViewModel(services.GetRequiredService<IPlayerModelService>());
+            });
+            services.AddSingleton<CreateViewModel<PlaySeasonViewModel>>(services =>
+            {
+                return () => new PlaySeasonViewModel();
+            });
 
-            services.AddSingleton<IFantasyManagerViewModelFactory<HomeViewModel>, HomeViewModelFactory>();
-            services.AddSingleton<IFantasyManagerViewModelFactory<CreateTeamViewModel>, CreateTeamViewModelFactory>();
-            services.AddSingleton<IFantasyManagerViewModelFactory<DraftTeamViewModel>, DraftTeamViewModelFactory>();
-            services.AddSingleton<IFantasyManagerViewModelFactory<PlaySeasonViewModel>, PlaySeasonViewModelFactory>();
-
-            // ViewModels
+            services.AddScoped<INavigator, Navigator>();
+            services.AddScoped<IAuthenticator, Authenticator>();
             services.AddScoped<MainViewModel>();
 
-            // Windows
             services.AddScoped<MainWindow>(s => new WPF.MainWindow(s.GetRequiredService<MainViewModel>()));
 
             return services.BuildServiceProvider();

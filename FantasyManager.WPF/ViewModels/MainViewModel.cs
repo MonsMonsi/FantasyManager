@@ -9,13 +9,13 @@ namespace FantasyManager.WPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly IFantasyManagerViewModelAbstractFactory _viewModelfactory;
+        private readonly IFantasyManagerViewModelFactory _viewModelfactory;
 
         public INavigator Navigator { get; set; }
         public IAuthenticator Authenticator { get; set; }
         public ICommand UpdateCurrentViewModelCommand { get; }
 
-        public MainViewModel(INavigator navigator, IAuthenticator authenticator, IFantasyManagerViewModelAbstractFactory viewModelfactory)
+        public MainViewModel(INavigator navigator, IAuthenticator authenticator, IFantasyManagerViewModelFactory viewModelfactory)
         {
             Navigator = navigator;
             Authenticator = authenticator;
