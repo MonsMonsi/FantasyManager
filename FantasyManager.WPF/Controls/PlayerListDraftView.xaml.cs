@@ -18,9 +18,9 @@ namespace FantasyManager.WPF.Controls
     /// <summary>
     /// Interaction logic for PlayerListView.xaml
     /// </summary>
-    public partial class PlayerListView : UserControl
+    public partial class PlayerListDraftView : UserControl
     {
-        public PlayerListView()
+        public PlayerListDraftView()
         {
             InitializeComponent();
         }

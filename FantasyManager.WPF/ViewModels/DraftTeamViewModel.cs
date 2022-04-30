@@ -1,8 +1,9 @@
 ﻿using FantasyManager.Application.Models.Data;
 using FantasyManager.Application.Models.Observable;
+using FantasyManager.Application.Models.Observable.Interfaces;
 using FantasyManager.Application.Services.Interfaces;
-using FantasyManager.WPF.Common.Behaviors.DragDrop.Interfaces;
 using FantasyManager.WPF.Common.Commands;
+using FantasyManager.WPF.ViewModels.Controls;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -10,20 +11,11 @@ using System.Windows.Input;
 
 namespace FantasyManager.WPF.ViewModels
 {
-    public class DraftTeamViewModel : ViewModelBase, IDragable
+    public class DraftTeamViewModel : ViewModelBase
     {
-        #region OnChangeProperties
+        public PlayerListDraftViewModel PlayerListDraftViewModel { get; set; }
 
-        private int _leagueId;
-        public int LeagueId
-        {
-            get { return _leagueId; }
-            set
-            {
-                _leagueId = value;
-                OnPropertyChanged();
-            }
-        }
+        #region OnChangeProperties
 
         private ObservableCollection<PlayerListViewItemModel>? _players;
         public ObservableCollection<PlayerListViewItemModel>? Players
@@ -34,14 +26,6 @@ namespace FantasyManager.WPF.ViewModels
                 _players = value;
                 OnPropertyChanged();
             }
-        }
-        #endregion
-
-        #region IDragable Members
-
-        Type IDragable.DataType
-        {
-            get { return typeof(DraftTeamViewModel); }
         }
         #endregion
 
@@ -59,30 +43,14 @@ namespace FantasyManager.WPF.ViewModels
         }
         #endregion
 
-        private readonly IPlayerModelService _playerModelService;
-
-        public DraftTeamViewModel(IPlayerModelService playerModelService)
+        public DraftTeamViewModel(PlayerListDraftViewModel playerListDraftViewModel)
         {
-            _playerModelService = playerModelService;
-
-            LeagueId = 39;
-
-            LoadPlayers();
+            PlayerListDraftViewModel = playerListDraftViewModel;
         }
 
         private void OnPlayerDropped(object parameter)
         {
             var test = parameter.ToString();
-        }
-
-        private async Task LoadPlayers()
-        {
-            Players = new ObservableCollection<PlayerListViewItemModel>(await _playerModelService.GetByLeagueAsListViewItemAsync(LeagueId));
-        }
-
-        public void Remove(object i)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

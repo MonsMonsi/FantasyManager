@@ -10,3 +10,11 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\n
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\ref\FantasyManager.WPF.Common.dll
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\FantasyManager.WPF.Common.pdb
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\refint\FantasyManager.WPF.Common.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\Config.json
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\FantasyManager.Application.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\FantasyManager.Data.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\FantasyManager.Domain.dll
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\FantasyManager.Application.pdb
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\FantasyManager.Data.pdb
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\bin\Debug\net6.0-windows\FantasyManager.Domain.pdb
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF.Common\obj\Debug\net6.0-windows\FantasyManager.WPF.Common.csproj.CopyComplete

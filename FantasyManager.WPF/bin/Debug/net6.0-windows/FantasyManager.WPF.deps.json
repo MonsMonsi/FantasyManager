@@ -655,6 +655,7 @@
       },
       "FantasyManager.WPF.Common/1.0.0": {
         "dependencies": {
+          "FantasyManager.Application": "1.0.0",
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
         },
         "runtime": {

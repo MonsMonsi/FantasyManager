@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Identity;
 using FantasyManager.WPF.State.Authenticators;
 using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.Application.Services;
+using FantasyManager.WPF.ViewModels.Controls;
 
 namespace FantasyManager.WPF
 {
@@ -85,18 +86,23 @@ namespace FantasyManager.WPF
             });
             services.AddSingleton<CreateViewModel<DraftTeamViewModel>>(services =>
             {
-                return () => new DraftTeamViewModel(services.GetRequiredService<IPlayerModelService>());
+                return () => new DraftTeamViewModel(services.GetRequiredService<PlayerListDraftViewModel>());
             });
             services.AddSingleton<CreateViewModel<PlaySeasonViewModel>>(services =>
             {
                 return () => new PlaySeasonViewModel();
             });
 
+            services.AddSingleton(services =>
+            {
+                return new PlayerListDraftViewModel(services.GetRequiredService<IPlayerModelService>());
+            });
+
             services.AddScoped<INavigator, Navigator>();
             services.AddScoped<IAuthenticator, Authenticator>();
             services.AddScoped<MainViewModel>();
 
-            services.AddScoped<MainWindow>(s => new WPF.MainWindow(s.GetRequiredService<MainViewModel>()));
+            services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
             return services.BuildServiceProvider();
         }

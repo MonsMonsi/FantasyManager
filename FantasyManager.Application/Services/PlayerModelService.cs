@@ -43,7 +43,7 @@ namespace FantasyManager.Application.Services
                 playersAsListViewItem.Add(playerAsListViewItem);
             }
 
-            return playersAsListViewItem;
+            return playersAsListViewItem.AsEnumerable();
         }
 
         public async Task<IEnumerable<PlayerModel>> GetByLeagueAsync(int leagueId)

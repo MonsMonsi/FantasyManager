@@ -1,12 +1,8 @@
-﻿using FantasyManager.WPF.Common.Behaviors.DragDrop.Interfaces;
+﻿using FantasyManager.Application.Models.Observable.Interfaces;
 using Microsoft.Xaml.Behaviors;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 
 namespace FantasyManager.WPF.Common.Behaviors.DragDrop
 {
