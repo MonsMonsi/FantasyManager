@@ -20,7 +20,7 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
             this.adornerLayer.Add(this);
         }
 
-        internal void Update()
+        public void Update()
         {
             this.adornerLayer.Update(this.AdornedElement);
             this.Visibility = System.Windows.Visibility.Visible;
@@ -33,10 +33,10 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
 
         protected override void OnRender(DrawingContext drawingContext)
         {
-            Rect adornedElementRect = new Rect(this.AdornedElement.DesiredSize);
+            Rect adornedElementRect = new Rect(this.AdornedElement.RenderSize);
 
             SolidColorBrush renderBrush = new SolidColorBrush(Colors.Red);
-            renderBrush.Opacity = 0.5;
+            renderBrush.Opacity = 0.7;
             Pen renderPen = new Pen(new SolidColorBrush(Colors.White), 1.5);
             double renderRadius = 5.0;
 
