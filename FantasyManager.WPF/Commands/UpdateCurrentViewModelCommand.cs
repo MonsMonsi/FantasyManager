@@ -26,10 +26,8 @@ namespace FantasyManager.WPF.Commands
 
         public void Execute(object? parameter)
         {
-            if (parameter is ViewType)
+            if (parameter is ViewType viewType)
             {
-                ViewType viewType = (ViewType)parameter;
-
                 _navigator.CurrentViewModel = _viewModelFactory.CreateViewModel(viewType);
             }
         }

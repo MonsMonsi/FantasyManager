@@ -6,7 +6,8 @@
              
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:dd="clr-namespace:FantasyManager.WPF.Common.Behaviors.DragDrop;assembly=FantasyManager.WPF.Common"
-             xmlns:local="clr-namespace:FantasyManager.WPF.Controls"
+             xmlns:enums="clr-namespace:FantasyManager.WPF.Enums"
+             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="380">
     
@@ -30,21 +31,25 @@
                 </Grid.RowDefinitions>
                 <!--TODO: neuen RadioButton Style schreiben!!-->
                 <RadioButton Content="Goalkeeper"
+                             Command="{Binding SortPlayersCommand}" CommandParameter="{x:Static enums:PlayerPositionType.Goalkeeper}"
                              FontSize="20"
                              Style="{StaticResource NavRadioButton}"
                              Grid.Column="0" Grid.Row="0" Margin="10"/>
 
                 <RadioButton Content="Defender"
+                             Command="{Binding SortPlayersCommand}" CommandParameter="{x:Static enums:PlayerPositionType.Defender}"
                              FontSize="20"
                              Style="{StaticResource NavRadioButton}"
                              Grid.Column="1" Grid.Row="0" Margin="10"/>
 
                 <RadioButton Content="Midfielder"
+                             Command="{Binding SortPlayersCommand}" CommandParameter="{x:Static enums:PlayerPositionType.Midfielder}"
                              FontSize="20"
                              Style="{StaticResource NavRadioButton}"
                              Grid.Column="0" Grid.Row="1" Margin="10"/>
 
                 <RadioButton Content="Attacker"
+                             Command="{Binding SortPlayersCommand}" CommandParameter="{x:Static enums:PlayerPositionType.Attacker}"
                              FontSize="20"
                              Style="{StaticResource NavRadioButton}"
                              Grid.Column="1" Grid.Row="1" Margin="10"/>

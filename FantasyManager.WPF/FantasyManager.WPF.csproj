@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Commands\Interfaces\**" />
+    <EmbeddedResource Remove="Commands\Interfaces\**" />
+    <None Remove="Commands\Interfaces\**" />
+    <Page Remove="Commands\Interfaces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\football.jpg" />
     <None Remove="Resources\FootballPitch.jpg" />
     <None Remove="Resources\LoginViewBackground.jpg" />
@@ -33,10 +40,6 @@
     <Resource Include="Resources\LoginViewBackground.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Commands\Interfaces\" />
   </ItemGroup>
 
 </Project>

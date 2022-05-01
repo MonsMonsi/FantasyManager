@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FantasyManager.WPF.ViewModels.Controls
 {
-    public class PlayerDraftViewModel : ViewModelBase, IDragable, IDropable
+    public class PlayerDraftViewModel : ViewModelBase, IDragable
     {
         public int Id { get; set; }
         public string Image { get; set; }
@@ -30,18 +30,8 @@ namespace FantasyManager.WPF.ViewModels.Controls
 
         public void Remove(object i)
         {
-            throw new NotImplementedException();
-        }
-
-
-        #endregion
-
-        #region IDropable
-
-        Type IDropable.DataType => typeof(PlayerDraftViewModel);
-        public void Drop(object data, int index = -1)
-        {
-            throw new NotImplementedException();
+            // TODO: implementieren
+            var playerToRemove = i as PlayerDraftViewModel;
         }
         #endregion
     }
