@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FantasyManager.Application.Models.Observable.Interfaces
+namespace FantasyManager.WPF.Common.Behaviors.DragDrop.Interfaces
 {
     public interface IDragable
     {

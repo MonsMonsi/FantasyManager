@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using FantasyManager.Application.Enums;
-using FantasyManager.Application.Helpers;
 using FantasyManager.Application.Models.Data;
 using FantasyManager.Application.Models.Observable;
 using FantasyManager.Application.Services.Interfaces;
@@ -17,33 +15,26 @@ namespace FantasyManager.Application.Services
             _playerDataService = playerDataService;
         }
 
-        public async Task<IEnumerable<PlayerListViewItemModel>> GetByLeagueAsListViewItemAsync(int leagueId)
+        public async Task<IEnumerable<PlayerDraftModel>> GetByLeagueAsDraftModelAsync(int leagueId)
         {
-            var players = Mapper.Map<IEnumerable<PlayerModel>>(await _playerDataService.GetByLeagueAsync(leagueId));
+            var playerModels = Mapper.Map<IEnumerable<PlayerModel>>(await _playerDataService.GetByLeagueAsync(leagueId));
 
-            var playersAsListViewItem = new List<PlayerListViewItemModel>();
+            var playerDraftModels = new List<PlayerDraftModel>();
 
-            foreach (var player in players)
+            foreach (var player in playerModels)
             {
-                // TODO: Klasse für Header und SubHeader -> handling wäre viel besser
-                var playerAsListViewItem = new PlayerListViewItemModel()
+                var playerDraftModel = new PlayerDraftModel()
                 {
                     Id = player.Id,
                     Image = player.Photo,
-                    Header = new Header()
-                    {
-                        MainInfo = player.FirstName + " " + player.LastName,
-                    },
-                    SubHeader = new SubHeader()
-                    {
-                        MainInfo = player.Position
-                    }
+                    FullName = player.FirstName + player.LastName,
+                    Position = player.Position
                 };
 
-                playersAsListViewItem.Add(playerAsListViewItem);
+                playerDraftModels.Add(playerDraftModel);
             }
 
-            return playersAsListViewItem.AsEnumerable();
+            return playerDraftModels;
         }
 
         public async Task<IEnumerable<PlayerModel>> GetByLeagueAsync(int leagueId)

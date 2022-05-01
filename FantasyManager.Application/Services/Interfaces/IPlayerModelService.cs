@@ -11,6 +11,6 @@ namespace FantasyManager.Application.Services.Interfaces
     public interface IPlayerModelService
     {
         Task<IEnumerable<PlayerModel>> GetByLeagueAsync(int leagueId);
-        Task<IEnumerable<PlayerListViewItemModel>> GetByLeagueAsListViewItemAsync(int leagueId);
+        Task<IEnumerable<PlayerDraftModel>> GetByLeagueAsDraftModelAsync(int leagueId);
     }
 }

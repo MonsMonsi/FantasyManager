@@ -1,7 +1,4 @@
 ﻿using FantasyManager.Application.Models.Data;
-using FantasyManager.Application.Models.Observable;
-using FantasyManager.Application.Models.Observable.Interfaces;
-using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.WPF.Common.Commands;
 using FantasyManager.WPF.ViewModels.Controls;
 using System;
@@ -13,17 +10,18 @@ namespace FantasyManager.WPF.ViewModels
 {
     public class DraftTeamViewModel : ViewModelBase
     {
-        public PlayerListDraftViewModel PlayerListDraftViewModel { get; set; }
+        public PlayerDraftListViewModel PlayerDraftListViewModel { get; set; }
+        public UserTeamFormationViewModel UserTeamFormationViewModel { get; set; }
 
         #region OnChangeProperties
 
-        private ObservableCollection<PlayerListViewItemModel>? _players;
-        public ObservableCollection<PlayerListViewItemModel>? Players
+        private int _leagueId;
+        public int LeagueId
         {
-            get { return _players; }
+            get { return _leagueId; }
             set
             {
-                _players = value;
+                _leagueId = value;
                 OnPropertyChanged();
             }
         }
@@ -31,26 +29,14 @@ namespace FantasyManager.WPF.ViewModels
 
         #region Commands
 
-        private ICommand _onPlayerDroppedCommand;
-        public ICommand OnPlayerDroppedCommand 
-        {
-            get { return _onPlayerDroppedCommand ?? (_onPlayerDroppedCommand = new RelayCommand<object>(OnPlayerDropped)); }
-            set
-            {
-                _onPlayerDroppedCommand = value;
-                OnPropertyChanged();
-            }
-        }
         #endregion
 
-        public DraftTeamViewModel(PlayerListDraftViewModel playerListDraftViewModel)
+        public DraftTeamViewModel(PlayerDraftListViewModel playerDraftListViewModel, UserTeamFormationViewModel userTeamFormationViewModel)
         {
-            PlayerListDraftViewModel = playerListDraftViewModel;
-        }
+            PlayerDraftListViewModel = playerDraftListViewModel;
+            UserTeamFormationViewModel = userTeamFormationViewModel;
 
-        private void OnPlayerDropped(object parameter)
-        {
-            var test = parameter.ToString();
+            PlayerDraftListViewModel.LeagueId = 39;
         }
     }
 }

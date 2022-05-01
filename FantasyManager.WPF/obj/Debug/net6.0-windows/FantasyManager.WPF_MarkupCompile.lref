@@ -1,8 +1,7 @@
 ﻿
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\App.xaml;;
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\NavigationBar.xaml;;
-FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\PlayerListDraftView.xaml;;
-FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\UserTeamFormationView.xaml;;
+FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\PlayerDraftListView.xaml;;
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\MainWindow.xaml;;
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Styles\ListViewItemContainers.xaml;;
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Views\CreateTeamView.xaml;;

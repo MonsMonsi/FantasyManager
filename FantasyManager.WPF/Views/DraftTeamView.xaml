@@ -4,8 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              
-             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-             xmlns:dd="clr-namespace:FantasyManager.WPF.Common.Behaviors.DragDrop;assembly=FantasyManager.WPF.Common"
              xmlns:controls="clr-namespace:FantasyManager.WPF.Controls"
              xmlns:local="clr-namespace:FantasyManager.WPF.Views"
              
@@ -19,138 +17,10 @@
             <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- UserTeamFormationView -> überlegen wie in eigene Control zu packen!! -->
-        <Border Grid.Column="1"
-            Background="{StaticResource BrushPrimary2}"
-            BorderThickness="5" BorderBrush="{StaticResource BrushPrimary1}" CornerRadius="20">
+        <controls:UserTeamFormationView Grid.Column="1"
+                                        DataContext="{Binding UserTeamFormationViewModel}"/>
 
-            <Grid Margin="20 10">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/Resources/FootballPitch.jpg" Stretch="Fill"/>
-                </Grid.Background>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button Grid.Column="1" Margin="5"
-                            DataContext="{Binding Players}">
-                        <Image>
-
-                        </Image>
-                        <i:Interaction.Behaviors>
-                            <dd:FrameworkElementDropBehavior/>
-                        </i:Interaction.Behaviors>
-                    </Button>
-                </Grid>
-
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button Grid.Column="0" Margin="5">
-                        <Image/>
-                    </Button>
-
-                    <Grid Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.5*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="0.5*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Button Grid.Column="1" Margin="5">
-                            <Image/>
-                        </Button>
-
-                        <Button Grid.Column="2" Margin="5">
-                            <Image/>
-                        </Button>
-                    </Grid>
-
-                    <Button Grid.Column="2" Margin="5">
-                        <Image/>
-                    </Button>
-                </Grid>
-
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button Grid.Column="0" Margin="5">
-                        <Image/>
-                    </Button>
-
-                    <Grid Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.5*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="0.5*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Button Grid.Column="1" Margin="5">
-                            <Image/>
-                        </Button>
-
-                        <Button Grid.Column="2" Margin="5">
-                            <Image/>
-                        </Button>
-                    </Grid>
-
-                    <Button Grid.Column="2" Margin="5">
-                        <Image/>
-                    </Button>
-                </Grid>
-
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="0.5*"/>
-                            <ColumnDefinition Width="0.5*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Button Grid.Column="0" Margin="5">
-                            <Image/>
-                        </Button>
-
-                        <Button Grid.Column="3" Margin="5">
-                            <Image/>
-                        </Button>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Border>
-
-        <Border Grid.Column="2"
-                BorderThickness="2" BorderBrush="{StaticResource BrushPrimary1}" CornerRadius="20">
-
-            <controls:PlayerListDraftView DataContext="{Binding PlayerListDraftViewModel}"/>
-        </Border>
+        <controls:PlayerDraftListView Grid.Column="2"
+                                      DataContext="{Binding PlayerDraftListViewModel}"/>
     </Grid>
 </UserControl>

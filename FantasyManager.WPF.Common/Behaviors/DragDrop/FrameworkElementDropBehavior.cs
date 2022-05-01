@@ -1,4 +1,4 @@
-﻿using FantasyManager.Application.Models.Observable.Interfaces;
+﻿using FantasyManager.WPF.Common.Behaviors.DragDrop.Interfaces;
 using Microsoft.Xaml.Behaviors;
 using System;
 using System.Collections.Generic;

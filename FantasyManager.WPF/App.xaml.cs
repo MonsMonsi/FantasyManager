@@ -86,7 +86,8 @@ namespace FantasyManager.WPF
             });
             services.AddSingleton<CreateViewModel<DraftTeamViewModel>>(services =>
             {
-                return () => new DraftTeamViewModel(services.GetRequiredService<PlayerListDraftViewModel>());
+                return () => new DraftTeamViewModel(services.GetRequiredService<PlayerDraftListViewModel>(),
+                    services.GetRequiredService<UserTeamFormationViewModel>());
             });
             services.AddSingleton<CreateViewModel<PlaySeasonViewModel>>(services =>
             {
@@ -95,7 +96,11 @@ namespace FantasyManager.WPF
 
             services.AddSingleton(services =>
             {
-                return new PlayerListDraftViewModel(services.GetRequiredService<IPlayerModelService>());
+                return new PlayerDraftListViewModel(services.GetRequiredService<IPlayerModelService>());
+            });
+            services.AddSingleton(services =>
+            {
+                return new UserTeamFormationViewModel();
             });
 
             services.AddScoped<INavigator, Navigator>();
