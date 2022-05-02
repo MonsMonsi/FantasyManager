@@ -84,7 +84,7 @@
                             </Grid>
 
                             <i:Interaction.Behaviors>
-                                <ddvm:PlayerDraftViewModelDragBehavior/>
+                                <dd:FrameworkElementDragBehavior/>
                             </i:Interaction.Behaviors>
                         </Grid>
                     </DataTemplate>

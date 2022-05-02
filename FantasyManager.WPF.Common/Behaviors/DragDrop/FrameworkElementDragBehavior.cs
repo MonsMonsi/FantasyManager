@@ -31,7 +31,7 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
             e.Handled = true;
         }
 
-        public virtual void AssociatedObject_MouseLeave(object sender, MouseEventArgs e)
+        void AssociatedObject_MouseLeave(object sender, MouseEventArgs e)
         {
             if (isMouseClicked)
             {
