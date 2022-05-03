@@ -6,7 +6,6 @@
              
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:dd="clr-namespace:FantasyManager.WPF.Common.Behaviors.DragDrop;assembly=FantasyManager.WPF.Common"
-             xmlns:ddvm="clr-namespace:FantasyManager.WPF.Behaviors.DragDrop"
              xmlns:enums="clr-namespace:FantasyManager.WPF.Enums"
              
              mc:Ignorable="d" 

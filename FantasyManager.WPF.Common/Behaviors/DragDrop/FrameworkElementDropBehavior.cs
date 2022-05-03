@@ -15,11 +15,11 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
         {
             base.OnAttached();
 
-            AssociatedObject.AllowDrop = true;
-            AssociatedObject.DragEnter += new DragEventHandler(AssociatedObject_DragEnter);
-            AssociatedObject.DragOver += new DragEventHandler(AssociatedObject_DragOver);
-            AssociatedObject.DragLeave += new DragEventHandler(AssociatedObject_DragLeave);
-            AssociatedObject.Drop += new DragEventHandler(AssociatedObject_Drop);
+            this.AssociatedObject.AllowDrop = true;
+            this.AssociatedObject.DragEnter += new DragEventHandler(AssociatedObject_DragEnter);
+            this.AssociatedObject.DragOver += new DragEventHandler(AssociatedObject_DragOver);
+            this.AssociatedObject.DragLeave += new DragEventHandler(AssociatedObject_DragLeave);
+            this.AssociatedObject.Drop += new DragEventHandler(AssociatedObject_Drop);
         }
 
         void AssociatedObject_Drop(object sender, DragEventArgs e)
@@ -30,7 +30,7 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
                 if (e.Data.GetDataPresent(dataType))
                 {
                     //drop the data
-                    IDropable target = AssociatedObject.DataContext as IDropable;
+                    IDropable target = this.AssociatedObject.DataContext as IDropable;
                     target.Drop(e.Data.GetData(dataType));
 
                     //remove the data from the source
@@ -38,8 +38,8 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
                     source.Remove(e.Data.GetData(dataType));
                 }
             }
-            if (adorner != null)
-                adorner.Remove();
+            if (this.adorner != null)
+                this.adorner.Remove();
 
             e.Handled = true;
             return;
@@ -47,8 +47,8 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
 
         void AssociatedObject_DragLeave(object sender, DragEventArgs e)
         {
-            if (adorner != null)
-                adorner.Remove();
+            if (this.adorner != null)
+                this.adorner.Remove();
             e.Handled = true;
         }
 
@@ -60,10 +60,10 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
                 if (e.Data.GetDataPresent(dataType))
                 {
                     //give mouse effect
-                    SetDragDropEffects(e);
+                    this.SetDragDropEffects(e);
                     //draw the dots
-                    if (adorner != null)
-                        adorner.Update();
+                    if (this.adorner != null)
+                        this.adorner.Update();
                 }
             }
             e.Handled = true;
@@ -72,23 +72,27 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
         void AssociatedObject_DragEnter(object sender, DragEventArgs e)
         {
             //if the DataContext implements IDropable, record the data type that can be dropped
-            if (dataType == null)
+            if (this.dataType == null)
             {
-                if (AssociatedObject.DataContext != null)
+                if (this.AssociatedObject.DataContext != null)
                 {
-                    IDropable dropObject = AssociatedObject.DataContext as IDropable;
+                    IDropable dropObject = this.AssociatedObject.DataContext as IDropable;
                     if (dropObject != null)
                     {
-                        dataType = dropObject.DataType;
+                        this.dataType = dropObject.DataType;
                     }
                 }
             }
 
-            if (adorner == null)
-                adorner = new FrameworkElementAdorner(sender as UIElement);
+            if (this.adorner == null)
+                this.adorner = new FrameworkElementAdorner(sender as UIElement);
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Provides feedback on if the data can be dropped
+        /// </summary>
+        /// <param name="e"></param>
         private void SetDragDropEffects(DragEventArgs e)
         {
             e.Effects = DragDropEffects.None;  //default to None
@@ -99,5 +103,6 @@ namespace FantasyManager.WPF.Common.Behaviors.DragDrop
                 e.Effects = DragDropEffects.Move;
             }
         }
+
     }
 }
