@@ -26,7 +26,7 @@ namespace FantasyManager.WPF.ViewModels.Controls
         }
 
         #region IDragable
-        Type IDragable.DataType => typeof(PlayerDraftViewModel);
+        Type IDragable.DataType => typeof(ViewModelBase);
 
         public void Remove(object i)
         {

@@ -30,13 +30,11 @@ namespace FantasyManager.WPF.ViewModels.Controls
         }
 
         #region IDropable
-        Type IDropable.DataType => typeof(PlayerDraftViewModel);
+        Type IDropable.DataType => typeof(ViewModelBase);
 
         public void Drop(object data, int index = -1)
         {
-            var playerToDraft = data as PlayerDraftViewModel;
-
-            if(playerToDraft is not null)
+            if(data is PlayerDraftViewModel playerToDraft)
             {
                 DraftPlayer(playerToDraft);  
             }

@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace FantasyManager.WPF.ViewModels.Controls
 {
-    public class PlayerDraftListViewModel : ViewModelBase
+    public class PlayerDraftListViewModel : ViewModelBase, IDragable
     {
         private int _leagueId;
         public int LeagueId
@@ -97,5 +97,14 @@ namespace FantasyManager.WPF.ViewModels.Controls
 
             SortedPlayers = new ObservableCollection<PlayerDraftViewModel>(_allPlayers);
         }
+
+        #region IDragable
+
+        Type IDragable.DataType => typeof(ViewModelBase);
+        public void Remove(object i)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }
