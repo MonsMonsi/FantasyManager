@@ -1,46 +1,71 @@
 ﻿using FantasyManager.WPF.Common.Behaviors.DragDrop.Interfaces;
+using FantasyManager.WPF.Common.Helpers;
 using Microsoft.Xaml.Behaviors;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
 namespace FantasyManager.WPF.Common.Behaviors.DragDrop
 {
-    public class FrameworkElementDragBehavior : Behavior<FrameworkElement>
+    public class FrameworkElementDragBehavior : Behavior<FrameworkElement>, IFrameworkElementDragBehavior
     {
-        private bool isMouseClicked = false;
-
+        private bool _isMouseClicked = false;
+        private Cursor _customCursor = null;
         protected override void OnAttached()
         {
             base.OnAttached();
-            this.AssociatedObject.MouseLeftButtonDown += new MouseButtonEventHandler(AssociatedObject_MouseLeftButtonDown);
-            this.AssociatedObject.MouseLeftButtonUp += new MouseButtonEventHandler(AssociatedObject_MouseLeftButtonUp);
-            this.AssociatedObject.MouseLeave += new MouseEventHandler(AssociatedObject_MouseLeave);
+            AssociatedObject.MouseLeave += new MouseEventHandler(AssociatedObject_MouseLeave);
+            AssociatedObject.GiveFeedback += new GiveFeedbackEventHandler(AssociatedObject_GiveFeedback);
+            AssociatedObject.MouseLeftButtonDown += new MouseButtonEventHandler(AssociatedObject_MouseLeftButtonDown);
+            AssociatedObject.MouseLeftButtonUp += new MouseButtonEventHandler(AssociatedObject_MouseLeftButtonUp);
         }
-
-        void AssociatedObject_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        public void AssociatedObject_MouseLeave(object sender, MouseEventArgs e)
         {
-            isMouseClicked = true;
-        }
-
-        void AssociatedObject_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            isMouseClicked = false;
-        }
-
-        void AssociatedObject_MouseLeave(object sender, MouseEventArgs e)
-        {
-            if (isMouseClicked)
+            if (_isMouseClicked)
             {
-                //set the item's DataContext as the data to be transferred
-                IDragable dragObject = this.AssociatedObject.DataContext as IDragable;
-                if (dragObject != null)
+                var dragSource = AssociatedObject.DataContext;
+
+                if (dragSource is not null)
                 {
-                    DataObject data = new DataObject();
-                    data.SetData(dragObject.DataType, this.AssociatedObject.DataContext);
-                    System.Windows.DragDrop.DoDragDrop(this.AssociatedObject, data, DragDropEffects.Move);
+                    var data = new DataObject();
+                    data.SetData(dragSource.GetType(), dragSource);
+                    System.Windows.DragDrop.DoDragDrop(AssociatedObject, data, DragDropEffects.Move);
                 }
             }
-            isMouseClicked = false;
+            _isMouseClicked = false;
+        }
+
+        public void AssociatedObject_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+            if (e.Effects == DragDropEffects.None)
+            {
+                if (_customCursor == null)
+                    _customCursor = CursorHelper.CreateCursor(e.Source as UIElement);
+
+                if (_customCursor != null)
+                {
+                    e.UseDefaultCursors = false;
+                    Mouse.SetCursor(_customCursor);
+                }
+            }
+            else
+                e.UseDefaultCursors = true;
+
+            e.Handled = true;
+        }
+
+        public void AssociatedObject_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _isMouseClicked = true;
+        }
+
+        public void AssociatedObject_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _isMouseClicked = false;
         }
     }
 }

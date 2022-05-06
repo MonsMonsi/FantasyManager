@@ -1,4 +1,5 @@
-﻿using FantasyManager.WPF.Common.Behaviors.DragDrop.Interfaces;
+﻿using FantasyManager.Application.Models.Observable;
+using FantasyManager.WPF.Common.Behaviors.DragDrop.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace FantasyManager.WPF.ViewModels.Controls
 {
-    public class UserTeamFormationViewModel : ViewModelBase, IDropable
+    public class UserTeamFormationViewModel : ViewModelBase
     {
         #region OnChangeProperties
-        private ObservableCollection<PlayerDraftViewModel> _drafts;
-        public ObservableCollection<PlayerDraftViewModel> Drafts
+        private ObservableCollection<PlayerDraftModel> _drafts;
+        public ObservableCollection<PlayerDraftModel> Drafts
         {
             get { return _drafts; }
             set
@@ -25,22 +26,10 @@ namespace FantasyManager.WPF.ViewModels.Controls
 
         public UserTeamFormationViewModel()
         {
-            Drafts = new ObservableCollection<PlayerDraftViewModel>(new PlayerDraftViewModel[18]);
-            
+            Drafts = new ObservableCollection<PlayerDraftModel>(new PlayerDraftModel[18]);
         }
 
-        #region IDropable
-        Type IDropable.DataType => typeof(ViewModelBase);
-
-        public void Drop(object data, int index = -1)
-        {
-            if(data is PlayerDraftViewModel playerToDraft)
-            {
-                DraftPlayer(playerToDraft);  
-            }
-        }
-
-        private void DraftPlayer(PlayerDraftViewModel player)
+        public void DraftPlayer(PlayerDraftModel player)
         {
             var index = -1;
 
@@ -95,6 +84,5 @@ namespace FantasyManager.WPF.ViewModels.Controls
 
             return noFreePosition;
         }
-        #endregion
     }
 }

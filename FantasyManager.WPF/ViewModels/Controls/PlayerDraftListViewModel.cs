@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace FantasyManager.WPF.ViewModels.Controls
 {
-    public class PlayerDraftListViewModel : ViewModelBase, IDragable
+    public class PlayerDraftListViewModel : ViewModelBase
     {
         private int _leagueId;
         public int LeagueId
@@ -30,8 +30,8 @@ namespace FantasyManager.WPF.ViewModels.Controls
 
         #region OnChangeProperties
 
-        private ObservableCollection<PlayerDraftViewModel> _sortedPlayers;
-        public ObservableCollection<PlayerDraftViewModel> SortedPlayers
+        private ObservableCollection<PlayerDraftModel> _sortedPlayers;
+        public ObservableCollection<PlayerDraftModel> SortedPlayers
         {
             get { return _sortedPlayers; }
             set
@@ -47,7 +47,7 @@ namespace FantasyManager.WPF.ViewModels.Controls
         public ICommand SortPlayersCommand { get; }
         #endregion
 
-        private List<PlayerDraftViewModel> _allPlayers = new List<PlayerDraftViewModel>();
+        private List<PlayerDraftModel> _allPlayers = new List<PlayerDraftModel>();
 
         private readonly IPlayerModelService _playerModelService;
 
@@ -58,6 +58,13 @@ namespace FantasyManager.WPF.ViewModels.Controls
             SortPlayersCommand = new AsyncRelayCommand<object>(SortPlayers);
         }
 
+        public void RemovePlayerFromList(PlayerDraftModel player)
+        {
+            _allPlayers.Remove(player);
+
+            UpdateObservableCollection();
+        }
+
         private async Task SortPlayers(object parameter)
         {
             if (parameter is PlayerPositionType position)
@@ -65,16 +72,16 @@ namespace FantasyManager.WPF.ViewModels.Controls
                 switch (position)
                 {
                     case PlayerPositionType.Goalkeeper:
-                        SortedPlayers = new ObservableCollection<PlayerDraftViewModel>(_allPlayers.Where(p => p.Position == PlayerPositionType.Goalkeeper.ToString()));
+                         await UpdateObservableCollection(position.ToString());
                         break;
                     case PlayerPositionType.Defender:
-                        SortedPlayers = new ObservableCollection<PlayerDraftViewModel>(_allPlayers.Where(p => p.Position == PlayerPositionType.Defender.ToString()));
+                        await UpdateObservableCollection(position.ToString());
                         break;
                     case PlayerPositionType.Midfielder:
-                        SortedPlayers = new ObservableCollection<PlayerDraftViewModel>(_allPlayers.Where(p => p.Position == PlayerPositionType.Midfielder.ToString()));
+                        await UpdateObservableCollection(position.ToString());
                         break;
                     case PlayerPositionType.Attacker:
-                        SortedPlayers = new ObservableCollection<PlayerDraftViewModel>(_allPlayers.Where(p => p.Position == PlayerPositionType.Attacker.ToString()));
+                        await UpdateObservableCollection(position.ToString());
                         break;
                     default:
                         break;
@@ -82,29 +89,25 @@ namespace FantasyManager.WPF.ViewModels.Controls
             }
         }
 
+        private async Task UpdateObservableCollection(string position = "")
+        {
+            if (position is "")
+            {
+                SortedPlayers = new ObservableCollection<PlayerDraftModel>(_allPlayers);
+            }
+            else
+            {
+                SortedPlayers = new ObservableCollection<PlayerDraftModel>(_allPlayers.Where(p => p.Position == position));    
+            }
+        }
+
         private async Task LoadPlayers()
         {
             _allPlayers.Clear();
 
-            var playerDraftModels = new List<PlayerDraftModel>(await _playerModelService.GetByLeagueAsDraftModelAsync(LeagueId));
+            _allPlayers = new List<PlayerDraftModel>(await _playerModelService.GetByLeagueAsDraftModelAsync(LeagueId));
 
-            foreach (var playerDraftModel in playerDraftModels)
-            {
-                var playerDraftViewModel = new PlayerDraftViewModel(playerDraftModel);
-
-                _allPlayers.Add(playerDraftViewModel);
-            }
-
-            SortedPlayers = new ObservableCollection<PlayerDraftViewModel>(_allPlayers);
+            await UpdateObservableCollection();
         }
-
-        #region IDragable
-
-        Type IDragable.DataType => typeof(ViewModelBase);
-        public void Remove(object i)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
     }
 }

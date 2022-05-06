@@ -10,10 +10,11 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="380">
-    
-    <Border BorderThickness="2" BorderBrush="{StaticResource BrushPrimary1}" CornerRadius="20">
 
-        <Grid>
+    <Border x:Name="rootBorder"
+            BorderThickness="2" BorderBrush="{StaticResource BrushPrimary1}" CornerRadius="20">
+
+        <Grid DataContext="{Binding PlayerDraftListViewModel}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="2.5*"/>
@@ -55,8 +56,8 @@
                              Grid.Column="1" Grid.Row="1" Margin="10"/>
             </Grid>
 
-            <ListView ItemsSource="{Binding SortedPlayers}"
-                      Grid.Row="1" Margin="20 10">
+            <ListView Grid.Row="1" Margin="20 10"
+                      ItemsSource="{Binding SortedPlayers}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>

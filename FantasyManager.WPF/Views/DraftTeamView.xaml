@@ -17,10 +17,8 @@
             <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
 
-        <controls:UserTeamFormationView Grid.Column="1"
-                                        DataContext="{Binding UserTeamFormationViewModel}"/>
+        <controls:UserTeamFormationView Grid.Column="1"/>
 
-        <controls:PlayerDraftListView Grid.Column="2"
-                                      DataContext="{Binding PlayerDraftListViewModel}"/>
+        <controls:PlayerDraftListView Grid.Column="2"/>
     </Grid>
 </UserControl>

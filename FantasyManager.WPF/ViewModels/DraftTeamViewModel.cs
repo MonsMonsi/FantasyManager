@@ -1,4 +1,5 @@
 ﻿using FantasyManager.Application.Models.Data;
+using FantasyManager.Application.Models.Observable;
 using FantasyManager.WPF.Common.Commands;
 using FantasyManager.WPF.ViewModels.Controls;
 using System;
@@ -29,6 +30,7 @@ namespace FantasyManager.WPF.ViewModels
 
         #region Commands
 
+        public ICommand HandleDropCommand { get; }
         #endregion
 
         public DraftTeamViewModel(PlayerDraftListViewModel playerDraftListViewModel, UserTeamFormationViewModel userTeamFormationViewModel)
@@ -37,6 +39,18 @@ namespace FantasyManager.WPF.ViewModels
             UserTeamFormationViewModel = userTeamFormationViewModel;
 
             PlayerDraftListViewModel.LeagueId = 39;
+
+            HandleDropCommand = new RelayCommand<object>(HandleDrop);
+        }
+
+        private void HandleDrop(object dragSource)
+        {
+            if (dragSource is PlayerDraftModel player)
+            {
+                PlayerDraftListViewModel.RemovePlayerFromList(player);
+
+                UserTeamFormationViewModel.DraftPlayer(player);
+            }
         }
     }
 }

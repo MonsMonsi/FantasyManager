@@ -10,11 +10,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="380">
 
-    <Border Grid.Column="0"
+    <Border x:Name="rootBorder"
+            Grid.Column="0"
             Background="{StaticResource BrushPrimary2}"
             BorderThickness="2" BorderBrush="{StaticResource BrushPrimary1}" CornerRadius="20">
 
-        <Grid Margin="20 10">
+        <Grid Margin="20 10"
+              DataContext="{Binding UserTeamFormationViewModel}">
             <Grid.Background>
                 <ImageBrush ImageSource="/Resources/FootballPitch.jpg" Stretch="Fill"/>
             </Grid.Background>
@@ -38,7 +40,7 @@
                     <Image Source="{Binding Drafts[0].Image}"/>
 
                     <i:Interaction.Behaviors>
-                        <dd:FrameworkElementDropBehavior/>
+                        <dd:FrameworkElementDropBehavior HandleDropCommand="{Binding Path=DataContext.HandleDropCommand, ElementName=rootBorder}"/>
                     </i:Interaction.Behaviors>
                 </Button>
             </Grid>

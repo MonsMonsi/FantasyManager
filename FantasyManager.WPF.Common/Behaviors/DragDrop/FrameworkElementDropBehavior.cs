@@ -2,107 +2,95 @@
 using Microsoft.Xaml.Behaviors;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace FantasyManager.WPF.Common.Behaviors.DragDrop
 {
-    public class FrameworkElementDropBehavior : Behavior<FrameworkElement>
+    public class FrameworkElementDropBehavior : Behavior<FrameworkElement>, IFrameworkElementDropBehavior
     {
-        private Type dataType; //the type of the data that can be dropped into this control
-        private FrameworkElementAdorner adorner;
+        #region DependencyProperties
+
+        public ICommand HandleDropCommand
+        {
+            get { return (ICommand)GetValue(HandleDropCommandProperty); }
+            set { SetValue(HandleDropCommandProperty, value); }
+        }
+
+        public static readonly DependencyProperty HandleDropCommandProperty =
+            DependencyProperty.Register("HandleDropCommand", typeof(ICommand), typeof(FrameworkElementDropBehavior), new PropertyMetadata(null));
+        #endregion
+
+        private FrameworkElementAdorner _adorner;
 
         protected override void OnAttached()
         {
             base.OnAttached();
 
-            this.AssociatedObject.AllowDrop = true;
-            this.AssociatedObject.DragEnter += new DragEventHandler(AssociatedObject_DragEnter);
-            this.AssociatedObject.DragOver += new DragEventHandler(AssociatedObject_DragOver);
-            this.AssociatedObject.DragLeave += new DragEventHandler(AssociatedObject_DragLeave);
-            this.AssociatedObject.Drop += new DragEventHandler(AssociatedObject_Drop);
+            AssociatedObject.AllowDrop = true;
+            AssociatedObject.DragEnter += new DragEventHandler(AssociatedObject_DragEnter);
+            AssociatedObject.DragOver += new DragEventHandler(AssociatedObject_DragOver);
+            AssociatedObject.DragLeave += new DragEventHandler(AssociatedObject_DragLeave);
+            AssociatedObject.Drop += new DragEventHandler(AssociatedObject_Drop);
         }
 
-        void AssociatedObject_Drop(object sender, DragEventArgs e)
+        public void AssociatedObject_Drop(object sender, DragEventArgs e)
         {
-            if (dataType != null)
-            {
-                //if the data type can be dropped 
-                if (e.Data.GetDataPresent(dataType))
-                {
-                    //drop the data
-                    IDropable target = this.AssociatedObject.DataContext as IDropable;
-                    target.Drop(e.Data.GetData(dataType));
+            var format = e.Data.GetFormats().First();
 
-                    //remove the data from the source
-                    IDragable source = e.Data.GetData(dataType) as IDragable;
-                    source.Remove(e.Data.GetData(dataType));
-                }
+            if (e.Data.GetDataPresent(format))
+            {
+                HandleDropCommand?.Execute(e.Data.GetData(format));
             }
-            if (this.adorner != null)
-                this.adorner.Remove();
+
+            if (_adorner != null)
+                _adorner.Remove();
 
             e.Handled = true;
             return;
         }
 
-        void AssociatedObject_DragLeave(object sender, DragEventArgs e)
+        public void AssociatedObject_DragEnter(object sender, DragEventArgs e)
         {
-            if (this.adorner != null)
-                this.adorner.Remove();
+            if (_adorner == null)
+                _adorner = new FrameworkElementAdorner(sender as UIElement);
             e.Handled = true;
         }
 
-        void AssociatedObject_DragOver(object sender, DragEventArgs e)
+        public void AssociatedObject_DragOver(object sender, DragEventArgs e)
         {
-            if (dataType != null)
-            {
-                //if item can be dropped
-                if (e.Data.GetDataPresent(dataType))
-                {
-                    //give mouse effect
-                    this.SetDragDropEffects(e);
-                    //draw the dots
-                    if (this.adorner != null)
-                        this.adorner.Update();
-                }
-            }
-            e.Handled = true;
-        }
+            var format = e.Data.GetFormats().First();
 
-        void AssociatedObject_DragEnter(object sender, DragEventArgs e)
-        {
-            //if the DataContext implements IDropable, record the data type that can be dropped
-            if (this.dataType == null)
+            if (e.Data.GetDataPresent(format))
             {
-                if (this.AssociatedObject.DataContext != null)
-                {
-                    IDropable dropObject = this.AssociatedObject.DataContext as IDropable;
-                    if (dropObject != null)
-                    {
-                        this.dataType = dropObject.DataType;
-                    }
-                }
+                SetDragDropEffects(e);
+                if (_adorner != null)
+                    _adorner.Update();
             }
 
-            if (this.adorner == null)
-                this.adorner = new FrameworkElementAdorner(sender as UIElement);
             e.Handled = true;
         }
 
-        /// <summary>
-        /// Provides feedback on if the data can be dropped
-        /// </summary>
-        /// <param name="e"></param>
+        public void AssociatedObject_DragLeave(object sender, DragEventArgs e)
+        {
+            if (_adorner != null)
+                _adorner.Remove();
+            e.Handled = true;
+        }
+
         private void SetDragDropEffects(DragEventArgs e)
         {
-            e.Effects = DragDropEffects.None;  //default to None
+            e.Effects = DragDropEffects.None;
 
-            //if the data type can be dropped 
-            if (e.Data.GetDataPresent(dataType))
+            var format = e.Data.GetFormats().First();
+
+            if (e.Data.GetDataPresent(format))
             {
                 e.Effects = DragDropEffects.Move;
             }
         }
-
     }
 }
