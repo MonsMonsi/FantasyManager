@@ -45,10 +45,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushPrimary3}"/>
+                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushPrimary2}"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushPrimary3}"/>
+                            <Setter TargetName="LeagueBorder" Property="Background" Value="{StaticResource BrushPrimary2}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

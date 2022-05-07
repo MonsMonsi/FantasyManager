@@ -7,10 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controls\LeagueSelectionView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\NavigationBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\PlayerDraftListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\TutorialView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\UserTeamFormationView.xaml.cs">
@@ -33,10 +39,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Controls\LeagueSelectionView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Controls\NavigationBar.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\PlayerDraftListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\TutorialView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\UserTeamFormationView.xaml">

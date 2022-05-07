@@ -14,41 +14,44 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="0" Grid.Row="0" Margin="5"
-                Style="{StaticResource FeatureOuterBorder}">
+        <controls:TutorialView Grid.Column="0" Grid.Row="0"
+                               DataContext="{Binding TutorialViewModel}"/>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="4.5*"/>
-                </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-                <Border Grid.Row="0" Margin="2"
-                        Style="{StaticResource FeatureInnerBorder}">
-                    
-                    <TextBlock Text="Choose a League"
-                               Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                               FontSize="{StaticResource FontSizeBig}"/>
-                </Border>
+            <ContentPresenter Grid.Row="0"
+                              Content="{Binding CurrentViewModel}"/>
 
-                <Border Grid.Row="1" Margin="2" 
-                        Style="{StaticResource FeatureInnerBorder}">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-                    <ListView ItemsSource="{Binding Leagues}" SelectedItem="{Binding SelectedLeague}"
-                              ItemContainerStyle="{StaticResource LeagueContainer}"
-                              Margin="50 0" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-                </Border>
+                <Button Grid.Column="0"
+                        Command="{Binding ResetCreationCommand}"
+                        Content="Reset"
+                        Height="25" Width="170"/>
+
+                <Button Grid.Column="1"
+                        Command="{Binding SubmitCreationCommand}"
+                        Content="Submit"
+                        Height="25" Width="170"/>
             </Grid>
-        </Border>
-
+        </Grid>
+        <!--
         <Border Grid.Column="1" Grid.Row="0" Margin="5"
                 Style="{StaticResource FeatureOuterBorder}">
 
@@ -128,6 +131,6 @@
                             Grid.Row="1" Margin="50 0" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
                 </Border>
             </Grid>
-        </Border>
+        </Border>-->
     </Grid>
 </UserControl>

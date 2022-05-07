@@ -5,7 +5,9 @@ using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.WPF.Common.Commands;
 using FantasyManager.WPF.Enums;
 using FantasyManager.WPF.State.Authenticators;
+using FantasyManager.WPF.ViewModels.Controls;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,151 +17,78 @@ namespace FantasyManager.WPF.ViewModels
 {
     public class CreateTeamViewModel : ViewModelBase
     {
+        public ViewModelBase CurrentViewModel { get; set; }
+        public TutorialViewModel TutorialViewModel { get; set; }
+
         #region OnChangeProperties
 
-        private ObservableCollection<LeagueModel>? _leagues;
-        public ObservableCollection<LeagueModel>? Leagues
+        private LeagueSelectionViewModel _leagueSelectionViewModel;
+        public LeagueSelectionViewModel LeagueSelectionViewModel
         {
-            get { return _leagues; }
+            get { return _leagueSelectionViewModel; }
             set
             {
-                _leagues = value;
+                _leagueSelectionViewModel = value;
                 OnPropertyChanged();
+                if (_submitCreationCommand is not null)
+                {
+                    _submitCreationCommand.RaiseCanExecuteChanged();
+                }
             }
-        }
-
-        private LeagueModel _selectedLeague;
-        public LeagueModel SelectedLeague
-        {
-            get { return _selectedLeague; }
-            set
-            {
-                _selectedLeague = value;
-                OnPropertyChanged();
-                _createUserTeamCommand.RaiseCanExecuteChanged();
-            }
-        }
-
-        private ObservableCollection<TeamLogoModel>? _teamLogos;
-        public ObservableCollection<TeamLogoModel>? TeamLogos
-        {
-            get { return _teamLogos; }
-            set
-            {
-                _teamLogos = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private TeamLogoModel _selectedTeamLogo;
-        public TeamLogoModel SelectedTeamLogo
-        {
-            get { return _selectedTeamLogo; }
-            set
-            {
-                _selectedTeamLogo = value;
-                OnPropertyChanged();
-                _createUserTeamCommand.RaiseCanExecuteChanged();
-            }
-        }
-
-        private string _userTeamName;
-        public string UserTeamName
-        {
-            get { return _userTeamName; }
-            set
-            {
-                _userTeamName = value;
-                OnPropertyChanged();
-                _createUserTeamCommand.RaiseCanExecuteChanged();
-           }
         }
         #endregion
 
         #region Commands
 
-        private AsyncRelayCommand _createUserTeamCommand;
-        public ICommand CreateUserTeamCommand { get { return _createUserTeamCommand; } }
+        public ICommand ResetCreationCommand { get; }
+
+        private RelayCommand _submitCreationCommand;
+        public ICommand SubmitCreationCommand { get { return _submitCreationCommand; } }
         #endregion
 
-        private readonly IAuthenticator _authenticator; 
-        private readonly ILeagueModelService _leagueModelService;
-        private readonly ITeamModelService _teamModelService;
-        private readonly ISeasonModelService _seasonModelService;
-        private readonly IUserTeamModelService _userTeamModelService;
+        private List<string> _tutorialMessages;
 
-        public CreateTeamViewModel(IAuthenticator authenticator, 
-            ILeagueModelService leagueModelService, 
-            ITeamModelService teamModelService, 
-            ISeasonModelService seasonModelService, 
-            IUserTeamModelService userTeamModelService)
+        public CreateTeamViewModel(TutorialViewModel tutorialViewModel, LeagueSelectionViewModel leagueSelectionViewModel)
         {
-            _authenticator = authenticator;
-            _leagueModelService = leagueModelService;
-            _teamModelService = teamModelService;
-            _seasonModelService = seasonModelService;
-            _userTeamModelService = userTeamModelService;
+            TutorialViewModel = tutorialViewModel;
+            LeagueSelectionViewModel = leagueSelectionViewModel;
 
-            _createUserTeamCommand = new AsyncRelayCommand(CreateUserTeam, () => SelectedLeague != null && SelectedTeamLogo != null && UserTeamName != null && UserTeamName != "");
-            _createUserTeamCommand.RaiseCanExecuteChanged();
+            CurrentViewModel = LeagueSelectionViewModel;
 
-            LoadLeagues();
-            LoadTeamLogos();
+            ResetCreationCommand = new RelayCommand(ResetCreation);
+            _submitCreationCommand = new RelayCommand(SubmitCreation, IsSubmittable);
+
+            LoadTutorialMessages();
+
+            TutorialViewModel.TutorialMessage = _tutorialMessages[0];
         }
 
-        private async Task CreateUserTeam()
+        private void ResetCreation()
         {
-            // TODO: Funktion überdenken -> wo soll die Validierung stattfinden?
-            CreationResult result;
 
-            var storedUserTeam = await _userTeamModelService.GetByNameAsync(UserTeamName);
-
-            if (storedUserTeam is null)
-            {
-                // TODO: Season soll gewählt werden können, nicht jedes Mal neue erstellen!
-                var seasonModel = new SeasonModel()
-                {
-                    Name = UserTeamName + "_" + DateTime.Now,
-                    LeagueId = SelectedLeague.Id
-                };
-
-                var createdSeason = await _seasonModelService.CreateAsync(seasonModel);
-
-                var userTeamModel = new UserTeamModel()
-                {
-                    Name = UserTeamName,
-                    Logo = SelectedTeamLogo.Logo,
-                    IsDrafted = false,
-                    UserId = _authenticator.CurrentUser.Id,
-                    SeasonId = createdSeason.Id
-                };
-
-                result = await _userTeamModelService.CreateAsync(userTeamModel);
-            }
-            else
-            {
-                result = CreationResult.UserTeamNameAlreadyExists;
-            }
-
-            if (result is CreationResult.UserTeamNameAlreadyExists)
-            {
-                MessageBox.Show("UserTeamName already exists");
-            }
-
-            if (result is CreationResult.Success)
-            {
-                MessageBox.Show("UserTeam created");
-            }
         }
 
-        private async Task LoadLeagues()
+        private void SubmitCreation()
         {
-            Leagues = new ObservableCollection<LeagueModel>(await _leagueModelService.GetAllAsync());
+
         }
 
-        private async Task LoadTeamLogos()
+        private bool IsSubmittable()
         {
-            TeamLogos = new ObservableCollection<TeamLogoModel>(await _teamModelService.GetAllLogosAsync());
+            if (CurrentViewModel is LeagueSelectionViewModel leagueSelection)
+            {
+                return leagueSelection.SelectedLeague is not null;
+            }
+            return false;
+        }
+
+        private void LoadTutorialMessages()
+        {
+            _tutorialMessages = new List<string>();
+            _tutorialMessages.Add("Choose a League to play in");
+            _tutorialMessages.Add("Choose a Name for your Team");
+            _tutorialMessages.Add("Choose your Team Logo");
+            _tutorialMessages.Add("Choose a Season to play in");
         }
     }
 }

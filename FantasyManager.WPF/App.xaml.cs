@@ -29,12 +29,6 @@ namespace FantasyManager.WPF
         {
             IServiceProvider serviceProvider = CreateServiceProvider();
 
-            //FootballContextFactory footballContextFactory = serviceProvider.GetRequiredService<FootballContextFactory>();
-            //IMapper mapper = serviceProvider.GetRequiredService<IMapper>();
-
-            //IAuthenticationService service = serviceProvider.GetRequiredService<IAuthenticationService>();
-            //service.Register("sim", "sim", "sim", "sim@sim");
-
             Window window = serviceProvider.GetRequiredService<MainWindow>();
             window.Show();
 
@@ -67,33 +61,46 @@ namespace FantasyManager.WPF
             services.AddSingleton<IFantasyManagerViewModelFactory, FantasyManagerViewModelFactory>();
 
             services.AddSingleton <ViewModelDelegateRenavigator<HomeViewModel>>();
+
+            // LoginViewModel
             services.AddSingleton<CreateViewModel<LoginViewModel>>(services =>
             {
                 return () => new LoginViewModel(services.GetRequiredService<IAuthenticator>(),
                     services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>());
             });
+
+            // HomeViewModel
             services.AddSingleton<CreateViewModel<HomeViewModel>>(services =>
             {
                 return () => new HomeViewModel();
             });
+
+            // CreateTeamViewModel
             services.AddSingleton<CreateViewModel<CreateTeamViewModel>>(services =>
             {
-                return () => new CreateTeamViewModel(services.GetRequiredService<IAuthenticator>(), 
-                    services.GetRequiredService<ILeagueModelService>(),
-                    services.GetRequiredService<ITeamModelService>(),
-                    services.GetRequiredService<ISeasonModelService>(),
-                    services.GetRequiredService<IUserTeamModelService>());
+                return () => new CreateTeamViewModel(services.GetRequiredService<TutorialViewModel>(),
+                    services.GetRequiredService<LeagueSelectionViewModel>());
             });
+
+            // DraftTeamViewModel
             services.AddSingleton<CreateViewModel<DraftTeamViewModel>>(services =>
             {
                 return () => new DraftTeamViewModel(services.GetRequiredService<PlayerDraftListViewModel>(),
                     services.GetRequiredService<UserTeamFormationViewModel>());
             });
+
+            // PlaySeasonViewModel
             services.AddSingleton<CreateViewModel<PlaySeasonViewModel>>(services =>
             {
                 return () => new PlaySeasonViewModel();
             });
 
+            // ControlViewModels
+            services.AddSingleton<TutorialViewModel>();
+            services.AddSingleton(services =>
+            {
+                return new LeagueSelectionViewModel(services.GetRequiredService<ILeagueModelService>());
+            });
             services.AddSingleton(services =>
             {
                 return new PlayerDraftListViewModel(services.GetRequiredService<IPlayerModelService>());

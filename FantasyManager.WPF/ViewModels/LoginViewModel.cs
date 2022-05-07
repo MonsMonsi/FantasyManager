@@ -19,7 +19,7 @@ namespace FantasyManager.WPF.ViewModels
             }
         }
 
-        public AsyncRelayCommand<object> LoginCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
 
         private readonly IAuthenticator _authenticator;
         private readonly IRenavigator _renavigator;
