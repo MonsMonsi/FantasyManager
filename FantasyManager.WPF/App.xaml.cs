@@ -79,7 +79,9 @@ namespace FantasyManager.WPF
             services.AddSingleton<CreateViewModel<CreateTeamViewModel>>(services =>
             {
                 return () => new CreateTeamViewModel(services.GetRequiredService<TutorialViewModel>(),
-                    services.GetRequiredService<LeagueSelectionViewModel>());
+                    services.GetRequiredService<LeagueSelectionViewModel>(),
+                    services.GetRequiredService<NameSelectionViewModel>(),
+                    services.GetRequiredService<LogoSelectionViewModel>());
             });
 
             // DraftTeamViewModel
@@ -100,6 +102,14 @@ namespace FantasyManager.WPF
             services.AddSingleton(services =>
             {
                 return new LeagueSelectionViewModel(services.GetRequiredService<ILeagueModelService>());
+            });
+            services.AddSingleton(services =>
+            {
+                return new NameSelectionViewModel();
+            });
+            services.AddSingleton(services =>
+            {
+                return new LogoSelectionViewModel(services.GetRequiredService<ITeamModelService>());
             });
             services.AddSingleton(services =>
             {

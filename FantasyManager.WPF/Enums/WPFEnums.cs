@@ -27,6 +27,8 @@ namespace FantasyManager.WPF.Enums
     public enum CreateTeamStepType
     {
         LeagueSelection,
-        NameSelection
+        NameSelection,
+        LogoSelection,
+        SeasonSelection
     }
 }

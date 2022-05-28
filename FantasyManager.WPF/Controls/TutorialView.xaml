@@ -12,8 +12,8 @@
             BorderBrush="{StaticResource BrushSecondary1}" BorderThickness="2" CornerRadius="20"
             Background="{StaticResource BrushPrimary3}">
 
-        <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"
-                   Text="{Binding TutorialMessage}"
+        <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10"
+                   Text="{Binding TutorialMessage, UpdateSourceTrigger=PropertyChanged}"
                    FontSize="{StaticResource FontSizeBig}"/>
     </Border>
 </UserControl>

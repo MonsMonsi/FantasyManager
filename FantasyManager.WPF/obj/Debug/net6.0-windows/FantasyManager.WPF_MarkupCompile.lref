@@ -1,6 +1,8 @@
 ﻿
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\App.xaml;;
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\LeagueSelectionView.xaml;;
+FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\LogoSelectionView.xaml;;
+FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\NameSelectionView.xaml;;
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\NavigationBar.xaml;;
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\PlayerDraftListView.xaml;;
 FD:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\Controls\TutorialView.xaml;;

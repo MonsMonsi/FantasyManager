@@ -91,3 +91,8 @@ D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-w
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\TutorialView.baml
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LeagueSelectionView.g.cs
 D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LeagueSelectionView.baml
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Styles\TextBoxes.baml
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\NameSelectionView.g.cs
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\NameSelectionView.baml
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LogoSelectionView.g.cs
+D:\VS_Projects\WPF-Projects\FantasyManager\FantasyManager.WPF\obj\Debug\net6.0-windows\Controls\LogoSelectionView.baml

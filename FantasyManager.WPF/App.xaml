@@ -45,6 +45,14 @@
                 <controls:LeagueSelectionView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type controlViewModels:NameSelectionViewModel}">
+                <controls:NameSelectionView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type controlViewModels:LogoSelectionViewModel}">
+                <controls:LogoSelectionView/>
+            </DataTemplate>
+
         </ResourceDictionary>
 
     </Application.Resources>

@@ -18,9 +18,23 @@ namespace FantasyManager.WPF.ViewModels
 {
     public class CreateTeamViewModel : ViewModelBase, IObserver<CreateTeamStep>
     {
-        public ViewModelBase CurrentViewModel { get; set; }
         public TutorialViewModel TutorialViewModel { get; set; }
         public LeagueSelectionViewModel LeagueSelectionViewModel { get; set; }
+        public NameSelectionViewModel NameSelectionViewModel { get; set; }
+        public LogoSelectionViewModel LogoSelectionViewModel { get; set; }
+
+        #region OnPropertyChanged
+        private IObservable<CreateTeamStep> _currentViewModel;
+        public IObservable<CreateTeamStep> CurrentViewModel
+        {
+            get => _currentViewModel;
+            set
+            {
+                _currentViewModel = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
 
         #region Commands
         public ICommand ResetCreationCommand { get; }
@@ -30,14 +44,16 @@ namespace FantasyManager.WPF.ViewModels
         #endregion
 
         private IDisposable _unsubscriber;
-        private List<string> _tutorialMessages;
+        private Queue<string> _tutorialMessages;
         private CreateTeamStep _createTeam;
         private bool _currentStepIsComplete;
 
-        public CreateTeamViewModel(TutorialViewModel tutorialViewModel, LeagueSelectionViewModel leagueSelectionViewModel)
+        public CreateTeamViewModel(TutorialViewModel tutorialViewModel, LeagueSelectionViewModel leagueSelectionViewModel, NameSelectionViewModel nameSelectionViewModel, LogoSelectionViewModel logoSelectionViewModel)
         {
             TutorialViewModel = tutorialViewModel;
             LeagueSelectionViewModel = leagueSelectionViewModel;
+            NameSelectionViewModel = nameSelectionViewModel;
+            LogoSelectionViewModel = logoSelectionViewModel;
 
             _createTeam = new CreateTeamStep() { CurrentStep = CreateTeamStepType.LeagueSelection };
             CurrentViewModel = LeagueSelectionViewModel;
@@ -46,14 +62,16 @@ namespace FantasyManager.WPF.ViewModels
             ResetCreationCommand = new RelayCommand(OnReset);
             _submitCreationCommand = new RelayCommand(OnSubmit, () => _currentStepIsComplete);
 
-            LoadTutorialMessages();
-
             SetTutorialMessage();
         }
 
         private void SetTutorialMessage()
         {
-
+            if (_tutorialMessages is null)
+            {
+                _tutorialMessages = GetTutorialMessages();
+            }
+            TutorialViewModel.TutorialMessage = _tutorialMessages.Dequeue();
         }
 
         private void OnReset()
@@ -66,22 +84,36 @@ namespace FantasyManager.WPF.ViewModels
             switch (_createTeam.CurrentStep)
             {
                 case CreateTeamStepType.LeagueSelection:
-                    CurrentViewModel = null;
+                    CurrentViewModel = NameSelectionViewModel;
+                    StartNextStep();
                     break;
                 case CreateTeamStepType.NameSelection:
+                    CurrentViewModel = LogoSelectionViewModel;
+                    StartNextStep();
                     break;
                 default:
                     break;
             }
         }
 
-        private void LoadTutorialMessages()
+        private void StartNextStep()
         {
-            _tutorialMessages = new List<string>();
-            _tutorialMessages.Add("Choose a League to play in");
-            _tutorialMessages.Add("Choose a Name for your Team");
-            _tutorialMessages.Add("Choose your Team Logo");
-            _tutorialMessages.Add("Choose a Season to play in");
+            _unsubscriber.Dispose();
+            _unsubscriber = CurrentViewModel.Subscribe(this);
+            _createTeam.CurrentStep = _createTeam.NextStep;
+            _currentStepIsComplete = false;
+            _submitCreationCommand.RaiseCanExecuteChanged();
+            SetTutorialMessage();
+        }
+
+        private Queue<string> GetTutorialMessages()
+        {
+            var tutorials = new Queue<string>();
+            tutorials.Enqueue("Choose a League to play in");
+            tutorials.Enqueue("Choose a Name for your Team");
+            tutorials.Enqueue("Choose your Team Logo");
+            tutorials.Enqueue("Choose a Season to play in");
+            return tutorials;
         }
 
         #region IObserver
