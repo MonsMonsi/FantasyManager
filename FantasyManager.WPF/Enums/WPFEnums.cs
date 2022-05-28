@@ -23,4 +23,10 @@ namespace FantasyManager.WPF.Enums
         Midfielder,
         Attacker
     }
+
+    public enum CreateTeamStepType
+    {
+        LeagueSelection = 0,
+
+    }
 }

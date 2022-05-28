@@ -4,6 +4,7 @@ using FantasyManager.Application.Models.Observable;
 using FantasyManager.Application.Services.Interfaces;
 using FantasyManager.WPF.Common.Commands;
 using FantasyManager.WPF.Enums;
+using FantasyManager.WPF.Messages;
 using FantasyManager.WPF.State.Authenticators;
 using FantasyManager.WPF.ViewModels.Controls;
 using System;
@@ -15,25 +16,24 @@ using System.Windows.Input;
 
 namespace FantasyManager.WPF.ViewModels
 {
-    public class CreateTeamViewModel : ViewModelBase
+    public class CreateTeamViewModel : ViewModelBase, IObserver<CreateTeamStep>
     {
         public ViewModelBase CurrentViewModel { get; set; }
         public TutorialViewModel TutorialViewModel { get; set; }
+        // public LeagueSelectionViewModel LeagueSelectionViewModel { get; set; }
 
         #region OnChangeProperties
 
         private LeagueSelectionViewModel _leagueSelectionViewModel;
         public LeagueSelectionViewModel LeagueSelectionViewModel
         {
-            get { return _leagueSelectionViewModel; }
+            get => _leagueSelectionViewModel; 
             set
             {
                 _leagueSelectionViewModel = value;
+                _leagueSelectionViewModel.PropertyChanged += LeagueSelectionViewModel_PropertyChanged;
                 OnPropertyChanged();
-                if (_submitCreationCommand is not null)
-                {
-                    _submitCreationCommand.RaiseCanExecuteChanged();
-                }
+                
             }
         }
         #endregion
@@ -47,12 +47,13 @@ namespace FantasyManager.WPF.ViewModels
         #endregion
 
         private List<string> _tutorialMessages;
+        private CreateTeamStepType _step = CreateTeamStepType.LeagueSelection;
 
         public CreateTeamViewModel(TutorialViewModel tutorialViewModel, LeagueSelectionViewModel leagueSelectionViewModel)
         {
             TutorialViewModel = tutorialViewModel;
             LeagueSelectionViewModel = leagueSelectionViewModel;
-
+            
             CurrentViewModel = LeagueSelectionViewModel;
 
             ResetCreationCommand = new RelayCommand(ResetCreation);
@@ -60,7 +61,12 @@ namespace FantasyManager.WPF.ViewModels
 
             LoadTutorialMessages();
 
-            TutorialViewModel.TutorialMessage = _tutorialMessages[0];
+            SetTutorialMessage();
+        }
+
+        private void SetTutorialMessage()
+        {
+
         }
 
         private void ResetCreation()
@@ -90,5 +96,28 @@ namespace FantasyManager.WPF.ViewModels
             _tutorialMessages.Add("Choose your Team Logo");
             _tutorialMessages.Add("Choose a Season to play in");
         }
+
+        private void LeagueSelectionViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (_submitCreationCommand is not null)
+                _submitCreationCommand.RaiseCanExecuteChanged();
+        }
+
+        #region IObserver
+        public void OnCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnError(Exception error)
+        {
+            // not to implement
+        }
+
+        public void OnNext(CreateTeamStep value)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

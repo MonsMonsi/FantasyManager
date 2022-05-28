@@ -67,7 +67,7 @@ namespace FantasyManager.WPF.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FantasyManager.WPF;component/controls/userteamformationview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FantasyManager.WPF;V1.0.0.0;component/controls/userteamformationview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\UserTeamFormationView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
