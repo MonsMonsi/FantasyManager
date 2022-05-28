@@ -20,44 +20,31 @@ namespace FantasyManager.WPF.ViewModels
     {
         public ViewModelBase CurrentViewModel { get; set; }
         public TutorialViewModel TutorialViewModel { get; set; }
-        // public LeagueSelectionViewModel LeagueSelectionViewModel { get; set; }
-
-        #region OnChangeProperties
-
-        private LeagueSelectionViewModel _leagueSelectionViewModel;
-        public LeagueSelectionViewModel LeagueSelectionViewModel
-        {
-            get => _leagueSelectionViewModel; 
-            set
-            {
-                _leagueSelectionViewModel = value;
-                _leagueSelectionViewModel.PropertyChanged += LeagueSelectionViewModel_PropertyChanged;
-                OnPropertyChanged();
-                
-            }
-        }
-        #endregion
+        public LeagueSelectionViewModel LeagueSelectionViewModel { get; set; }
 
         #region Commands
-
         public ICommand ResetCreationCommand { get; }
 
         private RelayCommand _submitCreationCommand;
         public ICommand SubmitCreationCommand { get { return _submitCreationCommand; } }
         #endregion
 
+        private IDisposable _unsubscriber;
         private List<string> _tutorialMessages;
-        private CreateTeamStepType _step = CreateTeamStepType.LeagueSelection;
+        private CreateTeamStep _createTeam;
+        private bool _currentStepIsComplete;
 
         public CreateTeamViewModel(TutorialViewModel tutorialViewModel, LeagueSelectionViewModel leagueSelectionViewModel)
         {
             TutorialViewModel = tutorialViewModel;
             LeagueSelectionViewModel = leagueSelectionViewModel;
-            
-            CurrentViewModel = LeagueSelectionViewModel;
 
-            ResetCreationCommand = new RelayCommand(ResetCreation);
-            _submitCreationCommand = new RelayCommand(SubmitCreation, IsSubmittable);
+            _createTeam = new CreateTeamStep() { CurrentStep = CreateTeamStepType.LeagueSelection };
+            CurrentViewModel = LeagueSelectionViewModel;
+            _unsubscriber = LeagueSelectionViewModel.Subscribe(this);
+
+            ResetCreationCommand = new RelayCommand(OnReset);
+            _submitCreationCommand = new RelayCommand(OnSubmit, () => _currentStepIsComplete);
 
             LoadTutorialMessages();
 
@@ -69,23 +56,23 @@ namespace FantasyManager.WPF.ViewModels
 
         }
 
-        private void ResetCreation()
+        private void OnReset()
         {
 
         }
 
-        private void SubmitCreation()
+        private void OnSubmit()
         {
-
-        }
-
-        private bool IsSubmittable()
-        {
-            if (CurrentViewModel is LeagueSelectionViewModel leagueSelection)
+            switch (_createTeam.CurrentStep)
             {
-                return leagueSelection.SelectedLeague is not null;
+                case CreateTeamStepType.LeagueSelection:
+                    CurrentViewModel = null;
+                    break;
+                case CreateTeamStepType.NameSelection:
+                    break;
+                default:
+                    break;
             }
-            return false;
         }
 
         private void LoadTutorialMessages()
@@ -97,16 +84,10 @@ namespace FantasyManager.WPF.ViewModels
             _tutorialMessages.Add("Choose a Season to play in");
         }
 
-        private void LeagueSelectionViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            if (_submitCreationCommand is not null)
-                _submitCreationCommand.RaiseCanExecuteChanged();
-        }
-
         #region IObserver
         public void OnCompleted()
         {
-            throw new NotImplementedException();
+            // IDisposable
         }
 
         public void OnError(Exception error)
@@ -116,7 +97,12 @@ namespace FantasyManager.WPF.ViewModels
 
         public void OnNext(CreateTeamStep value)
         {
-            throw new NotImplementedException();
+            if(value is not null)
+                _createTeam = value;
+
+            _currentStepIsComplete = _createTeam.IsSubmitted;
+
+            _submitCreationCommand.RaiseCanExecuteChanged();
         }
         #endregion
     }

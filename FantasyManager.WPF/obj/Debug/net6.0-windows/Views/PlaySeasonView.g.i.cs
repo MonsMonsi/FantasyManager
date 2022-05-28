@@ -54,7 +54,7 @@ namespace FantasyManager.WPF.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FantasyManager.WPF;component/views/playseasonview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FantasyManager.WPF;V1.0.0.0;component/views/playseasonview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\PlaySeasonView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
